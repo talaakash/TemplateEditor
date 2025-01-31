@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TemplateEditor
 
 class ViewController: UIViewController {
 
