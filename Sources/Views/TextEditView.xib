@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Raleway.ttf">
+            <string>RalewayRoman-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TextEditView" customModule="MenuMaker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="181"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y47-VM-CnN">
+                    <rect key="frame" x="16" y="16" width="390" height="111"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8x-2k-7Um" userLabel="Cancel" customClass="UIControl">
+                    <rect key="frame" x="16" y="143" width="36" height="36"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="qBw-Ke-tml">
+                            <rect key="frame" x="8" y="8" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" identifier="image_height" id="Kup-Jf-COT"/>
+                                <constraint firstAttribute="width" constant="20" identifier="image_width" id="jBu-IO-Eob"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="qBw-Ke-tml" firstAttribute="top" secondItem="L8x-2k-7Um" secondAttribute="top" constant="8" id="904-AD-N2q"/>
+                        <constraint firstItem="qBw-Ke-tml" firstAttribute="leading" secondItem="L8x-2k-7Um" secondAttribute="leading" constant="8" id="CPZ-rK-SkM"/>
+                        <constraint firstAttribute="trailing" secondItem="qBw-Ke-tml" secondAttribute="trailing" constant="8" id="Tkq-LM-fYT"/>
+                        <constraint firstAttribute="bottom" secondItem="qBw-Ke-tml" secondAttribute="bottom" constant="8" id="xYl-Ne-odK"/>
+                    </constraints>
+                    <connections>
+                        <action selector="closeBtnTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="cBp-I7-hdM"/>
+                    </connections>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mi6-vL-cNa">
+                    <rect key="frame" x="68" y="152.66666666666666" width="286" height="16.666666666666657"/>
+                    <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="14"/>
+                    <color key="textColor" name="fontColor353535"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="editTextOption"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9T-zS-Eld" userLabel="Check" customClass="UIControl">
+                    <rect key="frame" x="370" y="143" width="36" height="36"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="jQw-rN-2eR">
+                            <rect key="frame" x="8" y="8" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" identifier="image_width" id="Pdz-t9-Cxb"/>
+                                <constraint firstAttribute="height" constant="20" identifier="image_height" id="Xcp-Ji-Ewk"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="jQw-rN-2eR" firstAttribute="top" secondItem="i9T-zS-Eld" secondAttribute="top" constant="8" id="5hV-N6-4xK"/>
+                        <constraint firstAttribute="trailing" secondItem="jQw-rN-2eR" secondAttribute="trailing" constant="8" id="893-gl-s7e"/>
+                        <constraint firstItem="jQw-rN-2eR" firstAttribute="leading" secondItem="i9T-zS-Eld" secondAttribute="leading" constant="8" id="LeJ-vY-R5b"/>
+                        <constraint firstAttribute="bottom" secondItem="jQw-rN-2eR" secondAttribute="bottom" constant="8" id="ghy-tx-PCc"/>
+                    </constraints>
+                    <connections>
+                        <action selector="checkBtnTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="NpX-Nq-90h"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Y47-VM-CnN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="4e9-5G-ebS"/>
+                <constraint firstItem="Y47-VM-CnN" firstAttribute="leading" secondItem="L8x-2k-7Um" secondAttribute="leading" id="BDH-04-JDZ"/>
+                <constraint firstItem="mi6-vL-cNa" firstAttribute="centerY" secondItem="L8x-2k-7Um" secondAttribute="centerY" id="JCe-hB-FfO"/>
+                <constraint firstAttribute="bottom" secondItem="L8x-2k-7Um" secondAttribute="bottom" constant="2" id="WXy-ds-3wD"/>
+                <constraint firstItem="i9T-zS-Eld" firstAttribute="leading" secondItem="mi6-vL-cNa" secondAttribute="trailing" constant="16" id="Z7g-Yz-mLJ"/>
+                <constraint firstItem="L8x-2k-7Um" firstAttribute="top" secondItem="Y47-VM-CnN" secondAttribute="bottom" constant="16" id="btz-5A-SpJ"/>
+                <constraint firstAttribute="trailing" secondItem="i9T-zS-Eld" secondAttribute="trailing" constant="16" id="gF6-h6-Kha"/>
+                <constraint firstItem="L8x-2k-7Um" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="gfe-47-TsN"/>
+                <constraint firstItem="i9T-zS-Eld" firstAttribute="centerY" secondItem="L8x-2k-7Um" secondAttribute="centerY" id="inF-Na-bVe"/>
+                <constraint firstItem="mi6-vL-cNa" firstAttribute="leading" secondItem="L8x-2k-7Um" secondAttribute="trailing" constant="16" id="vgQ-gJ-tOs"/>
+                <constraint firstItem="Y47-VM-CnN" firstAttribute="trailing" secondItem="i9T-zS-Eld" secondAttribute="trailing" id="wCc-5X-rXP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <real key="value" value="4"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                    <size key="value" width="0.0" height="-4"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" name="shadowColor"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="closeBtnBottomAnchor" destination="WXy-ds-3wD" id="vWe-4R-Fz6"/>
+                <outlet property="textEditorTxt" destination="Y47-VM-CnN" id="szQ-HZ-BwW"/>
+            </connections>
+            <point key="canvasLocation" x="178.62595419847327" y="260.91549295774649"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cancel" width="16" height="16"/>
+        <image name="check" width="16" height="16"/>
+        <namedColor name="fontColor353535">
+            <color red="0.20800000429153442" green="0.20800000429153442" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="shadowColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.079999998211860657" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

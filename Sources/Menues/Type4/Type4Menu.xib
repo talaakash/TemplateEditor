@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Type4Menu" customModule="MenuMaker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="371" height="55"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-hr-h6W">
+                    <rect key="frame" x="0.0" y="0.0" width="371" height="55"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yw8-ZI-sf4">
+                            <rect key="frame" x="0.0" y="0.0" width="371" height="31"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbm-RM-XW2">
+                                    <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="31"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYZ-2T-G68">
+                                    <rect key="frame" x="329.66666666666669" y="0.0" width="41.333333333333314" height="31"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="fbm-RM-XW2" firstAttribute="leading" secondItem="Yw8-ZI-sf4" secondAttribute="leading" id="GFq-ZW-jIs"/>
+                                <constraint firstAttribute="bottom" secondItem="fbm-RM-XW2" secondAttribute="bottom" id="JbL-Eb-zgD"/>
+                                <constraint firstItem="fbm-RM-XW2" firstAttribute="top" secondItem="Yw8-ZI-sf4" secondAttribute="top" id="WeS-wW-rTb"/>
+                                <constraint firstAttribute="trailing" secondItem="dYZ-2T-G68" secondAttribute="trailing" id="cNK-F3-P19"/>
+                                <constraint firstItem="dYZ-2T-G68" firstAttribute="top" secondItem="Yw8-ZI-sf4" secondAttribute="top" id="j1z-yC-HgK"/>
+                                <constraint firstAttribute="bottom" secondItem="dYZ-2T-G68" secondAttribute="bottom" id="kJR-8E-eYg"/>
+                                <constraint firstItem="dYZ-2T-G68" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fbm-RM-XW2" secondAttribute="trailing" constant="8" id="syO-nU-JqA"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfw-5A-oA0">
+                            <rect key="frame" x="0.0" y="35" width="371" height="20"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Pji-hr-h6W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MOX-gS-L3G"/>
+                <constraint firstAttribute="trailing" secondItem="Pji-hr-h6W" secondAttribute="trailing" id="PNi-24-h9H"/>
+                <constraint firstItem="Pji-hr-h6W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Z7P-FY-H9D"/>
+                <constraint firstAttribute="bottom" secondItem="Pji-hr-h6W" secondAttribute="bottom" id="xHe-Yk-g2y"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="itemDescription" destination="zfw-5A-oA0" id="SD3-ZF-lMv"/>
+                <outlet property="itemName" destination="fbm-RM-XW2" id="7GI-vM-Rtg"/>
+                <outlet property="itemValue" destination="dYZ-2T-G68" id="Hu9-Pi-3WX"/>
+            </connections>
+            <point key="canvasLocation" x="64.885496183206101" y="-139.08450704225353"/>
+        </view>
+    </objects>
+</document>

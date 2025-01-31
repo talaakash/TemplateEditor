@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Type1Menu" customModule="MenuMaker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="369" height="68"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0V1-V6-kex">
+                    <rect key="frame" x="0.0" y="0.0" width="369" height="68"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gq-g5-ij4">
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="49.666666666666664"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-Yx-17M">
+                                    <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="49.666666666666664"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aOS-MV-6NO">
+                                    <rect key="frame" x="359" y="0.0" width="10" height="49.666666666666664"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10" placeholder="YES" id="B8J-mQ-8qc"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="hCR-Yx-17M" firstAttribute="leading" secondItem="6gq-g5-ij4" secondAttribute="leading" id="0b9-bU-BaK"/>
+                                <constraint firstAttribute="bottom" secondItem="aOS-MV-6NO" secondAttribute="bottom" id="QTz-Hp-vA4"/>
+                                <constraint firstItem="aOS-MV-6NO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hCR-Yx-17M" secondAttribute="trailing" constant="8" id="W8T-Ll-StH"/>
+                                <constraint firstItem="aOS-MV-6NO" firstAttribute="top" secondItem="6gq-g5-ij4" secondAttribute="top" id="hiT-Mt-Loc"/>
+                                <constraint firstAttribute="trailing" secondItem="aOS-MV-6NO" secondAttribute="trailing" id="klP-qE-Wtd"/>
+                                <constraint firstAttribute="bottom" secondItem="hCR-Yx-17M" secondAttribute="bottom" id="nOL-k4-1k5"/>
+                                <constraint firstItem="hCR-Yx-17M" firstAttribute="top" secondItem="6gq-g5-ij4" secondAttribute="top" id="rQV-Kg-Tsd"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-tD-hO8">
+                            <rect key="frame" x="0.0" y="49.666666666666664" width="369" height="18.333333333333336"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0V1-V6-kex" secondAttribute="bottom" id="IDB-m2-Jhp"/>
+                <constraint firstItem="0V1-V6-kex" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OQh-6t-X5Z"/>
+                <constraint firstItem="0V1-V6-kex" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gFZ-US-wad"/>
+                <constraint firstAttribute="trailing" secondItem="0V1-V6-kex" secondAttribute="trailing" id="say-HQ-Kdq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="itemDescription" destination="hgN-tD-hO8" id="XPF-vu-tVs"/>
+                <outlet property="itemName" destination="hCR-Yx-17M" id="Zxu-rp-UwS"/>
+                <outlet property="itemValueContainer" destination="aOS-MV-6NO" id="euc-ga-Wlf"/>
+            </connections>
+            <point key="canvasLocation" x="60" y="221"/>
+        </view>
+    </objects>
+</document>
