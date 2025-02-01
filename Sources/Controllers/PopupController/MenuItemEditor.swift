@@ -111,11 +111,11 @@ extension MenuItemEditor {
             }
         }
         var itemName = self.itemNameTxt.text
-        if itemName == self.itemNameTxt.placeHolder?.localize() {
+        if itemName == self.itemNameTxt.placeHolder {
             itemName = ""
         }
         var itemDescription = self.itemDescriptionTxt.text
-        if itemDescription == self.itemDescriptionTxt.placeHolder?.localize() {
+        if itemDescription == self.itemDescriptionTxt.placeHolder {
             itemDescription = ""
         }
         return MenuItemDetails(itemName: itemName, description: itemDescription, values: values)

@@ -4,7 +4,6 @@ class AdjustmentView: UIView {
     
     @IBOutlet private weak var filterCollection: UICollectionView!
     @IBOutlet private weak var adjustmentSlider: UISlider!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var filterCollectionHeightAnchor: NSLayoutConstraint!
     
     private let availableFilters: [ImageFilters] = ImageFilters.allCases
@@ -44,7 +43,6 @@ class AdjustmentView: UIView {
         if isIpad {
             self.filterCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         self.filterCollection.registerNib(for: OptionCell.self)
         
         for filter in availableFilters {
@@ -175,7 +173,7 @@ extension AdjustmentView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-        cell.optionImage.image = UIImage(named: availableFilters[indexPath.row].iconName)
+        cell.optionImage.image = availableFilters[indexPath.row].iconName
         cell.optionLabel.text = availableFilters[indexPath.row].title
         
         DispatchQueue.main.async {

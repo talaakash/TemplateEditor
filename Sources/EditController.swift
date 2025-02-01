@@ -11,6 +11,6 @@ public class EditController {
     public func showEditor(from navigationController: UINavigationController) {
         let vc = editorStoryBoard.instantiateViewController(identifier: "EditorViewController") as! EditorViewController
         navigationController.pushViewController(vc, animated: true)
-        ScreenDetails.bottomSafeArea = vc.view.safeAreaInsets.bottom
+//        ScreenDetails.bottomSafeArea = vc.view.safeAreaInsets.bottom
     }
 }

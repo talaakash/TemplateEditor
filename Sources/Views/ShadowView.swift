@@ -4,7 +4,6 @@ class ShadowView: UIView {
     
     @IBOutlet private weak var shadowOptionCollection: UICollectionView!
     @IBOutlet private weak var adjustSlider: UISlider!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var shadowOptionCollectionHeightAnchor: NSLayoutConstraint!
     
     private var shadowOption: [ShadowOption] = ShadowOption.allCases
@@ -45,7 +44,6 @@ class ShadowView: UIView {
         if isIpad {
             self.shadowOptionCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         
         self.shadowOptionCollection.registerNib(for: OptionCell.self)
     }
@@ -141,7 +139,7 @@ extension ShadowView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let option = shadowOption[indexPath.item]
-        cell.optionImage.image = UIImage(named: option.iconName)
+        cell.optionImage.image = option.iconName
         cell.optionLabel.text = option.name
         
         DispatchQueue.main.async {

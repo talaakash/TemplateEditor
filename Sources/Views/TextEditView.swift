@@ -3,7 +3,6 @@ import UIKit
 class TextEditView: UIView {
     
     @IBOutlet private weak var textEditorTxt: UITextField!
-    @IBOutlet private weak var closeBtnBottomAnchor: NSLayoutConstraint!
     
     var currentText: String? {
         didSet {
@@ -19,8 +18,6 @@ class TextEditView: UIView {
     }
     
     private func doInitSetup() {
-        self.closeBtnBottomAnchor.constant = self.closeBtnBottomAnchor.constant + ScreenDetails.bottomSafeArea
-        
         textEditorTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
 }

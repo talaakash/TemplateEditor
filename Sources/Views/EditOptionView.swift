@@ -3,7 +3,6 @@ import UIKit
 class EditOptionView: UIView {
     @IBOutlet weak var editOptionCollection: UICollectionView!
     @IBOutlet private weak var closeBtn: UIControl!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     
     var editOptions: [EditType] = []
     var isRemoved: (() -> Void)?
@@ -16,7 +15,6 @@ class EditOptionView: UIView {
     
     private func doInitSetup() {
         self.editOptionCollection.registerNib(for: OptionCell.self)
-        viewBottomAnchor.constant = viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
     }
     
     override func didMoveToSuperview() {
@@ -48,7 +46,7 @@ extension EditOptionView: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let currentOption = editOptions[indexPath.item]
-        cell.optionImage.image = UIImage(named: currentOption.getIcon)
+        cell.optionImage.image = currentOption.getIcon
         cell.optionLabel.text = currentOption.name
         cell.isPremiumFeature = currentOption.isPremiumFeature
         return cell

@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MenuFontSizeView" customModule="MenuMaker" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MenuFontSizeView" customModule="TemplateEditor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="378" height="254"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -66,10 +66,10 @@
                     </connections>
                 </slider>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-ln-82e" userLabel="FontStyle" customClass="UIControl">
-                    <rect key="frame" x="16" y="92" width="90.333333333333329" height="42"/>
+                    <rect key="frame" x="16" y="92" width="86" height="42"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdF-6Y-WV3">
-                            <rect key="frame" x="16.000000000000004" y="8" width="58.333333333333343" height="26"/>
+                            <rect key="frame" x="16" y="8" width="54" height="26"/>
                             <attributedString key="attributedText">
                                 <fragment content="Label">
                                     <attributes>
@@ -102,10 +102,10 @@
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwj-R0-Vkn" userLabel="FontColor" customClass="UIControl">
-                    <rect key="frame" x="122.33333333333331" y="92" width="85" height="42"/>
+                    <rect key="frame" x="118" y="92" width="81" height="42"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jC7-D8-ObO">
-                            <rect key="frame" x="16.000000000000014" y="8" width="53" height="26"/>
+                            <rect key="frame" x="16" y="8" width="49" height="26"/>
                             <attributedString key="attributedText">
                                 <fragment content="Label">
                                     <attributes>
@@ -266,7 +266,6 @@
                 <outlet property="fontSizeSlider" destination="E2c-TG-LPb" id="F44-YC-yg2"/>
                 <outlet property="resizeOptionCollection" destination="orz-z2-kaM" id="nfr-I0-DH1"/>
                 <outlet property="resizeOptionCollectionHeightAnchor" destination="loi-B6-Hbx" id="or5-lF-Hv8"/>
-                <outlet property="viewBottomAnchor" destination="inW-Nm-DA1" id="S9V-hH-bTn"/>
             </connections>
             <point key="canvasLocation" x="68.702290076335871" y="302.81690140845075"/>
         </view>

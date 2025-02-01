@@ -12,8 +12,6 @@ class AlertView: UIView {
         
         if isIpad {
             btnViewHeight.constant = btnViewHeight.constant * 1.5
-        } else if ScreenDetails.bottomSafeArea == 0 {
-            btnViewHeight.constant = btnViewHeight.constant * 0.8
         }
     }
 }

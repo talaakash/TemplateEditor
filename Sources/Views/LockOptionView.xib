@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LockOptionView" customModule="MenuMaker" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LockOptionView" customModule="TemplateEditor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="476" height="151"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -157,7 +157,6 @@
                 <outlet property="lockOptionCollectionHeightAnchor" destination="tMf-4e-O3D" id="Ks9-11-dfp"/>
                 <outlet property="selectedOptionLbl" destination="9ko-vT-ZmC" id="jxn-kb-gjf"/>
                 <outlet property="selectedOptionSwitch" destination="rk6-50-njI" id="uhL-IH-qZX"/>
-                <outlet property="viewBottomAnchor" destination="XS6-s8-P5C" id="tac-WV-UjU"/>
             </connections>
             <point key="canvasLocation" x="203.0534351145038" y="-205.98591549295776"/>
         </view>

@@ -262,7 +262,7 @@ extension EditorViewModel {
         bottomEdgeController.translatesAutoresizingMaskIntoConstraints = false
         self.controllerView.addSubview(bottomEdgeController)
         let bottomEdgeView = UIView()
-        bottomEdgeView.backgroundColor = UIColor(named: "borderColorF5C000")
+        bottomEdgeView.backgroundColor = UIColor(named: "borderColorF5C000", in: packageBundle, compatibleWith: nil)
         bottomEdgeView.layer.cornerRadius = 3.5
         bottomEdgeView.layer.borderWidth = 1
         bottomEdgeView.layer.borderColor = UIColor.black.cgColor
@@ -289,7 +289,7 @@ extension EditorViewModel {
         self.controllerView.addSubview(rightEdgeController)
         let rightEdge = UIView()
         rightEdgeController.addSubview(rightEdge)
-        rightEdge.backgroundColor = UIColor(named: "borderColorF5C000")
+        rightEdge.backgroundColor = UIColor(named: "borderColorF5C000", in: packageBundle, compatibleWith: nil)
         rightEdge.layer.cornerRadius = 3.5
         rightEdge.layer.borderWidth = 1
         rightEdge.layer.borderColor = UIColor.black.cgColor
@@ -314,7 +314,7 @@ extension EditorViewModel {
         resizeBoxController.backgroundColor = .clear
         resizeBoxController.translatesAutoresizingMaskIntoConstraints = false
         self.controllerView.addSubview(resizeBoxController)
-        let resizeBox = UIImageView(image: UIImage(named: "resize"))
+        let resizeBox = UIImageView(image: UIImage(named: "resize", in: packageBundle, with: nil))
         resizeBoxController.addSubview(resizeBox)
         resizeBox.isUserInteractionEnabled = true
         resizeBoxController.tag = EdgeController.free.rawValue
@@ -337,7 +337,7 @@ extension EditorViewModel {
         closeController.backgroundColor = .clear
         closeController.translatesAutoresizingMaskIntoConstraints = false
         self.controllerView.addSubview(closeController)
-        let closeBox = UIImageView(image: UIImage(named: "deleteComponent"))
+        let closeBox = UIImageView(image: UIImage(named: "deleteComponent", in: packageBundle, with: nil))
         closeController.addSubview(closeBox)
         closeBox.isUserInteractionEnabled = true
         closeBox.translatesAutoresizingMaskIntoConstraints = false
@@ -359,7 +359,7 @@ extension EditorViewModel {
         rotationBoxController.backgroundColor = .clear
         rotationBoxController.translatesAutoresizingMaskIntoConstraints = false
         self.controllerView.addSubview(rotationBoxController)
-        let rotationBox = UIImageView(image: UIImage(named: "rotate"))
+        let rotationBox = UIImageView(image: UIImage(named: "rotate", in: packageBundle, with: nil))
         rotationBoxController.addSubview(rotationBox)
         rotationBox.isUserInteractionEnabled = true
         rotationBox.translatesAutoresizingMaskIntoConstraints = false
@@ -381,7 +381,7 @@ extension EditorViewModel {
         layerBoxController.backgroundColor = .clear
         layerBoxController.translatesAutoresizingMaskIntoConstraints = false
         self.controllerView.addSubview(layerBoxController)
-        let layerBox = UIImageView(image: UIImage(named: "layerAdjust"))
+        let layerBox = UIImageView(image: UIImage(named: "layerAdjust", in: packageBundle, with: nil))
         layerBoxController.addSubview(layerBox)
         layerBox.isUserInteractionEnabled = true
         layerBox.translatesAutoresizingMaskIntoConstraints = false

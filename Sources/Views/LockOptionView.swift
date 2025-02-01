@@ -5,7 +5,6 @@ class LockOptionView: UIView {
     @IBOutlet private weak var lockOptionCollection: UICollectionView!
     @IBOutlet private weak var selectedOptionLbl: UILabel!
     @IBOutlet private weak var selectedOptionSwitch: UISwitch!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var lockOptionCollectionHeightAnchor: NSLayoutConstraint!
     
     private var lockOptions: [LockOptions] = LockOptions.allCases
@@ -43,7 +42,6 @@ class LockOptionView: UIView {
         if isIpad {
             self.lockOptionCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         
         self.lockOptionCollection.registerNib(for: OptionCell.self)
     }
@@ -117,7 +115,7 @@ extension LockOptionView: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let lockOption = lockOptions[indexPath.item]
         cell.optionLabel.text = lockOption.name
-        cell.optionImage.image = UIImage(named: lockOption.iconName)
+        cell.optionImage.image = lockOption.iconName
         DispatchQueue.main.async {
             if indexPath == self.selectedIndexPath {
                 self.setSelectedCell(of: indexPath)

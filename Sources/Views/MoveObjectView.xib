@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MoveObjectView" customModule="MenuMaker" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MoveObjectView" customModule="TemplateEditor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="418" height="129"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -191,7 +191,7 @@
                             </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dik-OH-yP5">
-                            <rect key="frame" x="52" y="9.6666666666666732" width="282" height="16.666666666666671"/>
+                            <rect key="frame" x="52" y="9.9999999999999982" width="282" height="16.333333333333329"/>
                             <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="14"/>
                             <color key="textColor" name="fontColor353535"/>
                             <nil key="highlightedColor"/>
@@ -267,7 +267,6 @@
                 <outlet property="leftArrowBtn" destination="Xi7-ZR-AgT" id="car-PV-EyW"/>
                 <outlet property="rightArrowBtn" destination="ORZ-fl-5pg" id="yjW-ZA-OtN"/>
                 <outlet property="upArrowBtn" destination="SOK-Lg-Kke" id="Zbz-tX-9gI"/>
-                <outlet property="viewBottomAnchor" destination="qhz-Xw-z6R" id="e8r-N3-BKe"/>
             </connections>
             <point key="canvasLocation" x="158.77862595419847" y="-185.56338028169014"/>
         </view>

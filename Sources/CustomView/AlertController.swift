@@ -36,9 +36,10 @@ class AlertController{
     var btnCounter = 0
     var tapHandlers: [UIControl: () -> Void] = [:]
     
-    init(title: String = "appName".localize(), message: String){
+    init(title: String = "Template Editor", message: String){
         alertWindow = WindowManager.shared.getWindow()
-        alertBox = Bundle.main.loadNibNamed("AlertView", owner: nil, options: nil)?.first as? AlertView
+        
+        alertBox = UINib(nibName: "AlertView", bundle: packageBundle).instantiate(withOwner: nil).first as? AlertView
         alertBox.alertTitle.text = title
         alertBox.alertMessage.text = message
     }
@@ -49,7 +50,7 @@ class AlertController{
         control.layer.cornerRadius = (alertBox.btnViewHeight.constant / 2)
         let label = UILabel()
         label.text = title
-        let fontSize: CGFloat = isIpad ? 22 : ScreenDetails.bottomSafeArea == 0 ? 18 : 20
+        let fontSize: CGFloat = isIpad ? 22 : 1 == 0 ? 18 : 20
         label.font = UIFont(name: "RalewayRoman-Bold", size: fontSize)
         label.textAlignment = .center
         label.textColor = UIColor.fontColor303030

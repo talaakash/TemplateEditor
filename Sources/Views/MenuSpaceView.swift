@@ -5,7 +5,6 @@ class MenuSpaceView: UIView {
     @IBOutlet private weak var spaceOptionCollection: UICollectionView!
     @IBOutlet private weak var spaceAdjustSlider: UISlider!
     @IBOutlet private weak var spaceCollectionHeightAnchor: NSLayoutConstraint!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     
     private let spaceOptions: [Spacing] = Spacing.allCases
     private var selectedOption: Spacing = .valueSpace
@@ -35,7 +34,6 @@ class MenuSpaceView: UIView {
         if isIpad {
             self.spaceCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         self.spaceOptionCollection.registerNib(for: OptionCell.self)
     }
     
@@ -100,7 +98,7 @@ extension MenuSpaceView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let option = self.spaceOptions[indexPath.item]
-        cell.optionImage.image = UIImage(named: option.iconName)
+        cell.optionImage.image = option.iconName
         cell.optionLabel.text = option.name
         DispatchQueue.main.async {
             if indexPath == self.selectedIndexPath {

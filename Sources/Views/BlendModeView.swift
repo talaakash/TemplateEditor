@@ -2,7 +2,6 @@ import UIKit
 
 class BlendModeView: UIView {
     @IBOutlet private weak var blendModeCollection: UICollectionView!
-    @IBOutlet private weak var bottomViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var alphaSlider: UISlider!
     @IBOutlet private weak var modeCollectionHeightAnchor: NSLayoutConstraint!
     
@@ -42,8 +41,6 @@ class BlendModeView: UIView {
     }
     
     private func doInitSetup() {
-        self.bottomViewBottomAnchor.constant = self.bottomViewBottomAnchor.constant + ScreenDetails.bottomSafeArea
-        
         self.blendModeCollection.registerNib(for: BlendModeCell.self)
         self.alphaSlider.value = Float(self.originalAlpha ?? 0)
     }
@@ -88,7 +85,7 @@ extension BlendModeView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BlendModeCell.self), for: indexPath) as! BlendModeCell
-        cell.modeImage.image = UIImage(named: availableModes[indexPath.item].iconName)
+        cell.modeImage.image = availableModes[indexPath.item].iconName
         cell.modeName.text = availableModes[indexPath.item].name
         
         DispatchQueue.main.async {

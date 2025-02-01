@@ -3,7 +3,6 @@ import UIKit
 class AddPageView: UIView {
     
     @IBOutlet private weak var pageTypeCollection: UICollectionView!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var pageTypeCollectionHeightAnchor: NSLayoutConstraint!
     
     private var addPageData: [AddPageType] = AddPageType.allCases
@@ -20,7 +19,6 @@ class AddPageView: UIView {
         if isIpad {
             self.pageTypeCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         
         self.pageTypeCollection.registerNib(for: OptionCell.self)
     }
@@ -47,7 +45,7 @@ extension AddPageView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let option = self.addPageData[indexPath.item]
-        cell.optionImage.image = UIImage(named: option.iconName)
+        cell.optionImage.image = option.iconName
         cell.optionLabel.text = option.name
         return cell
     }

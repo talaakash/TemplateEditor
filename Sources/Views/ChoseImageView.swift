@@ -3,7 +3,6 @@ import UIKit
 class ChoseImageView: UIView {
     
     @IBOutlet private weak var chooseOptionCollection: UICollectionView!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var imgOptionCollectionHeightAnchor: NSLayoutConstraint!
     
     private let availableOption: [FilePickType] = FilePickType.allCases
@@ -20,7 +19,6 @@ class ChoseImageView: UIView {
         if isIpad {
             self.imgOptionCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         
         self.chooseOptionCollection.registerNib(for: OptionCell.self)
     }
@@ -45,7 +43,7 @@ extension ChoseImageView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-        cell.optionImage.image = UIImage(named: availableOption[indexPath.item].iconName)
+        cell.optionImage.image = availableOption[indexPath.item].iconName
         cell.optionLabel.text = availableOption[indexPath.item].name
         return cell
     }

@@ -4,7 +4,6 @@ class ImageEffectView: UIView {
     @IBOutlet private weak var adjustSlider: UISlider!
     @IBOutlet private weak var effectTitleLbl: UILabel!
     @IBOutlet private weak var currentValueLbl: UILabel!
-    @IBOutlet private weak var closeBtnBottomAnchor: NSLayoutConstraint!
     
     var actionHappen: ((ActionType) -> Void)?
     var effectType: EffectType? {
@@ -26,7 +25,6 @@ class ImageEffectView: UIView {
     }
     
     private func doInitSetup() {
-        self.closeBtnBottomAnchor.constant = self.closeBtnBottomAnchor.constant + ScreenDetails.bottomSafeArea
         self.currentValueLbl.text = "\(currentAdjustValue ?? 0)"
         self.adjustSlider.value = Float(currentAdjustValue ?? 0)
         self.effectTitleLbl.text = effectType?.effectName

@@ -6,7 +6,6 @@ class MoveObjectView: UIView {
     @IBOutlet private weak var downArrowBtn: UIControl!
     @IBOutlet private weak var leftArrowBtn: UIControl!
     @IBOutlet private weak var rightArrowBtn: UIControl!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     
     var selectedOption: ((RearrangeOption) -> Void)?
     var actionHappen: ((ActionType) -> Void)?
@@ -18,7 +17,6 @@ class MoveObjectView: UIView {
     }
     
     private func doInitSetup() {
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         
         self.upArrowBtn.tag = RearrangeOption.up.rawValue
         self.downArrowBtn.tag = RearrangeOption.down.rawValue

@@ -18,23 +18,13 @@ let isIpad = UIDevice.current.userInterfaceIdiom == .pad
 
 let isUserIsAdmin = true
 
-class ScreenDetails {
-    static var bottomSafeArea: CGFloat = editorStoryBoard.instantiateInitialViewController()?.view.safeAreaInsets.bottom ?? 0.0
-}
-
 //MARK: Temp resource
 extension UIColor {
-    static let fontColorC29800 = UIColor(named: "fontColorC29800")
-    static let fontColor303030 = UIColor(named: "fontColor303030")
-    static let fontColor353535 = UIColor(named: "fontColor353535")
-    static let buttonBgF5C000 = UIColor(named: "buttonBgF5C000")
-    static let borderColorC29800 = UIColor(named: "borderColorC29800")
-}
-
-extension String {
-    func localize() -> String {
-        return self
-    }
+    static let fontColorC29800 = UIColor(named: "fontColorC29800", in: packageBundle, compatibleWith: nil)
+    static let fontColor303030 = UIColor(named: "fontColor303030", in: packageBundle, compatibleWith: nil)
+    static let fontColor353535 = UIColor(named: "fontColor353535", in: packageBundle, compatibleWith: nil)
+    static let buttonBgF5C000 = UIColor(named: "buttonBgF5C000", in: packageBundle, compatibleWith: nil)
+    static let borderColorC29800 = UIColor(named: "borderColorC29800", in: packageBundle, compatibleWith: nil)
 }
 
 class UserDefaultsKeys {

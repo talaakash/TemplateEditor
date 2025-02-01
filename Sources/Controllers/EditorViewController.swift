@@ -9,7 +9,6 @@ class EditorViewController: UIViewController {
     @IBOutlet private weak var undoBtn: UIControl!
     @IBOutlet private weak var redoBtn: UIControl!
     @IBOutlet private weak var exportBtn: UIControl!
-    @IBOutlet private weak var adderBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var undoRedoBtnTrailingAnchor: NSLayoutConstraint!
     @IBOutlet private weak var componentCollectionHeightAnchor: NSLayoutConstraint!
     
@@ -60,7 +59,6 @@ class EditorViewController: UIViewController {
         if isIpad {
             self.componentCollectionHeightAnchor.constant *= 1.5
         }
-        self.adderBottomAnchor.constant = self.adderBottomAnchor.constant + ScreenDetails.bottomSafeArea
         
         self.componentCollection.registerNib(for: OptionCell.self)
         
@@ -145,7 +143,7 @@ extension EditorViewController {
                 }
                 self?.storeJsonPermanently(with: jsonName,json: json, success: { [weak self] in
                     ProgressView.shared.hideProgress()
-                    let successAlert = UIAlertController(title: "appName".localize(), message: "Json Saved with Name:\n\(jsonName)", preferredStyle: .alert)
+                    let successAlert = UIAlertController(title: "Template Editor", message: "Json Saved with Name:\n\(jsonName)", preferredStyle: .alert)
                     successAlert.addAction(UIAlertAction(title: "Okay", style: .default))
                     self?.present(successAlert, animated: true)
                 }, failure: { error in
@@ -208,8 +206,8 @@ extension EditorViewController {
             return
         }
         UndoRedoManager.shared.clearUndoRedoStack()
-        self.alertController = AlertController(message: "editCloseMessage".localize())
-        self.alertController?.setBtn(title: "saveBtnTitle".localize(), handler: { [weak self] in
+        self.alertController = AlertController(message: "Do You want to save it?")
+        self.alertController?.setBtn(title: "Save", handler: { [weak self] in
             if let json = self?.getJsonData() {
                 let jsonName = String(Int(Date().timeIntervalSince1970))
                 if let _ = StorageManager.shared.storeJson(with: jsonName, json: json, in: .json) {
@@ -226,7 +224,7 @@ extension EditorViewController {
                 }
             }
         })
-        self.alertController?.setBtn(title: "cancelBtnTitle".localize(), handler: { [weak self] in
+        self.alertController?.setBtn(title: "Cancel", handler: { [weak self] in
             UndoRedoManager.shared.clearUndoRedoStack()
             self?.navigationController?.popViewController(animated: true)
         })
@@ -269,11 +267,11 @@ extension EditorViewController {
     }
 
     private func showPremiumFeatureAlert() {
-        self.alertController = AlertController(message: "premiumPurchaseMessage".localize())
-        self.alertController?.setBtn(title: "continueBtnTitle".localize(), handler: { [weak self] in
+        self.alertController = AlertController(message: "You are trying to use premium feature")
+        self.alertController?.setBtn(title: "Continue", handler: { [weak self] in
             
         })
-        self.alertController?.setBtn(title: "cancelBtnTitle".localize(), handler: { })
+        self.alertController?.setBtn(title: "Cancel", handler: { })
         self.alertController?.showAlertBox()
     }
 
@@ -577,9 +575,9 @@ extension EditorViewController {
         self.viewModel.editOptionView = editOptionView
         editOptionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            editOptionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            editOptionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            editOptionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            editOptionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            editOptionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            editOptionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
         editOptionView.editOptionCollection.reloadData()
     }
@@ -773,7 +771,7 @@ extension EditorViewController {
 //                failure(error)
 //            })
         } else {
-            failure("somethingWentWrong".localize())
+            failure("Something went wrong")
         }
     }
 }
@@ -787,7 +785,7 @@ extension EditorViewController: EditorViewModelDelegate {
     func adjustLayerOptionSelected(adjustBtn: UIView) {
         guard let selectedView = self.viewModel.selectedView, let currentIndex = currentPage?.subviews.firstIndex(of: selectedView) else { return }
         let totalSubViews = (currentPage?.subviews.count ?? 0) - 1
-        CM.items = [ContextMenuItemWithImage(title: "Bring Forward", image: UIImage(named: "layerBringFront")!, isEnabled: (currentIndex + 1) < totalSubViews), ContextMenuItemWithImage(title: "Send Backward", image: UIImage(named: "layerSendBack")!, isEnabled: (currentIndex - 1) > 0)]
+        CM.items = [ContextMenuItemWithImage(title: "Bring Forward", image: UIImage(named: "layerBringFront", in: packageBundle, with: nil)!, isEnabled: (currentIndex + 1) < totalSubViews), ContextMenuItemWithImage(title: "Send Backward", image: UIImage(named: "layerSendBack", in: packageBundle, with: nil)!, isEnabled: (currentIndex - 1) > 0)]
         CM.showMenu(viewTargeted: adjustBtn, delegate: self, animated: true)
     }
     
@@ -896,9 +894,9 @@ extension EditorViewController {
             self.view.addSubview(imagePickerView)
             imagePickerView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                imagePickerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                imagePickerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                imagePickerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                imagePickerView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                imagePickerView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                imagePickerView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -929,9 +927,9 @@ extension EditorViewController {
             self.view.addSubview(addPageView)
             addPageView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                addPageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                addPageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                addPageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                addPageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                addPageView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                addPageView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -987,9 +985,9 @@ extension EditorViewController {
             self.view.addSubview(textEditView)
             textEditView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                textEditView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                textEditView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                textEditView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                textEditView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                textEditView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                textEditView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1028,9 +1026,9 @@ extension EditorViewController {
             self.view.addSubview(effectView)
             effectView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                effectView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                effectView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                effectView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                effectView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                effectView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                effectView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1092,9 +1090,9 @@ extension EditorViewController {
             self.view.addSubview(moverView)
             moverView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                moverView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                moverView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                moverView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                moverView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                moverView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                moverView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1154,9 +1152,9 @@ extension EditorViewController {
             self.view.addSubview(lockOptionView)
             lockOptionView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                lockOptionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                lockOptionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                lockOptionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                lockOptionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                lockOptionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                lockOptionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1225,9 +1223,9 @@ extension EditorViewController {
             self.view.addSubview(effectView)
             effectView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                effectView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                effectView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                effectView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                effectView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                effectView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                effectView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1275,9 +1273,9 @@ extension EditorViewController {
             self.view.addSubview(shadowView)
             shadowView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                shadowView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                shadowView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                shadowView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                shadowView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                shadowView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                shadowView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1322,9 +1320,9 @@ extension EditorViewController {
             self.view.addSubview(blendModeView)
             blendModeView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                blendModeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                blendModeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                blendModeView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                blendModeView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                blendModeView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                blendModeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1368,9 +1366,9 @@ extension EditorViewController {
             self.view.addSubview(adjustmentView)
             adjustmentView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                adjustmentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                adjustmentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                adjustmentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                adjustmentView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                adjustmentView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                adjustmentView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1391,12 +1389,12 @@ extension EditorViewController {
             }
             switch type {
             case .close:
-                selectedView?.originalImage = UIImage(named: originalShapeName)
+                selectedView?.originalImage = UIImage(named: originalShapeName, in: packageBundle, with: .none)
                 imgView?.stringTag = originalShapeName
             case .check:
                 let newShapeName = imgView?.stringTag
                 let newShapeImg = selectedView?.originalImage
-                selectedView?.originalImage = UIImage(named: originalShapeName)
+                selectedView?.originalImage = UIImage(named: originalShapeName, in: packageBundle, with: .none)
                 imgView?.stringTag = originalShapeName
                 self?.changeShapeImage(to: newShapeName, shapeImg: newShapeImg, shapeView: imgView ?? UIImageView(), in: selectedView ?? DraggableUIView())
             }
@@ -1410,7 +1408,7 @@ extension EditorViewController {
                 self?.addShape(shapeName: shapeName)
             } else {
                 guard let imgView = self?.viewModel.selectedView?.subviews.compactMap({ $0 as? UIImageView }).first else { return }
-                selectedView?.originalImage = UIImage(named: shapeName)
+                selectedView?.originalImage = UIImage(named: shapeName, in: packageBundle, with: .none)
                 imgView.stringTag = shapeName
             }
         }
@@ -1420,9 +1418,9 @@ extension EditorViewController {
             self.view.addSubview(shapeView)
             shapeView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                shapeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                shapeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                shapeView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                shapeView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                shapeView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                shapeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1544,9 +1542,9 @@ extension EditorViewController {
             self.view.addSubview(menuFontSizeView)
             menuFontSizeView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                menuFontSizeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                menuFontSizeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                menuFontSizeView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                menuFontSizeView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                menuFontSizeView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                menuFontSizeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -1591,9 +1589,9 @@ extension EditorViewController {
             self.view.addSubview(menuSpaceView)
             menuSpaceView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                menuSpaceView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                menuSpaceView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                menuSpaceView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                menuSpaceView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                menuSpaceView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                menuSpaceView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -2466,7 +2464,7 @@ extension EditorViewController {
     }
     
     private func addShape(shapeName: String) {
-        let newImageView = UIImageView(image: UIImage(named: shapeName))
+        let newImageView = UIImageView(image: UIImage(named: shapeName, in: packageBundle, with: .none))
         newImageView.stringTag = shapeName
         newImageView.tintAdjustmentMode = .normal
         newImageView.tintColor = .white
@@ -2638,7 +2636,7 @@ extension EditorViewController {
     
     private func getWaterMarkView() -> DraggableUIView {
         let size = CGSize(width: 150, height: 50)
-        let element = UIElement(type: ComponentType.label.rawValue, x: (widthSize / 2), y: ((heightSize - size.height) - 16), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "appName".localize(), alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
+        let element = UIElement(type: ComponentType.label.rawValue, x: (widthSize / 2), y: ((heightSize - size.height) - 16), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Template Editor", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
         
         let lblView = self.createLabel(with: element, fontFamily: UIFont(name: "RalewayRoman-Bold", size: 18)!, scaleX: 1, scaleY: 1)
         lblView.backgroundColor = UIColor.borderColorC29800
@@ -3271,7 +3269,7 @@ extension EditorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-            cell.optionImage.image = UIImage(named: componentTypes[indexPath.item].icon)
+            cell.optionImage.image = componentTypes[indexPath.item].icon
             cell.optionLabel.text = componentTypes[indexPath.item].localName
             cell.isSeparatorVisible = indexPath.item != componentTypes.count - 1 ? true : false
             cell.isPremiumFeature = componentTypes[indexPath.item].isPremiumFeature

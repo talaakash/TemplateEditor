@@ -37,105 +37,105 @@ enum TaskType{
 enum EditType {
     case move, delete, copy, backgroundColor, flipH, crop, flipV, change, layered, blur, opacity, shadow, adjustments, blendImage, lock, fontChange, fontSize, editFont, fontColor, editContent, changeSize, adjustSpace, tintColor
     
-    var getIcon: String {
+    var getIcon: UIImage? {
         switch self {
         case .delete:
-            return "trash"
+            return UIImage(named: "trash", in: packageBundle, with: .none)
         case .copy:
-            return "copy"
+            return UIImage(named: "copy", in: packageBundle, with: .none)
         case .flipH:
-            return "reflect_horizontal"
+            return UIImage(named: "reflect_horizontal", in: packageBundle, with: .none)
         case .flipV:
-            return "reflect_vertical"
+            return UIImage(named: "reflect_vertical", in: packageBundle, with: .none)
         case .change:
-            return "change"
+            return UIImage(named: "change", in: packageBundle, with: .none)
         case .layered:
-            return "layered"
+            return UIImage(named: "layered", in: packageBundle, with: .none)
         case .lock:
-            return "lock"
+            return UIImage(named: "lock", in: packageBundle, with: .none)
         case .fontChange:
-            return "fonts"
+            return UIImage(named: "fonts", in: packageBundle, with: .none)
         case .editFont:
-            return "fontEdit"
+            return UIImage(named: "fontEdit", in: packageBundle, with: .none)
         case .fontColor:
-            return "color"
+            return UIImage(named: "color", in: packageBundle, with: .none)
         case .blur:
-            return "blur"
+            return UIImage(named: "blur", in: packageBundle, with: .none)
         case .opacity:
-            return "opacity"
+            return UIImage(named: "opacity", in: packageBundle, with: .none)
         case .shadow:
-            return "shadow"
+            return UIImage(named: "shadow", in: packageBundle, with: .none)
         case .editContent:
-            return "fontEdit"
+            return UIImage(named: "fontEdit", in: packageBundle, with: .none)
         case .changeSize:
-            return "changeSize"
+            return UIImage(named: "changeSize", in: packageBundle, with: .none)
         case .backgroundColor:
-            return "backgroundColor"
+            return UIImage(named: "backgroundColor", in: packageBundle, with: .none)
         case .adjustments:
-            return "adjustments"
+            return UIImage(named: "adjustments", in: packageBundle, with: .none)
         case .blendImage:
-            return "blend"
+            return UIImage(named: "blend", in: packageBundle, with: .none)
         case .move:
-            return "nudge"
+            return UIImage(named: "nudge", in: packageBundle, with: .none)
         case .tintColor:
-            return "color"
+            return UIImage(named: "color", in: packageBundle, with: .none)
         case .fontSize:
-            return "fontSize"
+            return UIImage(named: "fontSize", in: packageBundle, with: .none)
         case .crop:
-            return "crop"
+            return UIImage(named: "crop", in: packageBundle, with: .none)
         case .adjustSpace:
-            return "shadowWidth"
+            return UIImage(named: "shadowWidth", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .move:
-            return "moveOption".localize()
+            return "Move"
         case .delete:
-            return "deleteOption".localize()
+            return "Delete"
         case .copy:
-            return "copyOption".localize()
+            return "Copy"
         case .backgroundColor:
-            return "backgroundColorOption".localize()
+            return "BG Color"
         case .flipH:
-            return "flipHOption".localize()
+            return "Flip H"
         case .flipV:
-            return "flipVOption".localize()
+            return "Flip V"
         case .change:
-            return "changeOption".localize()
+            return "Change"
         case .layered:
-            return "layeredOption".localize()
+            return "Layered"
         case .blur:
-            return "blurEffectTitle".localize()
+            return "Blur"
         case .opacity:
-            return "opacityEffectTitle".localize()
+            return "Opacity"
         case .shadow:
-            return "shadowAdjust".localize()
+            return "Shadow"
         case .adjustments:
-            return "adjustmentsOption".localize()
+            return "Adjustments"
         case .blendImage:
-            return "blendOption".localize()
+            return "Blend Modes"
         case .lock:
-            return "lockOption".localize()
+            return "Lock Option"
         case .fontChange:
-            return "fontStyleOption".localize()
+            return "Font Style"
         case .editFont:
-            return "editTextOption".localize()
+            return "Edit Text"
         case .fontColor:
-            return "fontColorOption".localize()
+            return "Font Color"
         case .editContent:
-            return "editContentOption".localize()
+            return "Edit Content"
         case .changeSize:
-            return "changeSizeOption".localize()
+            return "Change Size"
         case .tintColor:
-            return "tintColorOption".localize()
+            return "Color"
         case .fontSize:
-            return "fontSizeTitle".localize()
+            return "Font Size"
         case .crop:
-            return "cropOption".localize()
+            return "Crop"
         case .adjustSpace:
-            return "spacingOption".localize()
+            return "Adjust Space"
         }
     }
     
@@ -199,11 +199,11 @@ enum EffectType {
     var effectName: String {
         switch self {
         case .blur:
-            return "blurEffectTitle".localize()
+            return "Blur Effect"
         case .opacity:
-            return "opacityEffectTitle".localize()
+            return "Opacity"
         case .fontSize:
-            return "fontSizeTitle".localize()
+            return "Font Size"
         }
     }
 }
@@ -215,33 +215,33 @@ enum ComponentType: String, CaseIterable {
     case shape = "shape"
     case page = "page"
     
-    var icon: String {
+    var icon: UIImage? {
         switch self {
         case .label:
-            return "text"
+            return UIImage(named: "text", in: packageBundle, with: .none)
         case .image:
-            return "picture"
+            return UIImage(named: "picture", in: packageBundle, with: .none)
         case .menuBox:
-            return "menu"
+            return UIImage(named: "menu", in: packageBundle, with: .none)
         case .shape:
-            return "shape"
+            return UIImage(named: "shape", in: packageBundle, with: .none)
         case .page:
-            return "page"
+            return UIImage(named: "page", in: packageBundle, with: .none)
         }
     }
     
     var localName: String {
         switch self {
         case .label:
-            return "addTextBtnTitle".localize()
+            return "Text"
         case .image:
-            return "choseImgBtnTitle".localize()
+            return "Image"
         case .menuBox:
-            return "menuItemBtnTitle".localize()
+            return "Menu"
         case .shape:
-            return "addShapeBtnTitle".localize()
+            return "Shape"
         case .page:
-            return "addPageBtnTitle".localize()
+            return "Add Page"
         }
     }
     
@@ -283,25 +283,25 @@ enum ResizeOption: Int, CaseIterable {
     case itemDescription = 1
     case itemValue = 2
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .itemName:
-            return "heading"
+            return UIImage(named: "heading", in: packageBundle, with: .none)
         case .itemDescription:
-            return "description"
+            return UIImage(named: "description", in: packageBundle, with: .none)
         case .itemValue:
-            return "price"
+            return UIImage(named: "price", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .itemName:
-            return "menuHeading".localize()
+            return "Heading"
         case .itemDescription:
-            return "menuDescription".localize()
+            return "Description"
         case .itemValue:
-            return "menuCost".localize()
+            return "Value"
         }
     }
 }
@@ -322,53 +322,53 @@ enum BlendMode: String, CaseIterable {
     case softLight = "softLightBlendMode"
     case hardLight = "hardLightBlendMode"
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .normal:
-            return "normalBlend"
+            return UIImage(named: "normalBlend", in: packageBundle, with: .none)
         case .multiply:
-            return "multiplyBlend"
+            return UIImage(named: "multiplyBlend", in: packageBundle, with: .none)
         case .screen:
-            return "screenBlend"
+            return UIImage(named: "screenBlend", in: packageBundle, with: .none)
         case .overlay:
-            return "overlayBlend"
+            return UIImage(named: "overlayBlend", in: packageBundle, with: .none)
         case .darken:
-            return "darkenBlend"
+            return UIImage(named: "darkenBlend", in: packageBundle, with: .none)
         case .lighten:
-            return "lightenBlend"
+            return UIImage(named: "lightenBlend", in: packageBundle, with: .none)
         case .colorDodge:
-            return "colorDodgeBlend"
+            return UIImage(named: "colorDodgeBlend", in: packageBundle, with: .none)
         case .colorBurn:
-            return "colorBurnBlend"
+            return UIImage(named: "colorBurnBlend", in: packageBundle, with: .none)
         case .softLight:
-            return "softLightBlend"
+            return UIImage(named: "softLightBlend", in: packageBundle, with: .none)
         case .hardLight:
-            return "hardLightBlend"
+            return UIImage(named: "hardLightBlend", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .normal:
-            return "normalBlend".localize()
+            return "Normal"
         case .multiply:
-            return "multiplyBlend".localize()
+            return "Multiply"
         case .screen:
-            return "screenBlend".localize()
+            return "Screen"
         case .overlay:
-            return "overlayBlend".localize()
+            return "Overlay"
         case .darken:
-            return "darkenBlend".localize()
+            return "Darken"
         case .lighten:
-            return "lightenBlend".localize()
+            return "Lighten"
         case .colorDodge:
-            return "colorDogeBlend".localize()
+            return "Color Dodge"
         case .colorBurn:
-            return "colorBurnBlend".localize()
+            return "Color Burn"
         case .softLight:
-            return "softLightBlend".localize()
+            return "Soft Light"
         case .hardLight:
-            return "hardLightBlend".localize()
+            return "Hard Light"
         }
     }
 }
@@ -376,41 +376,41 @@ enum BlendMode: String, CaseIterable {
 enum ImageFilters: CaseIterable {
     case brightness, contrast, saturation, exposure, vibrance, warmth, vignette
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .brightness:
-            return "brightness"
+            return UIImage(named: "brightness", in: packageBundle, with: .none)
         case .contrast:
-            return "contrast"
+            return UIImage(named: "contrast", in: packageBundle, with: .none)
         case .saturation:
-            return "saturation"
+            return UIImage(named: "saturation", in: packageBundle, with: .none)
         case .exposure:
-            return "exposure"
+            return UIImage(named: "exposure", in: packageBundle, with: .none)
         case .vibrance:
-            return "vibrance"
+            return UIImage(named: "vibrance", in: packageBundle, with: .none)
         case .warmth:
-            return "warmth"
+            return UIImage(named: "warmth", in: packageBundle, with: .none)
         case .vignette:
-            return "vignette"
+            return UIImage(named: "vignette", in: packageBundle, with: .none)
         }
     }
     
     var title: String {
         switch self {
         case .brightness:
-            return "brightnessAdjust".localize()
+            return "Brightness"
         case .contrast:
-            return "contrastAdjust".localize()
+            return "Contrast"
         case .saturation:
-            return "saturationAdjust".localize()
+            return "Saturation"
         case .exposure:
-            return "exposureAdjust".localize()
+            return "Exposure"
         case .vibrance:
-            return "vibranceAdjust".localize()
+            return "Vibrance"
         case .warmth:
-            return "warmthAdjust".localize()
+            return "Warmth"
         case .vignette:
-            return "vignetteAdjust".localize()
+            return "Vignette"
         }
     }
 }
@@ -418,25 +418,25 @@ enum ImageFilters: CaseIterable {
 enum FilePickType: CaseIterable {
     case gallery, file, camera
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .gallery:
-            return "gallery"
+            return UIImage(named: "gallery", in: packageBundle, with: .none)
         case .file:
-            return "file"
+            return UIImage(named: "file", in: packageBundle, with: .none)
         case .camera:
-            return "camera"
+            return UIImage(named: "camera", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .gallery:
-            return "galleryOption".localize()
+            return "Gallery"
         case .file:
-            return "fileOption".localize()
+            return "File"
         case .camera:
-            return "cameraOption".localize()
+            return "Camera"
         }
     }
 }
@@ -456,34 +456,34 @@ enum MenuStyle: Int, CaseIterable {
     case type12 = 12
     case type13 = 13
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .type1:
-            return "type1Menu"
+            return UIImage(named: "type1Menu", in: packageBundle, with: .none)
         case .type2:
-            return "type2Menu"
+            return UIImage(named: "type2Menu", in: packageBundle, with: .none)
         case .type3:
-            return "type3Menu"
+            return UIImage(named: "type3Menu", in: packageBundle, with: .none)
         case .type4:
-            return "type4Menu"
+            return UIImage(named: "type4Menu", in: packageBundle, with: .none)
         case .type5:
-            return "type5Menu"
+            return UIImage(named: "type5Menu", in: packageBundle, with: .none)
         case .type6:
-            return "type6Menu"
+            return UIImage(named: "type6Menu", in: packageBundle, with: .none)
         case .type7:
-            return "type7Menu"
+            return UIImage(named: "type7Menu", in: packageBundle, with: .none)
         case .type8:
-            return "type8Menu"
+            return UIImage(named: "type8Menu", in: packageBundle, with: .none)
         case .type9:
-            return "type9Menu"
+            return UIImage(named: "type9Menu", in: packageBundle, with: .none)
         case .type10:
-            return "type10Menu"
+            return UIImage(named: "type10Menu", in: packageBundle, with: .none)
         case .type11:
-            return "type11Menu"
+            return UIImage(named: "type11Menu", in: packageBundle, with: .none)
         case .type12:
-            return "type12Menu"
+            return UIImage(named: "type12Menu", in: packageBundle, with: .none)
         case .type13:
-            return "type13Menu"
+            return UIImage(named: "type13Menu", in: packageBundle, with: .none)
         }
     }
     
@@ -708,29 +708,29 @@ enum MenuStyle: Int, CaseIterable {
 enum ShadowOption: CaseIterable {
     case opacity, radius, width, height
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .opacity:
-            return "shadowOpacity"
+            return UIImage(named: "shadowOpacity", in: packageBundle, with: .none)
         case .radius:
-            return "shadowRadius"
+            return UIImage(named: "shadowRadius", in: packageBundle, with: .none)
         case .width:
-            return "shadowWidth"
+            return UIImage(named: "shadowWidth", in: packageBundle, with: .none)
         case .height:
-            return "shadowHeight"
+            return UIImage(named: "shadowHeight", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .opacity:
-            return "shadowOpacity".localize()
+            return "Shadow Opacity"
         case .radius:
-            return "shadowRadius".localize()
+            return "Shadow Radius"
         case .width:
-            return "shadowWidth".localize()
+            return "Shadow Width"
         case .height:
-            return "shadowHeight".localize()
+            return "Shadow Height"
         }
     }
 }
@@ -745,25 +745,25 @@ enum RearrangeOption: Int {
 enum LockOptions: CaseIterable {
     case interaction, change, movement
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .interaction:
-            return "intraction"
+            return UIImage(named: "intraction", in: packageBundle, with: .none)
         case .change:
-            return "change"
+            return UIImage(named: "change", in: packageBundle, with: .none)
         case .movement:
-            return "nudge"
+            return UIImage(named: "nudge", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .interaction:
-            return "interactionLock".localize()
+            return "Interaction Lock"
         case .change:
-            return "changeLock".localize()
+            return "Change Lock"
         case .movement:
-            return "movementLock".localize()
+            return "Movement Lock"
         }
     }
 }
@@ -771,25 +771,25 @@ enum LockOptions: CaseIterable {
 enum AddPageType: CaseIterable {
     case newPage, copyPage, deletePage
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .newPage:
-            return "intraction"
+            return UIImage(named: "intraction", in: packageBundle, with: .none)
         case .copyPage:
-            return "intraction"
+            return UIImage(named: "intraction", in: packageBundle, with: .none)
         case .deletePage:
-            return "intraction"
+            return UIImage(named: "intraction", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .newPage:
-            return "newPage".localize()
+            return "New Page"
         case .copyPage:
-            return "copyPage".localize()
+            return "Copy Page"
         case .deletePage:
-            return "deletePage".localize()
+            return "Delete Page"
         }
     }
 }
@@ -797,21 +797,21 @@ enum AddPageType: CaseIterable {
 enum Spacing: CaseIterable {
     case valueSpace, valueWidth
     
-    var iconName: String {
+    var iconName: UIImage? {
         switch self {
         case .valueSpace:
-            return "intraction"
+            return UIImage(named: "intraction", in: packageBundle, with: .none)
         case .valueWidth:
-            return "intraction"
+            return UIImage(named: "intraction", in: packageBundle, with: .none)
         }
     }
     
     var name: String {
         switch self {
         case .valueSpace:
-            return "itemBetweenSpace".localize()
+            return "Item Between Space"
         case .valueWidth:
-            return "itemWidthSpace".localize()
+            return "Item Width Space"
         }
     }
 }

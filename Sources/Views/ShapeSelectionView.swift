@@ -3,7 +3,6 @@ import UIKit
 class ShapeSelectionView: UIView {
     
     @IBOutlet private weak var shapeCollection: UICollectionView!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var shapeCollectionHeightAnchor: NSLayoutConstraint!
     
     private let availableShapes: [String] = ["star", "curvedCircle", "circleFilled", "circle", "capsule", "heartFilled", "heart", "line", "lineBreaked", "rectangleCircle", "rectangleFilled", "rectangle", "square", "arrowFilled", "arrow", "arrowThinFilled", "arrowThin"]
@@ -20,7 +19,6 @@ class ShapeSelectionView: UIView {
         if isIpad {
             self.shapeCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         self.shapeCollection.registerNib(for: OptionCell.self)
     }
 }
@@ -44,7 +42,7 @@ extension ShapeSelectionView: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-        cell.optionImage.image = UIImage(named: availableShapes[indexPath.item])
+        cell.optionImage.image = UIImage(named: availableShapes[indexPath.item], in: packageBundle, with: .none)
         cell.optionLabel.text = availableShapes[indexPath.item]
         return cell
     }

@@ -5,7 +5,6 @@ class MenuFontSizeView: UIView {
     @IBOutlet private weak var resizeOptionCollection: UICollectionView!
     @IBOutlet private weak var fontSizeSlider: UISlider!
     @IBOutlet private weak var currentSizeLbl: UILabel!
-    @IBOutlet private weak var viewBottomAnchor: NSLayoutConstraint!
     @IBOutlet private weak var resizeOptionCollectionHeightAnchor: NSLayoutConstraint!
     
     private var availableOptions: [ResizeOption] = ResizeOption.allCases
@@ -57,7 +56,6 @@ class MenuFontSizeView: UIView {
         if isIpad {
             self.resizeOptionCollectionHeightAnchor.constant *= 1.5
         }
-        self.viewBottomAnchor.constant = self.viewBottomAnchor.constant + ScreenDetails.bottomSafeArea
         
         self.resizeOptionCollection.registerNib(for: OptionCell.self)
     }
@@ -124,7 +122,7 @@ extension MenuFontSizeView: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-        cell.optionImage.image = UIImage(named: availableOptions[indexPath.item].iconName)
+        cell.optionImage.image = availableOptions[indexPath.item].iconName
         cell.optionLabel.text = availableOptions[indexPath.item].name
         
         DispatchQueue.main.async {

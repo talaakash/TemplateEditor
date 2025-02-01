@@ -20,7 +20,7 @@ extension UITextView {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.placeHolder, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            self.text = newValue?.localize()
+            self.text = newValue
             self.textColor = .lightGray
             NotificationCenter.default.addObserver(self, selector: #selector(handleTextDidBeginEditing), name: UITextView.textDidBeginEditingNotification, object: self)
             NotificationCenter.default.addObserver(self, selector: #selector(handleTextDidEndEditing), name: UITextView.textDidEndEditingNotification, object: self)
@@ -28,7 +28,7 @@ extension UITextView {
     }
     
     @objc private func handleTextDidBeginEditing() {
-        if self.text == placeHolder?.localize() {
+        if self.text == placeHolder {
             self.text = ""
             self.textColor = .black
         }
@@ -36,7 +36,7 @@ extension UITextView {
     
     @objc private func handleTextDidEndEditing() {
         if self.text.isEmpty {
-            self.text = placeHolder?.localize()
+            self.text = placeHolder
             self.textColor = .lightGray
         } else {
             self.textColor = .black

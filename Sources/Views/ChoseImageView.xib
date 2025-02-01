@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChoseImageView" customModule="MenuMaker" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChoseImageView" customModule="TemplateEditor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="562" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -136,7 +136,6 @@
             <connections>
                 <outlet property="chooseOptionCollection" destination="YxJ-Dq-QYA" id="098-2a-jD8"/>
                 <outlet property="imgOptionCollectionHeightAnchor" destination="mal-XC-w0o" id="mSP-rM-URT"/>
-                <outlet property="viewBottomAnchor" destination="CRA-4Q-DC0" id="T5z-rF-KTr"/>
             </connections>
             <point key="canvasLocation" x="94.656488549618317" y="282.3943661971831"/>
         </view>

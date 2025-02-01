@@ -18,7 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageEffectView" customModule="MenuMaker" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageEffectView" customModule="TemplateEditor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="374" height="134"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -151,7 +151,6 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="adjustSlider" destination="dQq-hl-esy" id="vEO-mL-JOL"/>
-                <outlet property="closeBtnBottomAnchor" destination="zM1-vN-EbD" id="cXl-xu-4dg"/>
                 <outlet property="currentValueLbl" destination="c6C-BE-wye" id="sxB-c0-kPQ"/>
                 <outlet property="effectTitleLbl" destination="F9O-Aj-fPS" id="ntj-ug-EPL"/>
             </connections>

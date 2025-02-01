@@ -44,7 +44,7 @@ extension MenuStyleSelection: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: MenuStyleCell.self), for: indexPath) as! MenuStyleCell
-        cell.styleImg.image = UIImage(named: menuStyles[indexPath.item].iconName)
+        cell.styleImg.image = menuStyles[indexPath.item].iconName
         cell.isPremium = menuStyles[indexPath.item].isPremium
         return cell
     }
