@@ -48,7 +48,7 @@ class FontPickerController: UIViewController {
     }
     
     private func doInitSetup() {
-        self.fontStylesTbl.register(UINib(nibName: "FontStyleCell", bundle: nil), forCellReuseIdentifier: "FontStyleCell")
+        self.fontStylesTbl.registerNib(for: FontStyleCell.self)
         self.fontStylesTbl.showsHorizontalScrollIndicator = false
         self.fontStylesTbl.showsVerticalScrollIndicator = false
         self.searchBar.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -134,7 +134,7 @@ extension FontPickerController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FontStyleCell", for: indexPath) as! FontStyleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FontStyleCell.self), for: indexPath) as! FontStyleCell
         let font = self.availableGroups[indexPath.section].familyNames[indexPath.row]
         if let faceName = font.faceNames.first {
             cell.styleName.font = UIFont.init(name: faceName, size: 16)

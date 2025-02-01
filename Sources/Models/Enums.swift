@@ -14,7 +14,7 @@ enum ImageResolution {
     }
 }
 
-enum TaskType{
+enum TaskType {
     case adding
     case changing
     case bg
@@ -34,7 +34,7 @@ enum TaskType{
     }
 }
 
-enum EditType {
+public enum EditType: EnumType, CaseIterable {
     case move, delete, copy, backgroundColor, flipH, crop, flipV, change, layered, blur, opacity, shadow, adjustments, blendImage, lock, fontChange, fontSize, editFont, fontColor, editContent, changeSize, adjustSpace, tintColor
     
     var getIcon: UIImage? {
@@ -208,7 +208,7 @@ enum EffectType {
     }
 }
 
-enum ComponentType: String, CaseIterable {
+public enum ComponentType: String, CaseIterable, EnumType {
     case menuBox = "menuBox"
     case image = "image"
     case label = "label"
@@ -278,7 +278,7 @@ enum ColorType {
     }
 }
 
-enum ResizeOption: Int, CaseIterable {
+public enum ResizeOption: Int, CaseIterable {
     case itemName = 0
     case itemDescription = 1
     case itemValue = 2
@@ -735,14 +735,14 @@ enum ShadowOption: CaseIterable {
     }
 }
 
-enum RearrangeOption: Int {
+public enum RearrangeOption: Int, EnumType, CaseIterable {
     case up = 0
     case down = 1
     case left = 2
     case right = 3
 }
 
-enum LockOptions: CaseIterable {
+public enum LockOptions: CaseIterable, EnumType {
     case interaction, change, movement
     
     var iconName: UIImage? {

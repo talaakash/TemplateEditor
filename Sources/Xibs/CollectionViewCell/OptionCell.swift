@@ -10,7 +10,7 @@ class OptionCell: UICollectionViewCell {
     
     var isPremiumFeature: Bool = false {
         didSet {
-            if isPremiumFeature {
+            if isPremiumFeature, UserManager.shared.currentUserType == .free {
                 self.premiumIconImg.isHidden = false
             } else {
                 self.premiumIconImg.isHidden = true

@@ -17,7 +17,7 @@ class EditorViewController: UIViewController {
     private var isDataLoaded: Bool = false
     private var editOptionView: EditOptionView!
     private var viewModel = EditorViewModel()
-    private var componentTypes: [ComponentType] = ComponentType.allCases
+    private var componentTypes: [GenericModel] = ProjectSelectedOptions.componentsTypes
     private var bgImage: UIImage?
     private var widthSize: CGFloat = 0
     private var heightSize: CGFloat = 0
@@ -3269,10 +3269,20 @@ extension EditorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-            cell.optionImage.image = componentTypes[indexPath.item].icon
-            cell.optionLabel.text = componentTypes[indexPath.item].localName
+            let component = componentTypes[indexPath.item]
+            if let imgName = component.icon {
+                cell.optionImage.image = UIImage(named: imgName)
+            } else {
+                cell.optionImage.image = component.type.icon
+            }
+            cell.optionLabel.text = component.name ?? component.type.localName
             cell.isSeparatorVisible = indexPath.item != componentTypes.count - 1 ? true : false
-            cell.isPremiumFeature = componentTypes[indexPath.item].isPremiumFeature
+            cell.isPremiumFeature = component.isPremium ?? component.type.isPremiumFeature
+            
+//            cell.optionImage.image = componentTypes[indexPath.item].icon
+//            cell.optionLabel.text = componentTypes[indexPath.item].localName
+//            cell.isSeparatorVisible = indexPath.item != componentTypes.count - 1 ? true : false
+//            cell.isPremiumFeature = componentTypes[indexPath.item].isPremiumFeature
             return cell
         }
     }
@@ -3283,11 +3293,11 @@ extension EditorViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard collectionView != pageCollection else { return }
-        if componentTypes[indexPath.item].isPremiumFeature && UserManager.shared.currentUserType == .free {
+        if componentTypes[indexPath.item].type.isPremiumFeature && UserManager.shared.currentUserType == .free {
             self.showPremiumFeatureAlert()
             return
         }
-        switch componentTypes[indexPath.item] {
+        switch componentTypes[indexPath.item].type {
         case .label:
             self.addLabelView()
         case .image:

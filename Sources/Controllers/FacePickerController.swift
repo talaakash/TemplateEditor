@@ -20,7 +20,7 @@ class FacePickerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fontFacesTbl.register(UINib(nibName: "FontStyleCell", bundle: nil), forCellReuseIdentifier: "FontStyleCell")
+        self.fontFacesTbl.registerNib(for: FontStyleCell.self)
         self.fontFacesTbl.showsHorizontalScrollIndicator = false
         self.fontFacesTbl.showsVerticalScrollIndicator = false
         self.searchBar.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
@@ -60,7 +60,7 @@ extension FacePickerController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FontStyleCell", for: indexPath) as! FontStyleCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: FontStyleCell.self), for: indexPath) as! FontStyleCell
         let name = self.availableFaces[indexPath.row]
         if let fontStyle = UIFont(name: name, size: 16) {
             cell.styleName.font = fontStyle

@@ -84,7 +84,7 @@ class EditorViewModel {
         MenuItemDetails(itemName: "Hawaiian", values: ["1": "S $7", "2": "M $8", "3": "L $9"])
     ]
     
-    var editOptions: [EditType] {
+    var editOptions: [GenericModel<EditType>] {
         return getSelectedViewEditOptions()
     }
 
@@ -106,77 +106,135 @@ class EditorViewModel {
         viewWidth = calculatedWidth
     }
 
-    private func getSelectedViewEditOptions() -> [EditType] {
+    private func getSelectedViewEditOptions() -> [GenericModel<EditType>] {
         guard let selectedView = selectedView else { return [] }
 
-        var options: [EditType] = []
+        var options: [GenericModel<EditType>] = []
+        let availableOptions = ProjectSelectedOptions.editOptions
         
         guard let componentName = selectedView.componentType, let componentType = ComponentType(rawValue: componentName) else { return options }
         
         switch componentType {
         case .label:
-            if selectedView.isEditable != false {
-                options.append(contentsOf: [.editFont])
+            if selectedView.isEditable != false, let option = availableOptions.first(where: { $0.type == .editFont }) {
+                options.append(option)
             }
         case .image:
             if selectedView.isEditable != false {
-                options.append(contentsOf: [.change])
+                if let option = availableOptions.first(where: { $0.type == .change }) {
+                    options.append(option)
+                }
+//                This feature is not for MenuMaker
+//                if let option = availableOptions.first(where: { $0.type == .layered }) {
+//                    options.append(option)
+//                }
             }
-//            This Feature is not for MenuMaker
-//            if isUserIsAdmin {
-//                options.append(.layered)
-//            }
         case .menuBox:
-            options.append(contentsOf: [.editContent, .changeSize])
+            if let option = availableOptions.first(where: { $0.type == .editContent }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .changeSize }) {
+                options.append(option)
+            }
             let columnMenuStyles: [MenuStyle] = [.type1, .type2, .type3, .type6, .type9, .type12, .type13]
             if let gridView = selectedView.subviews.compactMap({ $0 as? GridView }).first {
-                if columnMenuStyles.contains(where: { gridView.menuStyle == $0 }) {
-                    options.append(.adjustSpace)
+                if columnMenuStyles.contains(where: { gridView.menuStyle == $0 }), let option = availableOptions.first(where: { $0.type == .adjustSpace }) {
+                    options.append(option)
                 }
             }
         case .shape:
-            if selectedView.isEditable != false {
-                options.append(contentsOf: [.change])
+            if selectedView.isEditable != false, let option = availableOptions.first(where: { $0.type == .change }) {
+                options.append(option)
             }
-            options.append(contentsOf: [.flipH, .flipV, .tintColor, .blur, .opacity, .shadow, .blendImage])
+            if let option = availableOptions.first(where: { $0.type == .flipH }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .flipV }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .tintColor }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .blur }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .opacity }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .shadow }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .blendImage }) {
+                options.append(option)
+            }
         default:
             break
         }
         
         if selectedView.isUserInteractionEnabled {
-            if selectedView.movable != false {
-                options.append(.move)
+            if selectedView.movable != false, let option = availableOptions.first(where: { $0.type == .move }) {
+                options.append(option)
             }
             if let parentDraggable = selectedView.superview as? DraggableUIView, parentDraggable.isLayered {
-                options.removeAll(where: { $0 == .move })
+                options.removeAll(where: { $0.type == .move })
             }
         }
         
         if componentType == .label {
-            options.append(contentsOf: [.fontChange, .fontSize, .fontColor])
-        }
-        
-        if componentType == .image {
-            options.append(contentsOf: [.flipH, .flipV, .crop, .adjustments])
-            if !selectedView.isEditable {
-                options.removeAll(where: { $0 == .crop })
+            if let option = availableOptions.first(where: { $0.type == .fontChange }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .fontSize }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .fontColor }) {
+                options.append(option)
             }
         }
         
-        if componentType != .shape {
-            options.append(.backgroundColor)
+        if componentType == .image {
+            if let option = availableOptions.first(where: { $0.type == .flipH }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .flipV }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .crop }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .adjustments }) {
+                options.append(option)
+            }
+            if !selectedView.isEditable {
+                options.removeAll(where: { $0.type == .crop })
+            }
+        }
+        
+        if componentType != .shape, let option = availableOptions.first(where: { $0.type == .backgroundColor }) {
+            options.append(option)
         }
         
         if componentType == .image {
-            options.append(contentsOf: [.blur, .opacity, .shadow, .blendImage])
+            if let option = availableOptions.first(where: { $0.type == .blur }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .opacity }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .shadow }) {
+                options.append(option)
+            }
+            if let option = availableOptions.first(where: { $0.type == .blendImage }) {
+                options.append(option)
+            }
         }
         
-        if selectedView.isDuplicatable != false {
-            options.append(.copy)
+        if selectedView.isDuplicatable != false, let option = availableOptions.first(where: { $0.type == .copy }) {
+            options.append(option)
         }
         
-        if isUserIsAdmin {
-            options.append(.lock)
+        if isUserIsAdmin, let option = availableOptions.first(where: { $0.type == .lock }) {
+            options.append(option)
         }
         
         return options

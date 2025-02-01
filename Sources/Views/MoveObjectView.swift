@@ -18,6 +18,56 @@ class MoveObjectView: UIView {
     
     private func doInitSetup() {
         
+        let reArrangeOptions = ProjectSelectedOptions.rearrangeOptions
+        if let upOption = reArrangeOptions.first(where: { $0.type == .up }) {
+            if let icon = upOption.icon {
+                if let imageView = self.upArrowBtn.subviews.compactMap({ $0 as? UIImageView }).first {
+                    imageView.image = UIImage(named: icon)
+                }
+            }
+            if let name = upOption.name {
+                if let label = self.upArrowBtn.subviews.compactMap({ $0 as? UILabel }).first {
+                    label.text = name
+                }
+            }
+        }
+        if let downOption = reArrangeOptions.first(where: { $0.type == .down }) {
+            if let icon = downOption.icon {
+                if let imageView = self.downArrowBtn.subviews.compactMap({ $0 as? UIImageView }).first {
+                    imageView.image = UIImage(named: icon)
+                }
+            }
+            if let name = downOption.name {
+                if let label = self.downArrowBtn.subviews.compactMap({ $0 as? UILabel }).first {
+                    label.text = name
+                }
+            }
+        }
+        if let leftOption = reArrangeOptions.first(where: { $0.type == .left }) {
+            if let icon = leftOption.icon {
+                if let imageView = self.leftArrowBtn.subviews.compactMap({ $0 as? UIImageView }).first {
+                    imageView.image = UIImage(named: icon)
+                }
+            }
+            if let name = leftOption.name {
+                if let label = self.leftArrowBtn.subviews.compactMap({ $0 as? UILabel }).first {
+                    label.text = name
+                }
+            }
+        }
+        if let rightOption = reArrangeOptions.first(where: { $0.type == .right }) {
+            if let icon = rightOption.icon {
+                if let imageView = self.rightArrowBtn.subviews.compactMap({ $0 as? UIImageView }).first {
+                    imageView.image = UIImage(named: icon)
+                }
+            }
+            if let name = rightOption.name {
+                if let label = self.rightArrowBtn.subviews.compactMap({ $0 as? UILabel }).first {
+                    label.text = name
+                }
+            }
+        }
+        
         self.upArrowBtn.tag = RearrangeOption.up.rawValue
         self.downArrowBtn.tag = RearrangeOption.down.rawValue
         self.leftArrowBtn.tag = RearrangeOption.left.rawValue

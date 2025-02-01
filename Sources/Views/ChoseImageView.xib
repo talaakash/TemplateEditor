@@ -134,8 +134,9 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="chooseOptionCollection" destination="YxJ-Dq-QYA" id="098-2a-jD8"/>
+                <outlet property="chooseOptionCollection" destination="YxJ-Dq-QYA" id="Urx-te-SaE"/>
                 <outlet property="imgOptionCollectionHeightAnchor" destination="mal-XC-w0o" id="mSP-rM-URT"/>
+                <outlet property="viewBottomAnchor" destination="CRA-4Q-DC0" id="ml8-dQ-6Vs"/>
             </connections>
             <point key="canvasLocation" x="94.656488549618317" y="282.3943661971831"/>
         </view>

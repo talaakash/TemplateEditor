@@ -7,7 +7,7 @@ class LockOptionView: UIView {
     @IBOutlet private weak var selectedOptionSwitch: UISwitch!
     @IBOutlet private weak var lockOptionCollectionHeightAnchor: NSLayoutConstraint!
     
-    private var lockOptions: [LockOptions] = LockOptions.allCases
+    private var lockOptions: [GenericModel<LockOptions>] = ProjectSelectedOptions.lockOptions
     private var selectedIndexPath: IndexPath? {
         didSet {
             if let oldValue {
@@ -57,7 +57,7 @@ class LockOptionView: UIView {
 // MARK: - Private Methods
 extension LockOptionView {
     private func setSelectedCell(of indexPath: IndexPath) {
-        selectedOption = lockOptions[indexPath.item]
+        selectedOption = lockOptions[indexPath.item].type
         let cell = self.lockOptionCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.image = cell?.optionImage.image
         cell?.optionImage.tintColor = UIColor.fontColorC29800
@@ -72,7 +72,11 @@ extension LockOptionView {
     }
     
     private func setDataOfOption() {
-        self.selectedOptionLbl.text = selectedOption.name
+        if let name = self.lockOptions.first(where: { $0.type == self.selectedOption })?.name {
+            self.selectedOptionLbl.text = name
+        } else {
+            self.selectedOptionLbl.text = selectedOption.name
+        }
         switch selectedOption {
         case .interaction:
             self.selectedOptionSwitch.isOn = selectedView?.isUserInteractionEnabled ?? true
@@ -85,7 +89,7 @@ extension LockOptionView {
     
     private func editOptions() {
         if componentType == .menuBox {
-            self.lockOptions.removeAll(where: { $0 == .change })
+            self.lockOptions.removeAll(where: { $0.type == .change })
         }
     }
 }
@@ -114,8 +118,12 @@ extension LockOptionView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let lockOption = lockOptions[indexPath.item]
-        cell.optionLabel.text = lockOption.name
-        cell.optionImage.image = lockOption.iconName
+        cell.optionLabel.text = lockOption.name ?? lockOption.type.name
+        if let iconName = lockOption.icon {
+            cell.optionImage.image = UIImage(named: iconName)
+        } else {
+            cell.optionImage.image = lockOption.type.iconName
+        }
         DispatchQueue.main.async {
             if indexPath == self.selectedIndexPath {
                 self.setSelectedCell(of: indexPath)

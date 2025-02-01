@@ -83,3 +83,19 @@ struct MenuItemDetails: Decodable {
     var values: [String: String]?
 }
 
+// Generic Model for getting component from project
+public protocol EnumType { }
+
+public struct GenericModel<T: EnumType> {
+    public var type: T
+    public var name: String?
+    public var icon: String?
+    public var isPremium: Bool?
+    
+    public init(type: T, name: String? = nil, icon: String? = nil, isPremium: Bool? = nil) {
+        self.type = type
+        self.name = name
+        self.icon = icon
+        self.isPremium = isPremium
+    }
+}

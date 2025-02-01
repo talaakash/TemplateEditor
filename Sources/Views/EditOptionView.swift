@@ -4,7 +4,7 @@ class EditOptionView: UIView {
     @IBOutlet weak var editOptionCollection: UICollectionView!
     @IBOutlet private weak var closeBtn: UIControl!
     
-    var editOptions: [EditType] = []
+    var editOptions: [GenericModel<EditType>] = []
     var isRemoved: (() -> Void)?
     var selectedOption: ((EditType) -> Void)?
     
@@ -46,9 +46,13 @@ extension EditOptionView: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let currentOption = editOptions[indexPath.item]
-        cell.optionImage.image = currentOption.getIcon
-        cell.optionLabel.text = currentOption.name
-        cell.isPremiumFeature = currentOption.isPremiumFeature
+        if let imageName = currentOption.icon {
+            cell.optionImage.image = UIImage(named: imageName)
+        } else {
+            cell.optionImage.image = currentOption.type.getIcon
+        }
+        cell.optionLabel.text = currentOption.name ?? currentOption.type.name
+        cell.isPremiumFeature = currentOption.isPremium ?? currentOption.type.isPremiumFeature
         return cell
     }
     
@@ -57,6 +61,6 @@ extension EditOptionView: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedOption?(editOptions[indexPath.item])
+        self.selectedOption?(editOptions[indexPath.item].type)
     }
 }

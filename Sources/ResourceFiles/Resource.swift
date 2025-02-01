@@ -18,6 +18,22 @@ let isIpad = UIDevice.current.userInterfaceIdiom == .pad
 
 let isUserIsAdmin = true
 
+
+class ProjectSelectedOptions {
+    static var componentsTypes: [GenericModel<ComponentType>] = ComponentType.allCases.compactMap({ component in
+        return GenericModel(type: component)
+    })
+    static var editOptions: [GenericModel<EditType>] = EditType.allCases.compactMap({ type in
+        return GenericModel(type: type)
+    })
+    static var rearrangeOptions: [GenericModel<RearrangeOption>] = RearrangeOption.allCases.compactMap({ option in
+        return GenericModel(type: option)
+    })
+    static var lockOptions: [GenericModel<LockOptions>] = LockOptions.allCases.compactMap({ option in
+        return GenericModel(type: option)
+    })
+}
+
 //MARK: Temp resource
 extension UIColor {
     static let fontColorC29800 = UIColor(named: "fontColorC29800", in: packageBundle, compatibleWith: nil)
@@ -39,17 +55,9 @@ class UserDefaultsKeys {
 }
 
 class ViewControllers {
-    static let homeVCStoryBoardID = "HomeVC"
-    static let editorVCStoryBoardID = "EditorVC"
     static let menuEditorVCStoryBoardID = "MenuEditorVC"
-    static let paymentVCStoryBoardID = "PaymentVC"
     static let imageQualityInputControllerStoryBoardID = "ImageQualityInputController"
     static let menuStyleSelectionStoryBoardID = "MenuStyleSelection"
-    static let noInternetConnectionStoryBoardID = "NoInternetConnection"
-    static let mainTabControllerStoryBoardID = "MainTabController"
-    static let loginVCStoryBoardID = "LoginVC"
-    static let forgetPasswordVCStoryBoardID = "ForgetPasswordVC"
-    static let signupVCStoryBoardID = "SignupVC"
     static let exportOptionsStoryBoardID = "ExportOptions"
     static let qrPreviewerStoryBoardID = "QrPreviewer"
 }
