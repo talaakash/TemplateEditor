@@ -30,7 +30,20 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '15.0'
 
-  s.source_files = 'Classes/**/*.swift'
+  s.source_files = 'Sources/**/*.swift'
+  s.swift_version = '5.0'
+  
+  s.resources = [
+  'TemplateEditor/**/*.xib',
+  'TemplateEditor/**/*.storyboard',
+  'TemplateEditor/**/*.xcassets'
+  ]
+  
+  s.resource_bundles = {
+    'TemplateEditorResources' => ['TemplateEditor/**/*.xcassets']
+  }
+  
+  s.frameworks = 'UIKit'
   
   # s.resource_bundles = {
   #   'TemplateEditor' => ['TemplateEditor/Assets/*.png']
@@ -38,5 +51,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-#   s.dependency 'Kingfisher'
+   s.dependency 'Kingfisher'
 end

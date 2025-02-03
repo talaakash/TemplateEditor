@@ -6,7 +6,7 @@
 //
 
 
-//import Kingfisher
+import Kingfisher
 import UIKit
 
 //MARK: - KingFisher
@@ -27,13 +27,13 @@ extension UIImageView {
             return
         }
         
-//        let resource = KF.ImageResource(downloadURL: url, cacheKey: urlString)
-//        kf.indicatorType = .activity
-//        ImageCache.default.memoryStorage.config.totalCostLimit = 1
-//        kf.setImage(with: resource, options: isTestMode ? [.diskCacheExpiration(.seconds(1800))] : [.diskCacheExpiration(.days(30))], completionHandler: { retrievedImg in
-//            ImageCache.default.clearMemoryCache()
-//            completionHandler?()
-//        })
+        let resource = KF.ImageResource(downloadURL: url, cacheKey: urlString)
+        kf.indicatorType = .activity
+        ImageCache.default.memoryStorage.config.totalCostLimit = 1
+        kf.setImage(with: resource, options: [.diskCacheExpiration(.seconds(1800))], completionHandler: { retrievedImg in
+            ImageCache.default.clearMemoryCache()
+            completionHandler?()
+        })
     }
     
     func enableZoom() {

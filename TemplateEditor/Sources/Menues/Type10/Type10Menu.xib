@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Type10Menu" customModule="MenuMaker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="43"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="RAg-67-BoH">
+                    <rect key="frame" x="0.0" y="0.0" width="407" height="43"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="reS-Dt-z61">
+                            <rect key="frame" x="0.0" y="0.0" width="407" height="11.333333333333334"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCt-FH-G61">
+                            <rect key="frame" x="0.0" y="17.333333333333329" width="407" height="25.666666666666671"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="9OL-93-QUU" customClass="SeparatorStackView" customModule="MenuMaker" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="25.666666666666668"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" placeholder="YES" id="MF4-Ge-Z0Q"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="9OL-93-QUU" secondAttribute="bottom" id="Nji-rz-5ph"/>
+                                <constraint firstItem="9OL-93-QUU" firstAttribute="top" secondItem="QCt-FH-G61" secondAttribute="top" id="U0S-lb-l0K"/>
+                                <constraint firstItem="9OL-93-QUU" firstAttribute="leading" secondItem="QCt-FH-G61" secondAttribute="leading" id="jiv-0h-JGt"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9OL-93-QUU" secondAttribute="trailing" id="kdy-IG-lje"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="RAg-67-BoH" secondAttribute="trailing" id="3gg-4d-2SN"/>
+                <constraint firstItem="RAg-67-BoH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6si-VU-YfI"/>
+                <constraint firstItem="RAg-67-BoH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PBn-TX-qs8"/>
+                <constraint firstAttribute="bottom" secondItem="RAg-67-BoH" secondAttribute="bottom" id="S05-XN-eeB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="itemName" destination="reS-Dt-z61" id="7ke-ot-aaS"/>
+                <outlet property="itemValueContainer" destination="9OL-93-QUU" id="kqu-Ww-9op"/>
+            </connections>
+            <point key="canvasLocation" x="149" y="-293"/>
+        </view>
+    </objects>
+</document>
