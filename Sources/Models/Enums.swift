@@ -816,7 +816,7 @@ enum Spacing: CaseIterable {
     }
 }
 
-enum SaveContentSize: Float {
+public enum SaveContentSize: Float {
     case normal = 3
     case medium = 6
     case large = 9

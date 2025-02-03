@@ -135,44 +135,12 @@ extension EditorViewController {
     @IBAction private func exportBtnTapped(_ sender: UIControl) {
         self.viewModel.selectedView = nil
         if let json = getJsonData() {
-            let alertController = UIAlertController(title: "Dynamic Elements", message: "Do you wanna store it permanently?", preferredStyle: .actionSheet)
-            let yes = UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
-                ProgressView.shared.showProgress()
-                var jsonName = String(Int(Date().timeIntervalSince1970))
-                if let projectId = self?.projectId {
-                    jsonName = projectId
-                }
-                self?.storeJsonPermanently(with: jsonName,json: json, success: { [weak self] in
-                    ProgressView.shared.hideProgress()
-                    let successAlert = UIAlertController(title: "Template Editor", message: "Json Saved with Name:\n\(jsonName)", preferredStyle: .alert)
-                    successAlert.addAction(UIAlertAction(title: "Okay", style: .default))
-                    self?.present(successAlert, animated: true)
-                }, failure: { error in
-                    ProgressView.shared.hideProgress()
-                    debugPrint(error)
-                })
-            })
-            let no = UIAlertAction(title: "No store locally", style: .cancel, handler: { _ in
-                let jsonName = String(Int(Date().timeIntervalSince1970))
-                if let _ = StorageManager.shared.storeJson(with: jsonName, json: json, in: .json) {
-                    var jsonNames = UserDefaults.standard.value(forKey: UserDefaultsKeys.storedJsonNames) as? [String]
-                    let newName = "\(Folders.json.rawValue)/\(jsonName)"
-                    if jsonNames != nil {
-                        jsonNames?.append(newName)
-                    } else {
-                        jsonNames = [newName]
-                    }
-                    UserDefaults.standard.setValue(jsonNames, forKey: UserDefaultsKeys.storedJsonNames)
-                }
-            })
-            alertController.addAction(yes)
-            alertController.addAction(no)
-            self.present(alertController, animated: true)
+            EditController.exportDelegate?.exportedJson(json: json)
         }
     }
     
     @IBAction private func saveBtnTapped(_ sender: UIControl) {
-        let vc = self.storyboard?.instantiateViewController(identifier: ViewControllers.exportOptionsStoryBoardID) as! ExportOptions
+        let vc = self.storyboard?.instantiateViewController(identifier: "ExportOptions") as! ExportOptions
         vc.modalPresentationStyle = .overCurrentContext
         vc.exportOption = { [weak self] option in
             DispatchQueue.main.async {
@@ -182,7 +150,7 @@ extension EditorViewController {
                     guard isUserIsPaid else { self.userSelectedPremiumFeature?(); return }
                     self.generateQrCode()
                 case .pdf:
-                    let images = self.getImagesFromTemplate(with: .HD, contentSize: .medium)
+                    let images = self.getImagesFromTemplate(with: .HD, contentSize: EditController.exportDelegate?.getExportPdfSize() ?? .medium)
                     if let url = StorageManager.shared.generatePdf(from: images) {
                         ProgressView.shared.hideProgress()
                         let documentPicker = UIDocumentPickerViewController(forExporting: [url])
@@ -614,7 +582,7 @@ extension EditorViewController {
                 fontSize["itemNameFontSize"] = menuBox.itemNameFontSize
                 fontSize["itemDescriptionFontSize"] = menuBox.itemDescriptionFontSize
                 fontSize["itemValueFontSize"] = menuBox.itemValueFontSize
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllers.menuEditorVCStoryBoardID) as! MenuEditorVC
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuEditorVC") as! MenuEditorVC
                 vc.menuStyle = menuBox.menuStyle
                 vc.menuData = menuBox.data
                 vc.updatedData = { [weak self] newData in
@@ -701,7 +669,7 @@ extension EditorViewController {
     }
     
     private func saveImagesInGallery() {
-        let vc = self.storyboard?.instantiateViewController(identifier: ViewControllers.imageQualityInputControllerStoryBoardID) as! ImageQualityInputController
+        let vc = editorStoryBoard.instantiateViewController(identifier: "ImageQualityInputController") as! ImageQualityInputController
         vc.modalPresentationStyle = .overCurrentContext
         vc.selectedQuality = { [weak self] quality in
             switch quality {
@@ -715,51 +683,16 @@ extension EditorViewController {
     }
     
     private func generateQrCode() {
-//        guard let userId = UserManager.shared.currentUserId else { return }
         ProgressView.shared.showProgress()
         self.viewModel.selectedView = nil
-        if let json = getJsonData() {
-            let projectUniqueName = String(Int(Date().timeIntervalSince1970))
-            self.storeJsonPermanently(with: projectUniqueName,json: json, success: { }, failure: { error in
-                debugPrint(error)
-                ProgressView.shared.hideProgress()
-            }, getDocumentData: { [weak self] documentData in
-                self?.getPdfQrCode(success: { qrDetails in
-                    var templateData = documentData
-                    templateData.merge(qrDetails) { (_, new) in new }
-//                    FirestoreManager.shared.setSubDocument(in: .userDetails, subCollection: .userCreation, key: userId, data: templateData, success: {
-//                        ProgressView.shared.hideProgress()
-//                        debugPrint("Document saved successfully")
-//                    }, failure: { _ in
-//                        ProgressView.shared.hideProgress()
-//                    })
-                }, failure: { error in
-                    ProgressView.shared.hideProgress()
-                })
+        let images = self.getImagesFromTemplate(with: .HD, contentSize: EditController.exportDelegate?.getExportPdfSize() ?? .medium)
+        if let json = getJsonData(), let pdfData = UtilsManager.shared.generateAndGetPdfData(using: images) {
+            EditController.exportDelegate?.forQrCodeGenerationData(json: json, pdfData: pdfData, pdfUrl: { url, image in
+                if let qrImage = url.qrImage(withLogo: image) {
+                    EditController.exportDelegate?.yourQrCode(img: qrImage)
+                }
             })
         }
-    }
-    
-    private func getPdfQrCode(with img: UIImage = UIImage(), success: @escaping ([String: Any]) -> Void, failure: @escaping (String) -> Void) {
-//        let images = self.getImagesFromTemplate(with: .HD, contentSize: .normal)
-//        if let pdfData = UtilsManager.shared.generateAndGetPdfData(using: images) {
-//            FirebaseStorageManager.shared.storeData(type: .pdfs, data: pdfData, success: { downloadUrl in
-//                if let img = downloadUrl.qrImage(withLogo: img) {
-//                    FirebaseStorageManager.shared.storeData(type: .qrCodes, image: img, success: { qrUrl in
-//                        let data = ["pdfUrl": downloadUrl.absoluteString, "qrUrl": qrUrl.absoluteString]
-//                        success(data)
-//                    }, failure: { error in
-//                        failure(error)
-//                    })
-//                } else {
-//                    failure("somethingWentWrong".localize())
-//                }
-//            }, failure: { error in
-//                failure(error)
-//            })
-//        } else {
-//            failure("Something went wrong")
-//        }
     }
 }
 
@@ -1413,7 +1346,7 @@ extension EditorViewController {
     }
     
     private func presentMenuStylePicker() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: ViewControllers.menuStyleSelectionStoryBoardID) as! MenuStyleSelection
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuStyleSelection") as! MenuStyleSelection
         vc.modalPresentationStyle = .overCurrentContext
         
         vc.selectedMenuStyle = { style in
@@ -2679,14 +2612,7 @@ extension EditorViewController: UIColorPickerViewControllerDelegate {
 extension EditorViewController {
     func saveViewAsImageToPhotoLibrary(resolution: ImageResolution) {
         let images = self.getImagesFromTemplate(with: resolution, contentSize: .large)
-        for image in images {
-            PHPhotoLibrary.requestAuthorization { status in
-                guard status == .authorized else {
-                    return
-                }
-                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-            }
-        }
+        EditController.exportDelegate?.exportedImages(images: images)
     }
     
     func getImagesFromTemplate(with resolution: ImageResolution, contentSize: SaveContentSize) -> [UIImage] {
@@ -3115,111 +3041,6 @@ extension EditorViewController {
                 "preview_img": previewName ?? "",
                 "outputHeight": superViewHeight * 10,
                 "elements": elements]
-    }
-    
-    private func storeJsonPermanently(with name: String, json: [String: Any], success: @escaping () -> Void, failure: @escaping ErrorCallBack, getDocumentData: (([String: Any]) -> Void)? = nil) {
-//        var newJson = json
-        var totalImages = 0
-//        var previewImgSize: CGSize = CGSize()
-//        var uploadedImages = 0 {
-//            didSet {
-//                if uploadedImages == totalImages {
-//                    storeAllValue()
-//                }
-//            }
-//        }
-//        var newElements: [String: [[String: Any]]] = [:]
-        
-        func storeAllValue() {
-            // For current image in json will be deleted
-//            if isUserIsAdmin && (getDocumentData == nil) {
-//                if let templateData = self.templateData {
-//                    for (_, value) in templateData.elements {
-//                        for element in value {
-//                            if let componentType = ComponentType(rawValue: element.type), componentType == .image, let imgUrl = element.url {
-//                                FirebaseStorageManager.shared.deleteData(from: imgUrl)
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            newJson["elements"] = newElements
-//            var jsonPath: String?
-//            FirebaseStorageManager.shared.storeData(type: .jsons,name: name, json: newJson, success: { url in
-//                jsonPath = url.absoluteString
-//                let projectDetails = ["project_name": name,"json_path": url.absoluteString, "preview_width": previewImgSize.width, "preview_height": previewImgSize.height, "preview_img": newJson["preview_img"] as? String as Any]
-//                if let getDocumentData {
-//                    getDocumentData(projectDetails)
-//                    return
-//                }
-//                let key = FirestoreManager.shared.getUniqueID(collection: .template)
-//                if let projectId = self.projectId, isUserIsAdmin {
-//                    FirestoreManager.shared.updateDocument(collection: .template, key: "project_name", value: projectId, data: projectDetails, success: {
-//                        debugPrint("Project Updated")
-//                        success()
-//                    }, failure: { error in
-//                        failure(error)
-//                    })
-//                } else {
-//                    FirestoreManager.shared.setDocument(collection: .template, key: key, data: projectDetails, success: {
-//                        debugPrint("Project saved")
-//                        success()
-//                    }, failure: { error in
-//                        failure(error)
-//                    })
-//                }
-//                if isUserIsAdmin, let jsonPath {
-//                    ApiManager.shared.makeApiCall(type: DynamicUIData.self, url: jsonPath, success: { object in
-//                        self.viewModel.dynamicUIData = object
-//                        self.templateData = object
-//                        self.projectId = name
-//                    }, failure: { _ in })
-//                }
-//            }, failure: { error in
-//                failure(error)
-//            })
-        }
-        
-        if let previewImageName = UtilsManager.shared.findValueInJson(type: String.self, key: "preview_img", json: json), let _ = StorageManager.shared.getImage(fileName: previewImageName) {
-            StorageManager.shared.deleteFile(fileName: previewImageName)
-            totalImages += 1
-//            previewImgSize = image.size
-            if let imgUrl = self.templateData?.preview_img, let url = URL.init(string: imgUrl), url.isHosted(), isUserIsAdmin {
-//                FirebaseStorageManager.shared.updateImage(for: imgUrl, img: image, success: {
-//                    newJson["preview_img"] = imgUrl
-//                    uploadedImages += 1
-//                }, failure: { error in
-//                    debugPrint(error)
-//                })
-            } else {
-//                FirebaseStorageManager.shared.storeData(type: .previews, image: image, success: { imgUrl in
-//                    newJson["preview_img"] = imgUrl.absoluteString
-//                    uploadedImages += 1
-//                }, failure: { error in
-//                    debugPrint(error)
-//                })
-            }
-        }
-        
-//        if let elementsJson = UtilsManager.shared.findValueInJson(type: [String: [[String: Any]]].self, key: "elements", json: json) {
-//            newElements = elementsJson
-//            for mainIndex in 0...pageCount - 1 {
-//                if let elementArray = elementsJson["\(mainIndex)"] {
-//                    for (index, element) in elementArray.enumerated() {
-//                        if element["type"] as? String == ComponentType.image.rawValue, let imageName = element["url"] as? String, let image = StorageManager.shared.getImage(fileName: imageName) {
-//                            StorageManager.shared.deleteFile(fileName: imageName)
-//                            totalImages += 1
-//                            FirebaseStorageManager.shared.storeData(type: .images, image: image, success: { imgUrl in
-//                                newElements["\(mainIndex)"]?[index]["url"] = imgUrl.absoluteString
-//                                uploadedImages += 1
-//                            }, failure: { error in
-//                                debugPrint(error)
-//                            })
-//                        }
-//                    }
-//                }
-//            }
-//        }
     }
 }
 

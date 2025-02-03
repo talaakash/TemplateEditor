@@ -245,7 +245,7 @@
         <!--Image Quality Input Controller-->
         <scene sceneID="qcu-79-7Mv">
             <objects>
-                <viewController storyboardIdentifier="ImageQualityInputController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bpt-wh-ikJ" customClass="ImageQualityInputController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageQualityInputController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bpt-wh-ikJ" customClass="ImageQualityInputController" customModule="TemplateEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Fs-SQ-vYl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -276,23 +276,17 @@
                                             <action selector="cancelBtnTapped:" destination="bpt-wh-ikJ" eventType="touchUpInside" id="7q4-ds-Zy6"/>
                                         </connections>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW9-dC-w41" userLabel="Title Lbl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Quality" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OW9-dC-w41" userLabel="Title Lbl">
                                         <rect key="frame" x="16" y="15.999999999999998" width="293" height="23.333333333333329"/>
                                         <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="20"/>
                                         <color key="textColor" name="fontColor353535"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="qualityViewTitle"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ase-x1-eGZ" userLabel="Message Lbl">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the quality of the image to save" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ase-x1-eGZ" userLabel="Message Lbl">
                                         <rect key="frame" x="16" y="47.333333333333371" width="329" height="16.333333333333329"/>
                                         <fontDescription key="fontDescription" name="RalewayRoman-Regular" family="Raleway" pointSize="14"/>
                                         <color key="textColor" name="fontColor353535"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="qualityViewMessage"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="f67-N8-njo">
                                         <rect key="frame" x="16" y="87.666666666666686" width="329" height="52"/>
@@ -320,14 +314,11 @@
                                                             <constraint firstItem="owb-eI-pRe" firstAttribute="top" secondItem="dDB-sP-PJO" secondAttribute="top" id="m8o-BO-4Ob"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="519-Ra-J7n">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="519-Ra-J7n">
                                                         <rect key="frame" x="44.000000000000007" y="16.666666666666686" width="104.66666666666669" height="18.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="RalewayRoman-Medium" family="Raleway" pointSize="16"/>
                                                         <color key="textColor" name="fontColor353535"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="hdQuality"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="buttonBgF5C000"/>
@@ -380,14 +371,11 @@
                                                             <constraint firstItem="mdE-AC-zvU" firstAttribute="leading" secondItem="5Np-8b-T1e" secondAttribute="leading" id="yU9-NU-Ca8"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geh-wX-Bz3">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geh-wX-Bz3">
                                                         <rect key="frame" x="43.999999999999993" y="16.666666666666686" width="104.33333333333331" height="18.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="RalewayRoman-Medium" family="Raleway" pointSize="16"/>
                                                         <color key="textColor" name="fontColor353535"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="sdQuality"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" name="buttonBg353535"/>
@@ -422,14 +410,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pz7-Xm-66z" userLabel="ContinueBtn" customClass="UIControl">
                                         <rect key="frame" x="16" y="171.66666666666669" width="329" height="60"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJG-US-ci9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJG-US-ci9">
                                                 <rect key="frame" x="16" y="16" width="297" height="28"/>
                                                 <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="24"/>
                                                 <color key="textColor" name="fontColor353535"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="continueBtnTitle"/>
-                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" name="buttonBgF5C000"/>
@@ -951,26 +936,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7I-XV-tiG">
                                 <rect key="frame" x="16" y="258" width="361" height="336"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBU-Sw-QQv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBU-Sw-QQv">
                                         <rect key="frame" x="16" y="24" width="329" height="28"/>
                                         <fontDescription key="fontDescription" name="RalewayRoman-ExtraBold" family="Raleway" pointSize="24"/>
                                         <color key="textColor" name="fontColor353535"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="exportMenuHeading"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIa-Sl-U3k" customClass="UIControl">
                                         <rect key="frame" x="16" y="252" width="329" height="60"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-ip-TOl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBI-ip-TOl">
                                                 <rect key="frame" x="16" y="16" width="297" height="28"/>
                                                 <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="24"/>
                                                 <color key="textColor" name="fontColor353535"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="exportBtnTitle"/>
-                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" name="buttonBgF5C000"/>
@@ -1002,14 +981,11 @@
                                                             <constraint firstAttribute="height" constant="24" identifier="image_height" id="lS4-Eo-nLd"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-tw-Q2j">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-tw-Q2j">
                                                         <rect key="frame" x="48" y="12.333333333333313" width="273" height="23.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="RalewayRoman-SemiBold" family="Raleway" pointSize="20"/>
                                                         <color key="textColor" name="fontColor353535"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="qrFormat"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1047,14 +1023,11 @@
                                                             <constraint firstAttribute="width" constant="24" identifier="image_width" id="POK-hb-254"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsB-yJ-yNT">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Images" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsB-yJ-yNT">
                                                         <rect key="frame" x="48" y="12.333333333333313" width="273" height="23.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="RalewayRoman-SemiBold" family="Raleway" pointSize="20"/>
                                                         <color key="textColor" name="fontColor353535"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="choseImgBtnTitle"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1091,14 +1064,11 @@
                                                             <constraint firstAttribute="width" constant="24" identifier="image_width" id="xCz-vC-yNh"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLn-dt-JNE">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PDF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLn-dt-JNE">
                                                         <rect key="frame" x="48" y="12.333333333333313" width="273" height="23.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="RalewayRoman-SemiBold" family="Raleway" pointSize="20"/>
                                                         <color key="textColor" name="fontColor353535"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="pdfFormat"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1220,7 +1190,7 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qgF-le-tMH">
-                                        <rect key="frame" x="185.66666666666666" y="4.6666666666666643" width="66" height="29"/>
+                                        <rect key="frame" x="177.66666666666666" y="4.6666666666666643" width="66" height="29"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7U2-bU-rkW" userLabel="UndoBtn" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
@@ -1299,16 +1269,13 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRO-VP-LFE" customClass="UIControl">
-                                        <rect key="frame" x="267.66666666666669" y="0.0" width="55.333333333333314" height="38"/>
+                                        <rect key="frame" x="259.66666666666669" y="0.0" width="63.333333333333314" height="38"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-5F-pRC">
-                                                <rect key="frame" x="8" y="8" width="39.333333333333336" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Export" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-5F-pRC">
+                                                <rect key="frame" x="8" y="8" width="47.333333333333336" height="22"/>
                                                 <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="exportBtnTitle"/>
-                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" name="buttonBgF5C000"/>

@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class ProgressView: UIWindow {
-    static let shared = ProgressView()
+public class ProgressView: UIWindow {
+    public static let shared = ProgressView()
     
     private let containerView: UIView = {
         let view = UIView()
@@ -93,14 +93,14 @@ extension ProgressView {
 
 // MARK: Public methods
 extension ProgressView {
-    func showProgress() {
+    public func showProgress() {
         DispatchQueue.main.async {
             self.makeKeyAndVisible()
             self.addAnimations()
         }
     }
     
-    func hideProgress() {
+    public func hideProgress() {
         DispatchQueue.main.async {
             self.removeAnimations()
             self.resignKey()

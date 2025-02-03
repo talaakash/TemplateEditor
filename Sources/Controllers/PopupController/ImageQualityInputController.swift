@@ -54,13 +54,13 @@ class ImageQualityInputController: UIViewController {
 // MARK: - Private Methods
 extension ImageQualityInputController {
     private func select(btn button: UIControl) {
-        button.layer.borderColor = UIColor(named: "borderColorF5C000")?.cgColor
-        button.backgroundColor = UIColor(named: "buttonBgF5C000")?.withAlphaComponent(button.backgroundColorAlpha)
+        button.layer.borderColor = UIColor.borderColorF5C000?.cgColor
+        button.backgroundColor = UIColor.buttonBgF5C000?.withAlphaComponent(button.backgroundColorAlpha)
     }
     
     private func deSelect(btn button: UIControl) {
-        button.layer.borderColor = UIColor(named: "borderColor353535")?.cgColor
-        button.backgroundColor = UIColor(named: "buttonBg353535")?.withAlphaComponent(button.backgroundColorAlpha)
+        button.layer.borderColor = UIColor.borderColor353535?.cgColor
+        button.backgroundColor = UIColor.buttonBg353535?.withAlphaComponent(button.backgroundColorAlpha)
     }
     
     private func changeQualitySelection() {
@@ -68,13 +68,13 @@ extension ImageQualityInputController {
         case .SD:
             self.select(btn: sdBtn)
             self.deSelect(btn: hdBtn)
-            self.sdBtnImage.image = UIImage(named: "radioChecked")
-            self.hdBtnImage.image = UIImage(named: "radioUnChecked")
+            self.sdBtnImage.image = UIImage(named: "radioChecked", in: packageBundle, with: nil)
+            self.hdBtnImage.image = UIImage(named: "radioUnChecked", in: packageBundle, with: nil)
         case .HD:
             self.select(btn: hdBtn)
             self.deSelect(btn: sdBtn)
-            self.sdBtnImage.image = UIImage(named: "radioUnChecked")
-            self.hdBtnImage.image = UIImage(named: "radioChecked")
+            self.sdBtnImage.image = UIImage(named: "radioUnChecked", in: packageBundle, with: nil)
+            self.hdBtnImage.image = UIImage(named: "radioChecked", in: packageBundle, with: nil)
         }
     }
 }

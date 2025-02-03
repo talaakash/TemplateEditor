@@ -20,36 +20,6 @@ let isUserIsAdmin = true
 var isUserIsPaid = false
 
 
-//class ProjectSelectedOptions {
-//    static var componentsTypes: [GenericModel<ComponentType>] = ComponentType.allCases.compactMap({ component in
-//        return GenericModel(type: component)
-//    })
-//    static var editOptions: [GenericModel<EditType>] = EditType.allCases.compactMap({ type in
-//        return GenericModel(type: type)
-//    })
-//    static var rearrangeOptions: [GenericModel<RearrangeOption>] = RearrangeOption.allCases.compactMap({ option in
-//        return GenericModel(type: option)
-//    })
-//    static var lockOptions: [GenericModel<LockOptions>] = LockOptions.allCases.compactMap({ option in
-//        return GenericModel(type: option)
-//    })
-//    static var filePickTypes: [GenericModel<FilePickType>] = FilePickType.allCases.compactMap({ type in
-//        return GenericModel(type: type)
-//    })
-//    static var adjustmentOptions: [GenericModel<ImageFilters>] = ImageFilters.allCases.compactMap({ filter in
-//        return GenericModel(type: filter)
-//    })
-//    static var shadowOptions: [GenericModel<ShadowOption>] = ShadowOption.allCases.compactMap({ option in
-//        return GenericModel(type: option)
-//    })
-//    static var blendModeOptions: [GenericModel<BlendMode>] = BlendMode.allCases.compactMap({ mode in
-//        return GenericModel(type: mode)
-//    })
-//    static var pageEditType: [GenericModel<AddPageType>] = AddPageType.allCases.compactMap({ type in
-//        return GenericModel(type: type)
-//    })
-//}
-
 //MARK: Temp resource
 extension UIColor {
     static let fontColorC29800 = UIColor(named: "fontColorC29800", in: packageBundle, compatibleWith: nil)
@@ -57,6 +27,9 @@ extension UIColor {
     static let fontColor353535 = UIColor(named: "fontColor353535", in: packageBundle, compatibleWith: nil)
     static let buttonBgF5C000 = UIColor(named: "buttonBgF5C000", in: packageBundle, compatibleWith: nil)
     static let borderColorC29800 = UIColor(named: "borderColorC29800", in: packageBundle, compatibleWith: nil)
+    static let borderColorF5C000 = UIColor(named: "borderColorF5C000", in: packageBundle, compatibleWith: nil)
+    static let borderColor353535 = UIColor(named: "borderColor353535", in: packageBundle, compatibleWith: nil)
+    static let buttonBg353535 = UIColor(named: "buttonBg353535", in: packageBundle, compatibleWith: nil)
 }
 
 class UserDefaultsKeys {
@@ -68,12 +41,4 @@ class UserDefaultsKeys {
     static let purchasedPlanId = "purchasedPlanId"
     static let currentUserId = "currentUserId"
     static let launchCountInV = "launchCountInV"
-}
-
-class ViewControllers {
-    static let menuEditorVCStoryBoardID = "MenuEditorVC"
-    static let imageQualityInputControllerStoryBoardID = "ImageQualityInputController"
-    static let menuStyleSelectionStoryBoardID = "MenuStyleSelection"
-    static let exportOptionsStoryBoardID = "ExportOptions"
-    static let qrPreviewerStoryBoardID = "QrPreviewer"
 }

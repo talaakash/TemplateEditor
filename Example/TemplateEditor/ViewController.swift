@@ -143,9 +143,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func showEditorBtnTapped(_ sender: UIButton) {
+        EditController.featureDelegate = self
+        EditController.userDelegate = self
+        EditController.exportDelegate = self
         let editor = EditController()
-        EditController.delegate = self
-        editor.userDelegate = self
         editor.showEditor(from: self.navigationController!, with: getTestData())
     }
 }
@@ -160,6 +161,29 @@ extension ViewController: UserDetails {
     func userSelectedPremiumOption() {
         // This occur when user selected premium feature
         debugPrint("You dont have access to it")
+    }
+}
+
+// MARK: Export related delegate
+extension ViewController: ExportDetails {
+    func exportedJson(json: [String : Any]) {
+        print(json)
+    }
+    
+    func exportedImages(images: [UIImage]) {
+        
+    }
+    
+    func getExportPdfSize() -> TemplateEditor.SaveContentSize {
+        return .medium
+    }
+    
+    func forQrCodeGenerationData(json: [String : Any], pdfData: Data, pdfUrl: @escaping ((URL, UIImage) -> Void)) {
+        pdfUrl(URL(string: "https://www.google.com")!, UIImage())
+    }
+    
+    func yourQrCode(img: UIImage) {
+        
     }
 }
 
