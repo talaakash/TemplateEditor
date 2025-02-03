@@ -741,8 +741,8 @@ extension EditorViewController {
     }
     
     private func getPdfQrCode(with img: UIImage = UIImage(), success: @escaping ([String: Any]) -> Void, failure: @escaping (String) -> Void) {
-        let images = self.getImagesFromTemplate(with: .HD, contentSize: .normal)
-        if let pdfData = UtilsManager.shared.generateAndGetPdfData(using: images) {
+//        let images = self.getImagesFromTemplate(with: .HD, contentSize: .normal)
+//        if let pdfData = UtilsManager.shared.generateAndGetPdfData(using: images) {
 //            FirebaseStorageManager.shared.storeData(type: .pdfs, data: pdfData, success: { downloadUrl in
 //                if let img = downloadUrl.qrImage(withLogo: img) {
 //                    FirebaseStorageManager.shared.storeData(type: .qrCodes, image: img, success: { qrUrl in
@@ -757,9 +757,9 @@ extension EditorViewController {
 //            }, failure: { error in
 //                failure(error)
 //            })
-        } else {
-            failure("Something went wrong")
-        }
+//        } else {
+//            failure("Something went wrong")
+//        }
     }
 }
 
@@ -3118,33 +3118,33 @@ extension EditorViewController {
     }
     
     private func storeJsonPermanently(with name: String, json: [String: Any], success: @escaping () -> Void, failure: @escaping ErrorCallBack, getDocumentData: (([String: Any]) -> Void)? = nil) {
-        var newJson = json
+//        var newJson = json
         var totalImages = 0
-        var previewImgSize: CGSize = CGSize()
-        var uploadedImages = 0 {
-            didSet {
-                if uploadedImages == totalImages {
-                    storeAllValue()
-                }
-            }
-        }
-        var newElements: [String: [[String: Any]]] = [:]
+//        var previewImgSize: CGSize = CGSize()
+//        var uploadedImages = 0 {
+//            didSet {
+//                if uploadedImages == totalImages {
+//                    storeAllValue()
+//                }
+//            }
+//        }
+//        var newElements: [String: [[String: Any]]] = [:]
         
         func storeAllValue() {
             // For current image in json will be deleted
-            if isUserIsAdmin && (getDocumentData == nil) {
-                if let templateData = self.templateData {
-                    for (_, value) in templateData.elements {
-                        for element in value {
-                            if let componentType = ComponentType(rawValue: element.type), componentType == .image, let imgUrl = element.url {
+//            if isUserIsAdmin && (getDocumentData == nil) {
+//                if let templateData = self.templateData {
+//                    for (_, value) in templateData.elements {
+//                        for element in value {
+//                            if let componentType = ComponentType(rawValue: element.type), componentType == .image, let imgUrl = element.url {
 //                                FirebaseStorageManager.shared.deleteData(from: imgUrl)
-                            }
-                        }
-                    }
-                }
-            }
-            newJson["elements"] = newElements
-            var jsonPath: String?
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            newJson["elements"] = newElements
+//            var jsonPath: String?
 //            FirebaseStorageManager.shared.storeData(type: .jsons,name: name, json: newJson, success: { url in
 //                jsonPath = url.absoluteString
 //                let projectDetails = ["project_name": name,"json_path": url.absoluteString, "preview_width": previewImgSize.width, "preview_height": previewImgSize.height, "preview_img": newJson["preview_img"] as? String as Any]
@@ -3180,10 +3180,10 @@ extension EditorViewController {
 //            })
         }
         
-        if let previewImageName = UtilsManager.shared.findValueInJson(type: String.self, key: "preview_img", json: json), let image = StorageManager.shared.getImage(fileName: previewImageName) {
+        if let previewImageName = UtilsManager.shared.findValueInJson(type: String.self, key: "preview_img", json: json), let _ = StorageManager.shared.getImage(fileName: previewImageName) {
             StorageManager.shared.deleteFile(fileName: previewImageName)
             totalImages += 1
-            previewImgSize = image.size
+//            previewImgSize = image.size
             if let imgUrl = self.templateData?.preview_img, let url = URL.init(string: imgUrl), url.isHosted(), isUserIsAdmin {
 //                FirebaseStorageManager.shared.updateImage(for: imgUrl, img: image, success: {
 //                    newJson["preview_img"] = imgUrl
@@ -3201,25 +3201,25 @@ extension EditorViewController {
             }
         }
         
-        if let elementsJson = UtilsManager.shared.findValueInJson(type: [String: [[String: Any]]].self, key: "elements", json: json) {
-            newElements = elementsJson
-            for mainIndex in 0...pageCount - 1 {
-                if let elementArray = elementsJson["\(mainIndex)"] {
-                    for (index, element) in elementArray.enumerated() {
-                        if element["type"] as? String == ComponentType.image.rawValue, let imageName = element["url"] as? String, let image = StorageManager.shared.getImage(fileName: imageName) {
-                            StorageManager.shared.deleteFile(fileName: imageName)
-                            totalImages += 1
+//        if let elementsJson = UtilsManager.shared.findValueInJson(type: [String: [[String: Any]]].self, key: "elements", json: json) {
+//            newElements = elementsJson
+//            for mainIndex in 0...pageCount - 1 {
+//                if let elementArray = elementsJson["\(mainIndex)"] {
+//                    for (index, element) in elementArray.enumerated() {
+//                        if element["type"] as? String == ComponentType.image.rawValue, let imageName = element["url"] as? String, let image = StorageManager.shared.getImage(fileName: imageName) {
+//                            StorageManager.shared.deleteFile(fileName: imageName)
+//                            totalImages += 1
 //                            FirebaseStorageManager.shared.storeData(type: .images, image: image, success: { imgUrl in
 //                                newElements["\(mainIndex)"]?[index]["url"] = imgUrl.absoluteString
 //                                uploadedImages += 1
 //                            }, failure: { error in
 //                                debugPrint(error)
 //                            })
-                        }
-                    }
-                }
-            }
-        }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 }
 

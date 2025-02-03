@@ -146,7 +146,6 @@ class ViewController: UIViewController {
         let editor = EditController()
         EditController.delegate = self
         editor.userDelegate = self
-        let test = getTestData()
         editor.showEditor(from: self.navigationController!, with: getTestData())
     }
 }
