@@ -6,7 +6,7 @@ class AdjustmentView: UIView {
     @IBOutlet private weak var adjustmentSlider: UISlider!
     @IBOutlet private weak var filterCollectionHeightAnchor: NSLayoutConstraint!
     
-    private let availableFilters: [ImageFilters] = ImageFilters.allCases
+    private let availableFilters: [GenericModel<ImageFilters>] = EditController.adjustmentOptions
     private var sliderValues: [ImageFilters: Float] = [:]
     private var selectedFilter: ImageFilters? {
         didSet {
@@ -46,7 +46,7 @@ class AdjustmentView: UIView {
         self.filterCollection.registerNib(for: OptionCell.self)
         
         for filter in availableFilters {
-            self.sliderValues[filter] = 0
+            self.sliderValues[filter.type] = 0
         }
     }
     
@@ -136,7 +136,7 @@ extension AdjustmentView {
     }
     
     private func setSelectedCell(of indexPath: IndexPath) {
-        selectedFilter = availableFilters[indexPath.item]
+        selectedFilter = availableFilters[indexPath.item].type
         self.setDefaultFilterValue()
         let cell = self.filterCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.tintColor = UIColor.fontColorC29800
@@ -173,8 +173,13 @@ extension AdjustmentView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-        cell.optionImage.image = availableFilters[indexPath.row].iconName
-        cell.optionLabel.text = availableFilters[indexPath.row].title
+        let currentFilter = self.availableFilters[indexPath.item]
+        if let iconName = currentFilter.icon {
+            cell.optionImage.image = UIImage(named: iconName)
+        } else {
+            cell.optionImage.image = currentFilter.type.iconName
+        }
+        cell.optionLabel.text = currentFilter.name ?? currentFilter.type.title
         
         DispatchQueue.main.async {
             if indexPath == self.selectedIndexPath {

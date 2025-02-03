@@ -155,7 +155,7 @@ extension GridView {
     }
     
     private func addType1Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type1Menu", owner: nil, options: nil)?.first as? Type1Menu {
+        if let menuItem = UINib(nibName: "Type1Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type1Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor
@@ -173,7 +173,7 @@ extension GridView {
     }
     
     private func addType2Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type2Menu", owner: nil, options: nil)?.first as? Type2Menu {
+        if let menuItem = UINib(nibName: "Type2Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type2Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor
@@ -191,7 +191,7 @@ extension GridView {
     }
     
     private func addType3Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type3Menu", owner: nil, options: nil)?.first as? Type3Menu {
+        if let menuItem = UINib(nibName: "Type3Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type3Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor
@@ -209,7 +209,7 @@ extension GridView {
     }
     
     private func addType4Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type4Menu", owner: nil, options: nil)?.first as? Type4Menu {
+        if let menuItem = UINib(nibName: "Type4Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type4Menu {
             menuItem.headingFontColor = self.headingColor
             menuItem.descriptionFontColor = self.descriptionColor
             menuItem.valueFontColor = self.valueColor
@@ -225,7 +225,7 @@ extension GridView {
     }
     
     private func addType5Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type5Menu", owner: nil, options: nil)?.first as? Type5Menu {
+        if let menuItem = UINib(nibName: "Type5Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type5Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.headingFontColor = self.headingColor
             menuItem.descriptionFontColor = self.descriptionColor
@@ -242,7 +242,7 @@ extension GridView {
     }
     
     private func addType6Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type6Menu", owner: nil, options: nil)?.first as? Type6Menu {
+        if let menuItem = UINib(nibName: "Type6Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type6Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor
@@ -260,7 +260,7 @@ extension GridView {
     }
     
     private func addType7Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type7Menu", owner: nil, options: nil)?.first as? Type7Menu {
+        if let menuItem = UINib(nibName: "Type7Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type7Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.headingFontColor = self.headingColor
             menuItem.descriptionFontColor = self.descriptionColor
@@ -277,7 +277,7 @@ extension GridView {
     }
     
     private func addType8Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type8Menu", owner: nil, options: nil)?.first as? Type8Menu {
+        if let menuItem = UINib(nibName: "Type8Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type8Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.headingFontColor = self.headingColor
             menuItem.descriptionFontColor = self.descriptionColor
@@ -294,7 +294,7 @@ extension GridView {
     }
     
     private func addType9Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type9Menu", owner: nil, options: nil)?.first as? Type9Menu {
+        if let menuItem = UINib(nibName: "Type9Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type9Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor
@@ -312,7 +312,7 @@ extension GridView {
     }
     
     private func addType10Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type10Menu", owner: nil, options: nil)?.first as? Type10Menu {
+        if let menuItem = UINib(nibName: "Type10Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type10Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor
@@ -328,7 +328,7 @@ extension GridView {
     }
     
     private func addType11Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type11Menu", owner: nil, options: nil)?.first as? Type11Menu {
+        if let menuItem = UINib(nibName: "Type11Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type11Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.headingFontColor = self.headingColor
             menuItem.descriptionFontColor = self.descriptionColor
@@ -345,7 +345,7 @@ extension GridView {
     }
     
     private func addType12Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type12Menu", owner: nil, options: nil)?.first as? Type12Menu {
+        if let menuItem = UINib(nibName: "Type12Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type12Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor
@@ -363,7 +363,7 @@ extension GridView {
     }
     
     private func addType13Menu(with item: MenuItemDetails) {
-        if let menuItem = Bundle.main.loadNibNamed("Type13Menu", owner: nil, options: nil)?.first as? Type13Menu {
+        if let menuItem = UINib(nibName: "Type13Menu", bundle: packageBundle).instantiate(withOwner: nil).first as? Type13Menu {
             menuItem.columnWidth = self.columnWidth
             menuItem.noOfColumns = self.maxColumns
             menuItem.headingFontColor = self.headingColor

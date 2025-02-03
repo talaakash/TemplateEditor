@@ -17,7 +17,7 @@ class EditorViewController: UIViewController {
     private var isDataLoaded: Bool = false
     private var editOptionView: EditOptionView!
     private var viewModel = EditorViewModel()
-    private var componentTypes: [GenericModel] = ProjectSelectedOptions.componentsTypes
+    private var componentTypes: [GenericModel] = EditController.componentTypes
     private var bgImage: UIImage?
     private var widthSize: CGFloat = 0
     private var heightSize: CGFloat = 0
@@ -49,6 +49,7 @@ class EditorViewController: UIViewController {
     private var deletedIdentifierValue: [Int] = []
     var templateData: DynamicUIData?
     var projectId: String? = nil
+    var userSelectedPremiumFeature: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -178,8 +179,7 @@ extension EditorViewController {
                 guard let self = self else { return }
                 switch option {
                 case .qr:
-                    guard UserManager.shared.isUserLoggedIn else { self.showLoginAlert(); return }
-                    guard UserManager.shared.currentUserType == .paid else { self.showPremiumFeatureAlert(); return }
+                    guard isUserIsPaid else { self.userSelectedPremiumFeature?(); return }
                     self.generateQrCode()
                 case .pdf:
                     let images = self.getImagesFromTemplate(with: .HD, contentSize: .medium)
@@ -248,10 +248,6 @@ extension EditorViewController {
 
 // MARK: - Private methods
 extension EditorViewController {
-    private func showLoginAlert() {
-        
-    }
-    
     private func makeSubviewsBlink(view: UIView, times: Int, duration: TimeInterval) {
         guard times > 0 else { return }
         let views = view.subviews.filter({ $0.isUserInteractionEnabled })
@@ -264,15 +260,6 @@ extension EditorViewController {
                 self.makeSubviewsBlink(view: view, times: times - 1, duration: duration)
             }
         }
-    }
-
-    private func showPremiumFeatureAlert() {
-        self.alertController = AlertController(message: "You are trying to use premium feature")
-        self.alertController?.setBtn(title: "Continue", handler: { [weak self] in
-            
-        })
-        self.alertController?.setBtn(title: "Cancel", handler: { })
-        self.alertController?.showAlertBox()
     }
 
     private func checkForUndoRedoAvailability() {
@@ -583,8 +570,8 @@ extension EditorViewController {
     }
     
     private func selectedOption(_ option: EditType) {
-        if option.isPremiumFeature && UserManager.shared.currentUserType == .free {
-            self.showPremiumFeatureAlert()
+        if option.isPremiumFeature && !isUserIsPaid {
+            self.userSelectedPremiumFeature?()
             return
         }
         
@@ -728,7 +715,7 @@ extension EditorViewController {
     }
     
     private func generateQrCode() {
-        guard let userId = UserManager.shared.currentUserId else { return }
+//        guard let userId = UserManager.shared.currentUserId else { return }
         ProgressView.shared.showProgress()
         self.viewModel.selectedView = nil
         if let json = getJsonData() {
@@ -1430,10 +1417,10 @@ extension EditorViewController {
         vc.modalPresentationStyle = .overCurrentContext
         
         vc.selectedMenuStyle = { style in
-            if !style.isPremium || UserManager.shared.currentUserType == .paid {
+            if !style.isPremium || isUserIsPaid {
                 self.addMenuItem(type: style)
             } else {
-                self.showPremiumFeatureAlert()
+                self.userSelectedPremiumFeature?()
             }
         }
         
@@ -2777,7 +2764,7 @@ extension EditorViewController {
             self.pageCollection.layoutIfNeeded()
             let cell = self.pageCollection.cellForItem(at: indexPath) as? CanvasCell
             var waterMarkView: DraggableUIView?
-            if UserManager.shared.currentUserType == .free {
+            if !isUserIsPaid {
                 waterMarkView = self.getWaterMarkView()
                 cell?.mainView.addSubview(waterMarkView!)
             }
@@ -3293,8 +3280,8 @@ extension EditorViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard collectionView != pageCollection else { return }
-        if componentTypes[indexPath.item].type.isPremiumFeature && UserManager.shared.currentUserType == .free {
-            self.showPremiumFeatureAlert()
+        if componentTypes[indexPath.item].type.isPremiumFeature && !isUserIsPaid {
+            self.userSelectedPremiumFeature?()
             return
         }
         switch componentTypes[indexPath.item].type {

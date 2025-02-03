@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct DynamicUIData: Decodable {
+public struct DynamicUIData: Decodable {
     let superViewWidth: CGFloat
     let superViewHeight: CGFloat
     let preview_img: String?

@@ -45,7 +45,7 @@
                                 <action selector="closeBtnTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="tjd-yf-Rpg"/>
                             </connections>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmn-rW-Kfz">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmn-rW-Kfz">
                             <rect key="frame" x="52" y="9.6666666666666732" width="426" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="14"/>
                             <color key="textColor" name="fontColor353535"/>
@@ -136,7 +136,6 @@
             <connections>
                 <outlet property="chooseOptionCollection" destination="YxJ-Dq-QYA" id="Urx-te-SaE"/>
                 <outlet property="imgOptionCollectionHeightAnchor" destination="mal-XC-w0o" id="mSP-rM-URT"/>
-                <outlet property="viewBottomAnchor" destination="CRA-4Q-DC0" id="ml8-dQ-6Vs"/>
             </connections>
             <point key="canvasLocation" x="94.656488549618317" y="282.3943661971831"/>
         </view>

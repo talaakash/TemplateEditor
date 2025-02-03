@@ -6,7 +6,7 @@ class ShadowView: UIView {
     @IBOutlet private weak var adjustSlider: UISlider!
     @IBOutlet private weak var shadowOptionCollectionHeightAnchor: NSLayoutConstraint!
     
-    private var shadowOption: [ShadowOption] = ShadowOption.allCases
+    private var shadowOption: [GenericModel<ShadowOption>] = EditController.shadowOptions
     private var selectedOption: ShadowOption = .opacity {
         didSet {
             self.setSelectShadowOption(oldValue)
@@ -59,7 +59,7 @@ class ShadowView: UIView {
 // MARK: - Private Methods
 extension ShadowView {
     private func setSelectedCell(of indexPath: IndexPath) {
-        selectedOption = shadowOption[indexPath.item]
+        selectedOption = shadowOption[indexPath.item].type
         let cell = self.shadowOptionCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.image = cell?.optionImage.image
         cell?.optionImage.tintColor = UIColor.fontColorC29800
@@ -139,8 +139,12 @@ extension ShadowView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let option = shadowOption[indexPath.item]
-        cell.optionImage.image = option.iconName
-        cell.optionLabel.text = option.name
+        if let iconName = option.icon {
+            cell.optionImage.image = UIImage(named: iconName)
+        } else {
+            cell.optionImage.image = option.type.iconName
+        }
+        cell.optionLabel.text = option.name ?? option.type.name
         
         DispatchQueue.main.async {
             if indexPath == self.selectedIndexPath {

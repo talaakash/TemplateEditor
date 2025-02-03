@@ -7,7 +7,7 @@ class LockOptionView: UIView {
     @IBOutlet private weak var selectedOptionSwitch: UISwitch!
     @IBOutlet private weak var lockOptionCollectionHeightAnchor: NSLayoutConstraint!
     
-    private var lockOptions: [GenericModel<LockOptions>] = ProjectSelectedOptions.lockOptions
+    private var lockOptions: [GenericModel<LockOptions>] = EditController.lockOptions
     private var selectedIndexPath: IndexPath? {
         didSet {
             if let oldValue {

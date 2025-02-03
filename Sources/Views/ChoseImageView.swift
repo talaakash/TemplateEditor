@@ -5,7 +5,7 @@ class ChoseImageView: UIView {
     @IBOutlet private weak var chooseOptionCollection: UICollectionView!
     @IBOutlet private weak var imgOptionCollectionHeightAnchor: NSLayoutConstraint!
     
-    private let availableOption: [FilePickType] = FilePickType.allCases
+    private let availableOption: [GenericModel] = EditController.filePickTypes
     
     var actionHappen: ((ActionType) -> Void)?
     var selectedOption: ((FilePickType) -> Void)?
@@ -43,13 +43,18 @@ extension ChoseImageView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-        cell.optionImage.image = availableOption[indexPath.item].iconName
-        cell.optionLabel.text = availableOption[indexPath.item].name
+        let option = self.availableOption[indexPath.item]
+        if let iconName = option.icon {
+            cell.optionImage.image = UIImage(named: iconName)
+        } else {
+            cell.optionImage.image = option.type.iconName
+        }
+        cell.optionLabel.text = option.name ?? option.type.name
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedOption?(availableOption[indexPath.item])
+        self.selectedOption?(availableOption[indexPath.item].type)
         self.actionHappen?(.close)
     }
 }

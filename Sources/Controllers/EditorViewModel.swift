@@ -110,7 +110,7 @@ class EditorViewModel {
         guard let selectedView = selectedView else { return [] }
 
         var options: [GenericModel<EditType>] = []
-        let availableOptions = ProjectSelectedOptions.editOptions
+        let availableOptions = EditController.editOptions
         
         guard let componentName = selectedView.componentType, let componentType = ComponentType(rawValue: componentName) else { return options }
         

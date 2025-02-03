@@ -60,7 +60,7 @@ class AlertController{
             label.centerXAnchor.constraint(equalTo: control.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: control.centerYAnchor)
         ])
-        if UserManager.shared.currentUserType == .free, isPremiumFeature {
+        if isUserIsPaid, isPremiumFeature {
             let premiumView = UIImageView(image: UIImage(named: "premiumFeature"))
             premiumView.translatesAutoresizingMaskIntoConstraints = false
             control.addSubview(premiumView)

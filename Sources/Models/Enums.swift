@@ -310,7 +310,7 @@ enum ActionType {
     case close, check
 }
 
-enum BlendMode: String, CaseIterable {
+public enum BlendMode: String, CaseIterable, EnumType {
     case normal = ""
     case multiply = "multiplyBlendMode"
     case screen = "screenBlendMode"
@@ -373,7 +373,7 @@ enum BlendMode: String, CaseIterable {
     }
 }
 
-enum ImageFilters: CaseIterable {
+public enum ImageFilters: CaseIterable, EnumType {
     case brightness, contrast, saturation, exposure, vibrance, warmth, vignette
     
     var iconName: UIImage? {
@@ -415,7 +415,7 @@ enum ImageFilters: CaseIterable {
     }
 }
 
-enum FilePickType: CaseIterable {
+public enum FilePickType: CaseIterable, EnumType {
     case gallery, file, camera
     
     var iconName: UIImage? {
@@ -705,7 +705,7 @@ enum MenuStyle: Int, CaseIterable {
     }
 }
 
-enum ShadowOption: CaseIterable {
+public enum ShadowOption: CaseIterable, EnumType {
     case opacity, radius, width, height
     
     var iconName: UIImage? {
@@ -768,7 +768,7 @@ public enum LockOptions: CaseIterable, EnumType {
     }
 }
 
-enum AddPageType: CaseIterable {
+public enum AddPageType: CaseIterable, EnumType {
     case newPage, copyPage, deletePage
     
     var iconName: UIImage? {

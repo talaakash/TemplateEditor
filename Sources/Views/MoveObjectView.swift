@@ -18,7 +18,7 @@ class MoveObjectView: UIView {
     
     private func doInitSetup() {
         
-        let reArrangeOptions = ProjectSelectedOptions.rearrangeOptions
+        let reArrangeOptions = EditController.rearrangeOptions
         if let upOption = reArrangeOptions.first(where: { $0.type == .up }) {
             if let icon = upOption.icon {
                 if let imageView = self.upArrowBtn.subviews.compactMap({ $0 as? UIImageView }).first {

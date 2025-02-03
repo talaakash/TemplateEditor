@@ -17,22 +17,38 @@ var makeEditorScreenSecure: Bool = true
 let isIpad = UIDevice.current.userInterfaceIdiom == .pad
 
 let isUserIsAdmin = true
+var isUserIsPaid = false
 
 
-class ProjectSelectedOptions {
-    static var componentsTypes: [GenericModel<ComponentType>] = ComponentType.allCases.compactMap({ component in
-        return GenericModel(type: component)
-    })
-    static var editOptions: [GenericModel<EditType>] = EditType.allCases.compactMap({ type in
-        return GenericModel(type: type)
-    })
-    static var rearrangeOptions: [GenericModel<RearrangeOption>] = RearrangeOption.allCases.compactMap({ option in
-        return GenericModel(type: option)
-    })
-    static var lockOptions: [GenericModel<LockOptions>] = LockOptions.allCases.compactMap({ option in
-        return GenericModel(type: option)
-    })
-}
+//class ProjectSelectedOptions {
+//    static var componentsTypes: [GenericModel<ComponentType>] = ComponentType.allCases.compactMap({ component in
+//        return GenericModel(type: component)
+//    })
+//    static var editOptions: [GenericModel<EditType>] = EditType.allCases.compactMap({ type in
+//        return GenericModel(type: type)
+//    })
+//    static var rearrangeOptions: [GenericModel<RearrangeOption>] = RearrangeOption.allCases.compactMap({ option in
+//        return GenericModel(type: option)
+//    })
+//    static var lockOptions: [GenericModel<LockOptions>] = LockOptions.allCases.compactMap({ option in
+//        return GenericModel(type: option)
+//    })
+//    static var filePickTypes: [GenericModel<FilePickType>] = FilePickType.allCases.compactMap({ type in
+//        return GenericModel(type: type)
+//    })
+//    static var adjustmentOptions: [GenericModel<ImageFilters>] = ImageFilters.allCases.compactMap({ filter in
+//        return GenericModel(type: filter)
+//    })
+//    static var shadowOptions: [GenericModel<ShadowOption>] = ShadowOption.allCases.compactMap({ option in
+//        return GenericModel(type: option)
+//    })
+//    static var blendModeOptions: [GenericModel<BlendMode>] = BlendMode.allCases.compactMap({ mode in
+//        return GenericModel(type: mode)
+//    })
+//    static var pageEditType: [GenericModel<AddPageType>] = AddPageType.allCases.compactMap({ type in
+//        return GenericModel(type: type)
+//    })
+//}
 
 //MARK: Temp resource
 extension UIColor {

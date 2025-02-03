@@ -5,7 +5,7 @@ class AddPageView: UIView {
     @IBOutlet private weak var pageTypeCollection: UICollectionView!
     @IBOutlet private weak var pageTypeCollectionHeightAnchor: NSLayoutConstraint!
     
-    private var addPageData: [AddPageType] = AddPageType.allCases
+    private var addPageData: [GenericModel<AddPageType>] = EditController.pageEditType
     
     var selectedOption: ((AddPageType) -> Void)?
     var actionHappen: (() -> Void)?
@@ -45,12 +45,16 @@ extension AddPageView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let option = self.addPageData[indexPath.item]
-        cell.optionImage.image = option.iconName
-        cell.optionLabel.text = option.name
+        if let iconName = option.icon {
+            cell.optionImage.image = UIImage(named: iconName)
+        } else {
+            cell.optionImage.image = option.type.iconName
+        }
+        cell.optionLabel.text = option.name ?? option.type.name
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedOption?(self.addPageData[indexPath.item])
+        self.selectedOption?(self.addPageData[indexPath.item].type)
     }
 }
