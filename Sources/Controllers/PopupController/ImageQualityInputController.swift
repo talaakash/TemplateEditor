@@ -54,13 +54,13 @@ class ImageQualityInputController: UIViewController {
 // MARK: - Private Methods
 extension ImageQualityInputController {
     private func select(btn button: UIControl) {
-        button.layer.borderColor = UIColor.borderColorF5C000?.cgColor
-        button.backgroundColor = UIColor.buttonBgF5C000?.withAlphaComponent(button.backgroundColorAlpha)
+        button.layer.borderColor = Theme.primaryBorderColor?.cgColor
+        button.backgroundColor = Theme.primaryButtonColor?.withAlphaComponent(button.backgroundColorAlpha)
     }
     
     private func deSelect(btn button: UIControl) {
-        button.layer.borderColor = UIColor.borderColor353535?.cgColor
-        button.backgroundColor = UIColor.buttonBg353535?.withAlphaComponent(button.backgroundColorAlpha)
+        button.layer.borderColor = Theme.secondaryBorderColor?.cgColor
+        button.backgroundColor = Theme.secondaryButtonColor?.withAlphaComponent(button.backgroundColorAlpha)
     }
     
     private func changeQualitySelection() {

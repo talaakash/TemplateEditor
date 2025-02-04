@@ -106,6 +106,28 @@ public class EditController {
             }
         }
     }
+    static var resizeOptions: [GenericModel<ResizeOption>] {
+        get {
+            if let resizeOptions = featureDelegate?.getResizeOptions(), !resizeOptions.isEmpty {
+                return resizeOptions
+            } else {
+                return ResizeOption.allCases.compactMap({ option in
+                    return GenericModel(type: option)
+                })
+            }
+        }
+    }
+    static var menuSpacing: [GenericModel<Spacing>] {
+        get {
+            if let menuSpacing = featureDelegate?.getMenuSpacingOptions(), !menuSpacing.isEmpty {
+                return menuSpacing
+            } else {
+                return Spacing.allCases.compactMap({ option in
+                    return GenericModel(type: option)
+                })
+            }
+        }
+    }
     
     public static var featureDelegate: EditingTools?
     public static var userDelegate: UserDetails?

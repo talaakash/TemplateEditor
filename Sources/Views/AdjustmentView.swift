@@ -139,14 +139,14 @@ extension AdjustmentView {
         selectedFilter = availableFilters[indexPath.item].type
         self.setDefaultFilterValue()
         let cell = self.filterCollection.cellForItem(at: indexPath) as? OptionCell
-        cell?.optionImage.tintColor = UIColor.fontColorC29800
-        cell?.optionLabel.textColor = UIColor.fontColorC29800
+        cell?.optionImage.tintColor = Theme.primaryButtonColor
+        cell?.optionLabel.textColor = Theme.secondaryTextColor
     }
     
     private func setDeselectCell(of indexPath: IndexPath) {
         let cell = self.filterCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.tintColor = UIColor.black
-        cell?.optionLabel.textColor = UIColor.fontColor353535
+        cell?.optionLabel.textColor = Theme.primaryTextColor
     }
 }
 

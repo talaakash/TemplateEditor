@@ -66,16 +66,16 @@
                     </connections>
                 </slider>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtF-ln-82e" userLabel="FontStyle" customClass="UIControl">
-                    <rect key="frame" x="16" y="92" width="86" height="42"/>
+                    <rect key="frame" x="16" y="92" width="131.66666666666666" height="42"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdF-6Y-WV3">
-                            <rect key="frame" x="16" y="8" width="54" height="26"/>
+                            <rect key="frame" x="16.000000000000007" y="8" width="99.666666666666686" height="26"/>
                             <attributedString key="attributedText">
-                                <fragment content="Label">
+                                <fragment content="Font Style">
                                     <attributes>
-                                        <color key="NSColor" name="fontColorFFFFFF"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="22" name="RalewayRoman-Medium"/>
-                                        <font key="NSOriginalFont" size="22" name="RalewayRoman-Medium"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>
@@ -102,16 +102,16 @@
                     </connections>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iwj-R0-Vkn" userLabel="FontColor" customClass="UIControl">
-                    <rect key="frame" x="118" y="92" width="81" height="42"/>
+                    <rect key="frame" x="163.66666666666666" y="92" width="126.66666666666666" height="42"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jC7-D8-ObO">
-                            <rect key="frame" x="16" y="8" width="49" height="26"/>
+                            <rect key="frame" x="16" y="8" width="94.666666666666671" height="26"/>
                             <attributedString key="attributedText">
-                                <fragment content="Label">
+                                <fragment content="Font Color">
                                     <attributes>
                                         <color key="NSColor" name="fontColorFFFFFF"/>
                                         <font key="NSFont" size="20" name="RalewayRoman-Medium"/>
-                                        <font key="NSOriginalFont" size="20" name="RalewayRoman-Medium"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>

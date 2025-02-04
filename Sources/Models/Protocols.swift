@@ -16,6 +16,8 @@ public protocol EditingTools {
     func getShadowOptions() -> [GenericModel<ShadowOption>]
     func getBlendModeOptions() -> [GenericModel<BlendMode>]
     func getPageOptions() -> [GenericModel<AddPageType>]
+    func getResizeOptions() -> [GenericModel<ResizeOption>]
+    func getMenuSpacingOptions() -> [GenericModel<Spacing>]
 }
 
 // MARK: - Protocol for identify user selection and usertype
@@ -42,4 +44,6 @@ public extension EditingTools {
     func getShadowOptions() -> [GenericModel<ShadowOption>] { return [] }
     func getBlendModeOptions() -> [GenericModel<BlendMode>] { return [] }
     func getPageOptions() -> [GenericModel<AddPageType>] { return [] }
+    func getResizeOptions() -> [GenericModel<ResizeOption>] { return [] }
+    func getMenuSpacingOptions() -> [GenericModel<Spacing>] { return [] }
 }

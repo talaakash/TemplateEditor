@@ -50,15 +50,15 @@ class BlendModeView: UIView {
 extension BlendModeView {
     private func setSelectedCell(of indexPath: IndexPath) {
         let cell = self.blendModeCollection.cellForItem(at: indexPath) as? BlendModeCell
-        cell?.modeImage.layer.borderColor = UIColor.fontColorC29800?.cgColor
-        cell?.modeName.textColor = UIColor.fontColorC29800
+        cell?.modeImage.layer.borderColor = Theme.primaryButtonColor?.cgColor
+        cell?.modeName.textColor = Theme.secondaryTextColor
         self.blendModeCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     private func setDeselectCell(of indexPath: IndexPath) {
         let cell = self.blendModeCollection.cellForItem(at: indexPath) as? BlendModeCell
         cell?.modeImage.layer.borderColor = UIColor.clear.cgColor
-        cell?.modeName.textColor = UIColor.fontColor303030
+        cell?.modeName.textColor = Theme.primaryTextColor
     }
 }
 

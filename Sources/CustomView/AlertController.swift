@@ -46,14 +46,14 @@ class AlertController{
     
     func setBtn(title: String, isPremiumFeature: Bool = false, handler: @escaping () -> Void){
         let control = UIControl()
-        control.backgroundColor = UIColor.buttonBgF5C000
+        control.backgroundColor = Theme.primaryButtonColor
         control.layer.cornerRadius = (alertBox.btnViewHeight.constant / 2)
         let label = UILabel()
         label.text = title
         let fontSize: CGFloat = isIpad ? 22 : 1 == 0 ? 18 : 20
         label.font = UIFont(name: "RalewayRoman-Bold", size: fontSize)
         label.textAlignment = .center
-        label.textColor = UIColor.fontColor303030
+        label.textColor = Theme.primaryTextColor
         control.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

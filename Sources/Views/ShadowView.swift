@@ -62,15 +62,15 @@ extension ShadowView {
         selectedOption = shadowOption[indexPath.item].type
         let cell = self.shadowOptionCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.image = cell?.optionImage.image
-        cell?.optionImage.tintColor = UIColor.fontColorC29800
-        cell?.optionLabel.textColor = UIColor.fontColorC29800
+        cell?.optionImage.tintColor = Theme.primaryButtonColor
+        cell?.optionLabel.textColor = Theme.secondaryTextColor
     }
     
     private func setDeselectCell(of indexPath: IndexPath) {
         let cell = self.shadowOptionCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.image = cell?.optionImage.image
         cell?.optionImage.tintColor = .black
-        cell?.optionLabel.textColor = UIColor.fontColor353535
+        cell?.optionLabel.textColor = Theme.primaryTextColor
     }
     
     private func setSelectShadowOption(_ option: ShadowOption) {

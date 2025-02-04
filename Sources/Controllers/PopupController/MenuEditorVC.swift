@@ -85,7 +85,7 @@ extension MenuEditorVC: UITableViewDelegate, UITableViewDataSource, UITableViewD
         cell.editBtn.tag = indexPath.row
         GestureManager.shared.addTapGesture(to: cell.editBtn, target: self, action: #selector(editBtnTapped(_:)))
         
-        if let menuItem = Bundle.main.loadNibNamed("MenuItem", owner: nil, options: nil)?.first as? MenuItem {
+        if let menuItem = UINib(nibName: "MenuItem", bundle: packageBundle).instantiate(withOwner: nil).first as? MenuItem {
             menuItem.columnWidth = 30
             menuItem.noOfColumns = menuData.max(by: { $0.values?.count ?? 0 < $1.values?.count ?? 0 })?.values?.count ?? 0
             menuItem.data = item

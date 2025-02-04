@@ -174,29 +174,29 @@ extension EditorViewController {
             return
         }
         UndoRedoManager.shared.clearUndoRedoStack()
-        self.alertController = AlertController(message: "Do You want to save it?")
-        self.alertController?.setBtn(title: "Save", handler: { [weak self] in
-            if let json = self?.getJsonData() {
-                let jsonName = String(Int(Date().timeIntervalSince1970))
-                if let _ = StorageManager.shared.storeJson(with: jsonName, json: json, in: .json) {
-                    var jsonNames = UserDefaults.standard.value(forKey: UserDefaultsKeys.storedJsonNames) as? [String]
-                    let newName = "\(Folders.json.rawValue)/\(jsonName)"
-                    if jsonNames != nil {
-                        jsonNames?.append(newName)
-                    } else {
-                        jsonNames = [newName]
-                    }
-                    UserDefaults.standard.setValue(jsonNames, forKey: UserDefaultsKeys.storedJsonNames)
-                    UndoRedoManager.shared.clearUndoRedoStack()
-                    self?.navigationController?.popViewController(animated: true)
-                }
-            }
-        })
-        self.alertController?.setBtn(title: "Cancel", handler: { [weak self] in
-            UndoRedoManager.shared.clearUndoRedoStack()
-            self?.navigationController?.popViewController(animated: true)
-        })
-        self.alertController?.showAlertBox()
+//        self.alertController = AlertController(message: "Do You want to save it?")
+//        self.alertController?.setBtn(title: "Save", handler: { [weak self] in
+//            if let json = self?.getJsonData() {
+//                let jsonName = String(Int(Date().timeIntervalSince1970))
+//                if let _ = StorageManager.shared.storeJson(with: jsonName, json: json, in: .json) {
+//                    var jsonNames = UserDefaults.standard.value(forKey: UserDefaultsKeys.storedJsonNames) as? [String]
+//                    let newName = "\(Folders.json.rawValue)/\(jsonName)"
+//                    if jsonNames != nil {
+//                        jsonNames?.append(newName)
+//                    } else {
+//                        jsonNames = [newName]
+//                    }
+//                    UserDefaults.standard.setValue(jsonNames, forKey: UserDefaultsKeys.storedJsonNames)
+//                    UndoRedoManager.shared.clearUndoRedoStack()
+//                    self?.navigationController?.popViewController(animated: true)
+//                }
+//            }
+//        })
+//        self.alertController?.setBtn(title: "Cancel", handler: { [weak self] in
+//            UndoRedoManager.shared.clearUndoRedoStack()
+//            self?.navigationController?.popViewController(animated: true)
+//        })
+//        self.alertController?.showAlertBox()
     }
     
     @IBAction private func pageControlValueChanged(_ sender: UIPageControl) {
@@ -582,7 +582,7 @@ extension EditorViewController {
                 fontSize["itemNameFontSize"] = menuBox.itemNameFontSize
                 fontSize["itemDescriptionFontSize"] = menuBox.itemDescriptionFontSize
                 fontSize["itemValueFontSize"] = menuBox.itemValueFontSize
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuEditorVC") as! MenuEditorVC
+                let vc = editorStoryBoard.instantiateViewController(withIdentifier: "MenuEditorVC") as! MenuEditorVC
                 vc.menuStyle = menuBox.menuStyle
                 vc.menuData = menuBox.data
                 vc.updatedData = { [weak self] newData in
@@ -2559,7 +2559,7 @@ extension EditorViewController {
         let element = UIElement(type: ComponentType.label.rawValue, x: (widthSize / 2), y: ((heightSize - size.height) - 16), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Template Editor", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
         
         let lblView = self.createLabel(with: element, fontFamily: UIFont(name: "RalewayRoman-Bold", size: 18)!, scaleX: 1, scaleY: 1)
-        lblView.backgroundColor = UIColor.borderColorC29800
+        lblView.backgroundColor = Theme.primaryButtonColor
         lblView.cornerRadius = 10
         return lblView
     }
@@ -2933,12 +2933,6 @@ extension EditorViewController {
                                         elementDict["shadowRadius"] = innerSubview.layer.shadowRadius
                                         elementDict["shadowOffsetWidth"] = innerSubview.layer.shadowOffset.width
                                         elementDict["shadowOffsetHeight"] = innerSubview.layer.shadowOffset.height
-                                    }
-                                    if var usersImages = UserDefaults.standard.value(forKey: UserDefaultsKeys.imagesNames) as? [String] {
-                                        usersImages.append(imageName)
-                                        UserDefaults.standard.setValue(usersImages, forKey: UserDefaultsKeys.imagesNames)
-                                    } else {
-                                        UserDefaults.standard.setValue([imageName], forKey: UserDefaultsKeys.imagesNames)
                                     }
                                     currentElement.append(elementDict)
                                 }

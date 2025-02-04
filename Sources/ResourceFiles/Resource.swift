@@ -19,26 +19,11 @@ let isIpad = UIDevice.current.userInterfaceIdiom == .pad
 let isUserIsAdmin = true
 var isUserIsPaid = false
 
-
-//MARK: Temp resource
-extension UIColor {
-    static let fontColorC29800 = UIColor(named: "fontColorC29800", in: packageBundle, compatibleWith: nil)
-    static let fontColor303030 = UIColor(named: "fontColor303030", in: packageBundle, compatibleWith: nil)
-    static let fontColor353535 = UIColor(named: "fontColor353535", in: packageBundle, compatibleWith: nil)
-    static let buttonBgF5C000 = UIColor(named: "buttonBgF5C000", in: packageBundle, compatibleWith: nil)
-    static let borderColorC29800 = UIColor(named: "borderColorC29800", in: packageBundle, compatibleWith: nil)
-    static let borderColorF5C000 = UIColor(named: "borderColorF5C000", in: packageBundle, compatibleWith: nil)
-    static let borderColor353535 = UIColor(named: "borderColor353535", in: packageBundle, compatibleWith: nil)
-    static let buttonBg353535 = UIColor(named: "buttonBg353535", in: packageBundle, compatibleWith: nil)
-}
-
-class UserDefaultsKeys {
-    static let imagesNames = "imagesNames"
-    static let storedJsonNames = "storedJsonNames"
-    static let selectedLanguage = "selectedLanguage"
-    static let isPremiumUnlocked = "isPremiumUnlocked"
-    static let transactionId = "transactionId"
-    static let purchasedPlanId = "purchasedPlanId"
-    static let currentUserId = "currentUserId"
-    static let launchCountInV = "launchCountInV"
+class Theme {
+    static var primaryButtonColor = UIColor(hex: "#F5C000")
+    static var secondaryButtonColor = UIColor(hex: "#3535350A")
+    static var primaryTextColor = UIColor(hex: "#353535")
+    static var secondaryTextColor = UIColor(hex: "#C29800")
+    static var primaryBorderColor = UIColor(hex: "#F5C00033")
+    static var secondaryBorderColor = UIColor(hex: "#3535351A")
 }

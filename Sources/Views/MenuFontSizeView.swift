@@ -7,7 +7,7 @@ class MenuFontSizeView: UIView {
     @IBOutlet private weak var currentSizeLbl: UILabel!
     @IBOutlet private weak var resizeOptionCollectionHeightAnchor: NSLayoutConstraint!
     
-    private var availableOptions: [ResizeOption] = ResizeOption.allCases
+    private var availableOptions: [GenericModel<ResizeOption>] = EditController.resizeOptions
     private var currentOption: ResizeOption? {
         didSet {
             if let oldValue {
@@ -37,7 +37,7 @@ class MenuFontSizeView: UIView {
         didSet {
             switch forStyle {
             case .type2, .type9, .type10:
-                self.availableOptions.removeAll(where: { $0 == .itemDescription })
+                self.availableOptions.removeAll(where: { $0.type == .itemDescription })
             default:
                 break
             }
@@ -71,16 +71,16 @@ class MenuFontSizeView: UIView {
 // MARK: - Private methods
 extension MenuFontSizeView {
     private func setSelectedCell(of indexPath: IndexPath) {
-        currentOption = availableOptions[indexPath.item]
+        currentOption = availableOptions[indexPath.item].type
         let cell = self.resizeOptionCollection.cellForItem(at: indexPath) as? OptionCell
-        cell?.optionImage.tintColor = UIColor.fontColorC29800
-        cell?.optionLabel.textColor = UIColor.fontColorC29800
+        cell?.optionImage.tintColor = Theme.primaryButtonColor
+        cell?.optionLabel.textColor = Theme.secondaryTextColor
     }
     
     private func setDeselectCell(of indexPath: IndexPath) {
         let cell = self.resizeOptionCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.tintColor = .black
-        cell?.optionLabel.textColor = UIColor.fontColor353535
+        cell?.optionLabel.textColor = Theme.primaryTextColor
     }
 }
 
@@ -122,8 +122,13 @@ extension MenuFontSizeView: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
-        cell.optionImage.image = availableOptions[indexPath.item].iconName
-        cell.optionLabel.text = availableOptions[indexPath.item].name
+        let option = self.availableOptions[indexPath.item]
+        if let iconName = option.icon {
+            cell.optionImage.image = UIImage(named: iconName)
+        } else {
+            cell.optionImage.image = option.type.icon
+        }
+        cell.optionLabel.text = option.name ?? option.type.name
         
         DispatchQueue.main.async {
             if indexPath == self.selectedIndexPath {

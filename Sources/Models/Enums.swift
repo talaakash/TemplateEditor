@@ -278,12 +278,12 @@ enum ColorType {
     }
 }
 
-public enum ResizeOption: Int, CaseIterable {
+public enum ResizeOption: Int, CaseIterable, EnumType {
     case itemName = 0
     case itemDescription = 1
     case itemValue = 2
     
-    var iconName: UIImage? {
+    var icon: UIImage? {
         switch self {
         case .itemName:
             return UIImage(named: "heading", in: packageBundle, with: .none)
@@ -794,10 +794,10 @@ public enum AddPageType: CaseIterable, EnumType {
     }
 }
 
-enum Spacing: CaseIterable {
+public enum Spacing: CaseIterable, EnumType {
     case valueSpace, valueWidth
     
-    var iconName: UIImage? {
+    var icon: UIImage? {
         switch self {
         case .valueSpace:
             return UIImage(named: "intraction", in: packageBundle, with: .none)

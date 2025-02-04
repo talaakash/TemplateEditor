@@ -193,6 +193,19 @@ extension ViewController: EditingTools {
         return []
     }
     
+//    func getResizeOptions() -> [TemplateEditor.GenericModel<TemplateEditor.ResizeOption>] {
+//        return [
+//            GenericModel(type: .itemDescription, name: "Disco"),
+//            GenericModel(type: .itemValue, name: "Check")
+//        ]
+//    }
+//    
+//    func getMenuSpacingOptions() -> [TemplateEditor.GenericModel<TemplateEditor.Spacing>] {
+//        return [
+//            GenericModel(type: .valueWidth)
+//        ]
+//    }
+    
 //    func getPageOptions() -> [GenericModel<AddPageType>] {
 //        return [
 //            GenericModel(type: .copyPage),

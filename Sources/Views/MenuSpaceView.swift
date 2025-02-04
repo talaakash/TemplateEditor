@@ -6,7 +6,7 @@ class MenuSpaceView: UIView {
     @IBOutlet private weak var spaceAdjustSlider: UISlider!
     @IBOutlet private weak var spaceCollectionHeightAnchor: NSLayoutConstraint!
     
-    private let spaceOptions: [Spacing] = Spacing.allCases
+    private let spaceOptions: [GenericModel<Spacing>] = EditController.menuSpacing
     private var selectedOption: Spacing = .valueSpace
     private var selectedIndexPath: IndexPath? {
         didSet {
@@ -48,11 +48,11 @@ class MenuSpaceView: UIView {
 // MARK: - Private Methods
 extension MenuSpaceView {
     private func setSelectedCell(of indexPath: IndexPath) {
-        selectedOption = spaceOptions[indexPath.item]
+        selectedOption = spaceOptions[indexPath.item].type
         let cell = self.spaceOptionCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.image = cell?.optionImage.image
-        cell?.optionImage.tintColor = UIColor.fontColorC29800
-        cell?.optionLabel.textColor = UIColor.fontColorC29800
+        cell?.optionImage.tintColor = Theme.primaryButtonColor
+        cell?.optionLabel.textColor = Theme.secondaryTextColor
         switch selectedOption {
         case .valueSpace:
             self.spaceAdjustSlider.value = Float(self.valueSpace ?? 0)
@@ -65,7 +65,7 @@ extension MenuSpaceView {
         let cell = self.spaceOptionCollection.cellForItem(at: indexPath) as? OptionCell
         cell?.optionImage.image = cell?.optionImage.image
         cell?.optionImage.tintColor = .black
-        cell?.optionLabel.textColor = UIColor.fontColor353535
+        cell?.optionLabel.textColor = Theme.primaryTextColor
         switch selectedOption {
         case .valueSpace:
             self.valueSpace = CGFloat(self.spaceAdjustSlider.value)
@@ -98,8 +98,12 @@ extension MenuSpaceView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell
         let option = self.spaceOptions[indexPath.item]
-        cell.optionImage.image = option.iconName
-        cell.optionLabel.text = option.name
+        if let iconName = option.icon {
+            cell.optionImage.image = UIImage(named: iconName)
+        } else {
+            cell.optionImage.image = option.type.icon
+        }
+        cell.optionLabel.text = option.name ?? option.type.name
         DispatchQueue.main.async {
             if indexPath == self.selectedIndexPath {
                 self.setSelectedCell(of: indexPath)
