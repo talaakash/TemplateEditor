@@ -19,11 +19,11 @@ let isIpad = UIDevice.current.userInterfaceIdiom == .pad
 let isUserIsAdmin = true
 var isUserIsPaid = false
 
-class Theme {
-    static var primaryButtonColor = UIColor(hex: "#F5C000")
-    static var secondaryButtonColor = UIColor(hex: "#3535350A")
-    static var primaryTextColor = UIColor(hex: "#353535")
-    static var secondaryTextColor = UIColor(hex: "#C29800")
-    static var primaryBorderColor = UIColor(hex: "#F5C00033")
-    static var secondaryBorderColor = UIColor(hex: "#3535351A")
+public class Theme {
+    public static var primaryButtonColor = UIColor(hex: "#F5C000")
+    public static var secondaryButtonColor = UIColor(hex: "#353535")
+    public static var primaryTextColor = UIColor(hex: "#353535")
+    public static var secondaryTextColor = UIColor(hex: "#C29800")
+    public static var primaryBorderColor = UIColor(hex: "#F5C00033")
+    public static var secondaryBorderColor = UIColor(hex: "#3535351A")
 }

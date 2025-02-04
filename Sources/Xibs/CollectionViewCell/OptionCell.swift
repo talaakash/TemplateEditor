@@ -32,6 +32,7 @@ class OptionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.optionLabel.textColor = Theme.primaryTextColor
     }
 
 }

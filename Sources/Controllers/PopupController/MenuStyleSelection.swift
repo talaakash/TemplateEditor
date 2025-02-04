@@ -10,6 +10,8 @@ import UIKit
 class MenuStyleSelection: UIViewController {
 
     @IBOutlet private weak var styleCollection: UICollectionView!
+    @IBOutlet private weak var swipeView: UIView!
+    @IBOutlet private weak var headingLbl: UILabel!
     
     private var menuStyles: [MenuStyle] = MenuStyle.allCases
     
@@ -21,6 +23,8 @@ class MenuStyleSelection: UIViewController {
     }
     
     private func doInitSetup() {
+        self.headingLbl.textColor = Theme.primaryTextColor
+        self.swipeView.backgroundColor = Theme.primaryButtonColor
         self.styleCollection.registerNib(for: MenuStyleCell.self)
     }
 }

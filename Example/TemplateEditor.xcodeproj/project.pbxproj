@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7C9055FC7B16A1248DCE5052 /* Pods_TemplateEditor_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341692E049633C1E40D18BC6 /* Pods_TemplateEditor_Tests.framework */; };
+		CE2C79322D51DA7000DF6D27 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = CE2C79312D51DA7000DF6D27 /* Localizable.xcstrings */; };
 		E6F4CBA194FB64E3C5595EFE /* Pods_TemplateEditor_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67E6F02008DC177201F9CF2E /* Pods_TemplateEditor_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		7F1755732EB025EBC27B79C7 /* Pods-TemplateEditor_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateEditor_Tests.release.xcconfig"; path = "Target Support Files/Pods-TemplateEditor_Tests/Pods-TemplateEditor_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BD544CA1ECD5611584484F55 /* TemplateEditor.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TemplateEditor.podspec; path = ../TemplateEditor.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C9DC98A3FC9297D5BFE5B41C /* Pods-TemplateEditor_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateEditor_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TemplateEditor_Tests/Pods-TemplateEditor_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE2C79312D51DA7000DF6D27 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				CE2C79312D51DA7000DF6D27 /* Localizable.xcstrings */,
 			);
 			name = "Example for TemplateEditor";
 			path = TemplateEditor;
@@ -247,6 +250,7 @@
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				CE2C79322D51DA7000DF6D27 /* Localizable.xcstrings in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +428,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -470,6 +475,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;

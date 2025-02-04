@@ -11,6 +11,7 @@ import UIKit
 class MenuEditorVC: UIViewController {
 
     @IBOutlet private weak var menuItemsTbl: UITableView!
+    @IBOutlet private weak var saveBtn: UIControl!
     
     var menuStyle: MenuStyle = .type1
     var menuData: [MenuItemDetails] = []
@@ -22,6 +23,10 @@ class MenuEditorVC: UIViewController {
     }
     
     private func doInitSetup() {
+        self.saveBtn.backgroundColor = Theme.primaryButtonColor
+        if let lbl = self.saveBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            lbl.textColor = Theme.primaryTextColor
+        }
         self.menuItemsTbl.registerNib(for: MenuItemEditorCell.self)
         self.menuItemsTbl.dragDelegate = self
     }

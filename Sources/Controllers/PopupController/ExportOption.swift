@@ -16,6 +16,8 @@ class ExportOptions: UIViewController {
     @IBOutlet private weak var qrCodeBtn: UIControl!
     @IBOutlet private weak var imagesBtn: UIControl!
     @IBOutlet private weak var pdfBtn: UIControl!
+    @IBOutlet private weak var headingLbl: UILabel!
+    @IBOutlet private weak var exportBtn: UIControl!
     
     private var selectedOption: ExportOption = .qr {
         didSet {
@@ -26,7 +28,25 @@ class ExportOptions: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        doInitSetup()
+    }
+    
+    private func doInitSetup() {
         self.selectedOption = .qr
+        self.exportBtn.backgroundColor = Theme.primaryButtonColor
+        self.headingLbl.textColor = Theme.primaryTextColor
+        if let lbl = self.exportBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            lbl.textColor = Theme.primaryTextColor
+        }
+        if let lbl = self.pdfBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            lbl.textColor = Theme.primaryTextColor
+        }
+        if let lbl = self.imagesBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            lbl.textColor = Theme.primaryTextColor
+        }
+        if let lbl = self.qrCodeBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            lbl.textColor = Theme.primaryTextColor
+        }
     }
 }
 

@@ -14,6 +14,7 @@ class ImageQualityInputController: UIViewController {
     @IBOutlet private weak var sdBtn: UIControl!
     @IBOutlet private weak var hdBtnImage: UIImageView!
     @IBOutlet private weak var sdBtnImage: UIImageView!
+    @IBOutlet private weak var continueBtn: UIControl!
     @IBOutlet private weak var mainViewLeadingAnchor: NSLayoutConstraint!
     @IBOutlet private weak var mainViewTrailingAnchor: NSLayoutConstraint!
     
@@ -29,6 +30,25 @@ class ImageQualityInputController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        doInitSetup()
+    }
+    
+    private func doInitSetup() {
+        self.continueBtn.backgroundColor = Theme.primaryButtonColor
+        if let continueBtnLbl = self.continueBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            continueBtnLbl.textColor = Theme.primaryTextColor
+        }
+        if let sdBtnLbl = self.sdBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            sdBtnLbl.textColor = Theme.primaryTextColor
+        }
+        if let hdBtnLbl = self.hdBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            hdBtnLbl.textColor = Theme.primaryTextColor
+        }
+        for subView in self.mainView.subviews {
+            if let lbl = subView as? UILabel {
+                lbl.textColor = Theme.primaryTextColor
+            }
+        }
     }
     
     override func viewDidLayoutSubviews() {

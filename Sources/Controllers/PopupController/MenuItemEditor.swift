@@ -17,6 +17,7 @@ class MenuItemEditor: UIViewController {
     @IBOutlet private weak var itemNameLbl: UILabel!
     @IBOutlet private weak var itemNameTxt: UITextView!
     @IBOutlet private weak var itemDescriptionTxt: UITextView!
+    @IBOutlet private weak var saveBtn: UIControl!
     @IBOutlet private weak var mainViewLeadingAnchor: NSLayoutConstraint!
     @IBOutlet private weak var mainViewTrailingAnchor: NSLayoutConstraint!
     
@@ -35,6 +36,12 @@ class MenuItemEditor: UIViewController {
     }
     
     private func doInitSetup() {
+        self.saveBtn.backgroundColor = Theme.primaryButtonColor
+        for subView in self.mainView.subviews {
+            if let lbl = subView as? UILabel {
+                lbl.textColor = Theme.primaryTextColor
+            }
+        }
         self.costTbl.registerNib(for: ItemCostCell.self)
         
         if menuStyle == .type11 || menuStyle == .type7 || menuStyle == .type8 {

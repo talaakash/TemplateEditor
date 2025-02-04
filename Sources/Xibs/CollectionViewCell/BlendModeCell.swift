@@ -7,6 +7,7 @@ class BlendModeCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.modeName.textColor = Theme.primaryTextColor
     }
 
 }

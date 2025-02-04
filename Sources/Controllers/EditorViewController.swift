@@ -11,6 +11,7 @@ class EditorViewController: UIViewController {
     @IBOutlet private weak var exportBtn: UIControl!
     @IBOutlet private weak var undoRedoBtnTrailingAnchor: NSLayoutConstraint!
     @IBOutlet private weak var componentCollectionHeightAnchor: NSLayoutConstraint!
+    @IBOutlet private weak var saveBtn: UIControl!
     
     private var alertController: AlertController?
     private var isNeedToStartFromScratch: Bool = false
@@ -63,6 +64,11 @@ class EditorViewController: UIViewController {
         
         self.componentCollection.registerNib(for: OptionCell.self)
         
+        self.exportBtn.backgroundColor = Theme.primaryButtonColor
+        if let lbl = self.exportBtn.subviews.compactMap({ $0 as? UILabel }).first {
+            lbl.textColor = Theme.primaryTextColor
+        }
+        self.saveBtn.backgroundColor = Theme.primaryButtonColor
         self.pageControl.isHidden = true
         self.currentPageIndex = 1
         
