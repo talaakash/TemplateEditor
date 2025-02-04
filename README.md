@@ -6,6 +6,15 @@
 [![Platform](https://img.shields.io/cocoapods/p/TemplateEditor.svg?style=flat)](https://cocoapods.org/pods/TemplateEditor)
 
 ## Example
+In your project just import this pod and from controller you open editing screen just write code beloew
+```ruby
+EditController.featureDelegate = self
+EditController.userDelegate = self
+EditController.exportDelegate = self
+let editor = EditController()
+editor.showEditor(from: self.navigationController!)
+```
+One more thing you have to handle delegate method of it for customised options
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
@@ -22,7 +31,7 @@ pod 'TemplateEditor'
 
 ## Author
 
-talaakash, akasht.noble@gmail.com
+Tala Akash, akasht.noble@gmail.com
 
 ## License
 
