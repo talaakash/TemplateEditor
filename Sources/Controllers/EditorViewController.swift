@@ -1,3 +1,11 @@
+//
+//  EditorViewController.swift
+//  Pods
+//
+//  Created by Akash Tala on 05/02/25.
+//
+
+
 import UIKit
 import Photos
 
@@ -13,7 +21,6 @@ class EditorViewController: UIViewController {
     @IBOutlet private weak var componentCollectionHeightAnchor: NSLayoutConstraint!
     @IBOutlet private weak var saveBtn: UIControl!
     
-    private var alertController: AlertController?
     private var isNeedToStartFromScratch: Bool = false
     private var isDataLoaded: Bool = false
     private var editOptionView: EditOptionView!
@@ -68,7 +75,7 @@ class EditorViewController: UIViewController {
         if let lbl = self.exportBtn.subviews.compactMap({ $0 as? UILabel }).first {
             lbl.textColor = Theme.primaryTextColor
         }
-        self.saveBtn.backgroundColor = Theme.primaryButtonColor
+//        self.saveBtn.backgroundColor = Theme.primaryButtonColor
         self.pageControl.isHidden = true
         self.currentPageIndex = 1
         
@@ -146,31 +153,39 @@ extension EditorViewController {
     }
     
     @IBAction private func saveBtnTapped(_ sender: UIControl) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "ExportOptions") as! ExportOptions
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.exportOption = { [weak self] option in
+        EditController.exportDelegate?.getSaveOption(completion: { [weak self] option, contentSize in
             DispatchQueue.main.async {
-                guard let self = self else { return }
+                ProgressView.shared.showProgress()
                 switch option {
                 case .qr:
-                    guard isUserIsPaid else { self.userSelectedPremiumFeature?(); return }
-                    self.generateQrCode()
+                    let images = self?.getImagesFromTemplate(with: .HD, contentSize: contentSize)
+                    guard let json = self?.getJsonData(), let pdfData = UtilsManager.shared.generateAndGetPdfData(using: images ?? []) else {
+                        EditController.exportDelegate?.somethingWentWrong(); return }
+                    EditController.exportDelegate?.forQrCodeGeneration(json: json, pdfData: pdfData, pdfUrl: { pdfUrl,image  in
+                        ProgressView.shared.hideProgress()
+                        if let qrCodeImg = pdfUrl.qrImage(withLogo: image) {
+                            EditController.exportDelegate?.yourQrCode(img: qrCodeImg)
+                        } else {
+                            EditController.exportDelegate?.somethingWentWrong()
+                        }
+                    })
                 case .pdf:
-                    let images = self.getImagesFromTemplate(with: .HD, contentSize: EditController.exportDelegate?.getExportPdfSize() ?? .medium)
-                    if let url = StorageManager.shared.generatePdf(from: images) {
+                    if let images = self?.getImagesFromTemplate(with: .HD, contentSize: contentSize),
+                       let url = StorageManager.shared.generatePdf(from: images) {
                         ProgressView.shared.hideProgress()
                         let documentPicker = UIDocumentPickerViewController(forExporting: [url])
                         documentPicker.delegate = self
-                        self.present(documentPicker, animated: true)
+                        self?.present(documentPicker, animated: true)
                     } else {
-                        ProgressView.shared.hideProgress()
+                        EditController.exportDelegate?.somethingWentWrong();
                     }
-                case .images:
-                    self.saveImagesInGallery()
+                case .image:
+                    let images = self?.getImagesFromTemplate(with: .HD, contentSize: contentSize)
+                    ProgressView.shared.hideProgress()
+                    EditController.exportDelegate?.exportedImages(images: images ?? [])
                 }
             }
-        }
-        self.navigationController?.present(vc, animated: false)
+        })
     }
     
     @IBAction func backBtnTapped(_ sender: UIControl) {
@@ -671,33 +686,6 @@ extension EditorViewController {
             default:
                 break
             }
-        }
-    }
-    
-    private func saveImagesInGallery() {
-        let vc = editorStoryBoard.instantiateViewController(identifier: "ImageQualityInputController") as! ImageQualityInputController
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.selectedQuality = { [weak self] quality in
-            switch quality {
-            case .SD:
-                self?.saveViewAsImageToPhotoLibrary(resolution: .SD)
-            case .HD:
-                self?.saveViewAsImageToPhotoLibrary(resolution: .HD)
-            }
-        }
-        self.present(vc, animated: false)
-    }
-    
-    private func generateQrCode() {
-        ProgressView.shared.showProgress()
-        self.viewModel.selectedView = nil
-        let images = self.getImagesFromTemplate(with: .HD, contentSize: EditController.exportDelegate?.getExportPdfSize() ?? .medium)
-        if let json = getJsonData(), let pdfData = UtilsManager.shared.generateAndGetPdfData(using: images) {
-            EditController.exportDelegate?.forQrCodeGenerationData(json: json, pdfData: pdfData, pdfUrl: { url, image in
-                if let qrImage = url.qrImage(withLogo: image) {
-                    EditController.exportDelegate?.yourQrCode(img: qrImage)
-                }
-            })
         }
     }
 }

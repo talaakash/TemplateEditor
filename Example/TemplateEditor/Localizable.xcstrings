@@ -56,39 +56,6 @@
         }
       }
     },
-    "hdBtnTitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "HD"
-          }
-        }
-      }
-    },
-    "imageQualityDescription" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select the quality of the image to save"
-          }
-        }
-      }
-    },
-    "imageQualityTitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose Quality"
-          }
-        }
-      }
-    },
     "imagesBtn" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -184,17 +151,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save Menu"
-          }
-        }
-      }
-    },
-    "sdBtnTitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "SD"
           }
         }
       }

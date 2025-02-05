@@ -1,6 +1,14 @@
+//
+//  ImageResolution.swift
+//  Pods
+//
+//  Created by Akash Tala on 05/02/25.
+//
+
+
 import UIKit
 
-enum ImageResolution {
+public enum ImageResolution {
     case SD
     case HD
 
@@ -820,4 +828,8 @@ public enum SaveContentSize: Float {
     case normal = 3
     case medium = 6
     case large = 9
+}
+
+public enum ExportOption {
+    case qr, pdf, image
 }

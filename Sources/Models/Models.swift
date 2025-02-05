@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 
 public struct DynamicUIData: Decodable {
-    let superViewWidth: CGFloat
-    let superViewHeight: CGFloat
-    let preview_img: String?
+    public let superViewWidth: CGFloat
+    public let superViewHeight: CGFloat
+    public let preview_img: String?
     
-    let outputWidth: Float
-    let outputHeight: Float
+    public let outputWidth: Float
+    public let outputHeight: Float
    
-    var elements: [String: [UIElement]]
+    public var elements: [String: [UIElement]]
 }
 
-struct UIElement: Decodable {
-    let type: String
+public struct UIElement: Decodable {
+    public let type: String
     
     let x: CGFloat
     let y: CGFloat
@@ -49,7 +49,7 @@ struct UIElement: Decodable {
     
     // Image related property
     let contentMode: Int?
-    var url: String?
+    public var url: String?
     var isLayeredImg: Bool?
     var blendMode: String?
     var blurAlpha: CGFloat?

@@ -94,17 +94,13 @@ extension ProgressView {
 // MARK: Public methods
 extension ProgressView {
     public func showProgress() {
-        DispatchQueue.main.async {
-            self.makeKeyAndVisible()
-            self.addAnimations()
-        }
+        self.makeKeyAndVisible()
+        self.addAnimations()
     }
     
     public func hideProgress() {
-        DispatchQueue.main.async {
-            self.removeAnimations()
-            self.resignKey()
-            self.isHidden = true
-        }
+        self.removeAnimations()
+        self.resignKey()
+        self.isHidden = true
     }
 }

@@ -28,11 +28,12 @@ public protocol UserDetails {
 
 // MARK: -
 public protocol ExportDetails {
-    func getExportPdfSize() -> SaveContentSize
+    func getSaveOption(completion: @escaping (ExportOption, SaveContentSize) -> Void)
     func exportedImages(images: [UIImage])
     func exportedJson(json: [String: Any])
-    func forQrCodeGenerationData(json: [String : Any], pdfData: Data, pdfUrl: @escaping ((URL, UIImage) -> Void))
+    func forQrCodeGeneration(json: [String : Any], pdfData: Data, pdfUrl: @escaping ((URL, UIImage) -> Void))
     func yourQrCode(img: UIImage)
+    func somethingWentWrong()
 }
 
 public extension EditingTools {

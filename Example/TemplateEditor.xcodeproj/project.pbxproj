@@ -95,6 +95,7 @@
 		607FACD21AFB9204008FA782 /* Example for TemplateEditor */ = {
 			isa = PBXGroup;
 			children = (
+				CE2C7A8C2D5326D500DF6D27 /* Sources */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -160,6 +161,13 @@
 				7F1755732EB025EBC27B79C7 /* Pods-TemplateEditor_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE2C7A8C2D5326D500DF6D27 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
