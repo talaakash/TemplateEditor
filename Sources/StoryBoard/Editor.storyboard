@@ -716,7 +716,7 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T5i-nB-A0D">
-                                        <rect key="frame" x="185.66666666666666" y="4.6666666666666643" width="66" height="29"/>
+                                        <rect key="frame" x="181.33333333333334" y="4.6666666666666643" width="66" height="29"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5J-6y-hig" userLabel="UndoBtn" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
@@ -795,10 +795,10 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYe-uJ-0tr" customClass="UIControl">
-                                        <rect key="frame" x="267.66666666666669" y="0.0" width="55.333333333333314" height="38"/>
+                                        <rect key="frame" x="263.33333333333331" y="0.0" width="59.666666666666686" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASX-Es-A0g">
-                                                <rect key="frame" x="8" y="8" width="39.333333333333336" height="22"/>
+                                                <rect key="frame" x="8" y="8" width="43.666666666666664" height="22"/>
                                                 <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -823,12 +823,6 @@
                                             <action selector="exportBtnTapped:" destination="Bev-oe-7IH" eventType="touchUpInside" id="Sne-4N-GhS"/>
                                         </connections>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWa-LR-vLW">
-                                        <rect key="frame" x="62" y="2" width="75" height="34.333333333333336"/>
-                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -838,10 +832,8 @@
                                     <constraint firstItem="5zd-ee-9pE" firstAttribute="leading" secondItem="MYe-uJ-0tr" secondAttribute="trailing" constant="16" id="JOI-5q-us8"/>
                                     <constraint firstItem="MYe-uJ-0tr" firstAttribute="top" secondItem="5zd-ee-9pE" secondAttribute="top" id="Nfy-5y-J7A"/>
                                     <constraint firstItem="5zd-ee-9pE" firstAttribute="top" secondItem="3hb-En-m0L" secondAttribute="top" id="Rz8-HR-WeE"/>
-                                    <constraint firstItem="HWa-LR-vLW" firstAttribute="leading" secondItem="Ng4-e5-jj0" secondAttribute="trailing" constant="8" id="gnp-wD-VIG"/>
                                     <constraint firstAttribute="bottom" secondItem="5zd-ee-9pE" secondAttribute="bottom" id="pzx-fF-Cp3"/>
                                     <constraint firstAttribute="bottom" secondItem="Ng4-e5-jj0" secondAttribute="bottom" id="rY3-pa-nUE"/>
-                                    <constraint firstItem="HWa-LR-vLW" firstAttribute="centerY" secondItem="3hb-En-m0L" secondAttribute="centerY" id="sTo-PW-bJ4"/>
                                     <constraint firstItem="MYe-uJ-0tr" firstAttribute="leading" secondItem="T5i-nB-A0D" secondAttribute="trailing" constant="16" id="vCS-6E-oKI"/>
                                     <constraint firstItem="Ng4-e5-jj0" firstAttribute="top" secondItem="3hb-En-m0L" secondAttribute="top" id="xgd-Mr-Jre"/>
                                     <constraint firstItem="T5i-nB-A0D" firstAttribute="centerY" secondItem="3hb-En-m0L" secondAttribute="centerY" id="zeQ-eF-GpQ"/>
@@ -1117,9 +1109,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -75,7 +75,7 @@ class EditorViewController: UIViewController {
         if let lbl = self.exportBtn.subviews.compactMap({ $0 as? UILabel }).first {
             lbl.textColor = Theme.primaryTextColor
         }
-//        self.saveBtn.backgroundColor = Theme.primaryButtonColor
+        self.saveBtn.backgroundColor = Theme.primaryButtonColor
         self.pageControl.isHidden = true
         self.currentPageIndex = 1
         
