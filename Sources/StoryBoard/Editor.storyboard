@@ -716,7 +716,7 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T5i-nB-A0D">
-                                        <rect key="frame" x="181.33333333333334" y="4.6666666666666643" width="66" height="29"/>
+                                        <rect key="frame" x="185.66666666666666" y="4.6666666666666643" width="66" height="29"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5J-6y-hig" userLabel="UndoBtn" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
@@ -795,15 +795,15 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYe-uJ-0tr" customClass="UIControl">
-                                        <rect key="frame" x="263.33333333333331" y="0.0" width="59.666666666666686" height="38"/>
+                                        <rect key="frame" x="267.66666666666669" y="0.0" width="55.333333333333314" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASX-Es-A0g">
-                                                <rect key="frame" x="8" y="8" width="43.666666666666664" height="22"/>
+                                                <rect key="frame" x="8" y="8" width="39.333333333333336" height="22"/>
                                                 <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="exportBtn"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localiseKey" value="exportBtnTitle"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
@@ -1096,7 +1096,7 @@
             <color red="0.96100002527236938" green="0.75300002098083496" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="fontColor303030">
-            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18799999356269836" green="0.18799999356269836" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="fontColor353535">
             <color red="0.20800000429153442" green="0.20800000429153442" blue="0.20800000429153442" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

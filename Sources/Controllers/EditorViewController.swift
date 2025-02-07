@@ -161,14 +161,8 @@ extension EditorViewController {
                     let images = self?.getImagesFromTemplate(with: .HD, contentSize: contentSize)
                     guard let json = self?.getJsonData(), let pdfData = UtilsManager.shared.generateAndGetPdfData(using: images ?? []) else {
                         EditController.exportDelegate?.somethingWentWrong(); return }
-                    EditController.exportDelegate?.forQrCodeGeneration(json: json, pdfData: pdfData, pdfUrl: { pdfUrl,image  in
-                        ProgressView.shared.hideProgress()
-                        if let qrCodeImg = pdfUrl.qrImage(withLogo: image) {
-                            EditController.exportDelegate?.yourQrCode(img: qrCodeImg)
-                        } else {
-                            EditController.exportDelegate?.somethingWentWrong()
-                        }
-                    })
+                    ProgressView.shared.hideProgress()
+                    EditController.exportDelegate?.forQrCodeGeneration(json: json, pdfData: pdfData)
                 case .pdf:
                     if let images = self?.getImagesFromTemplate(with: .HD, contentSize: contentSize),
                        let url = StorageManager.shared.generatePdf(from: images) {
@@ -177,7 +171,7 @@ extension EditorViewController {
                         documentPicker.delegate = self
                         self?.present(documentPicker, animated: true)
                     } else {
-                        EditController.exportDelegate?.somethingWentWrong();
+                        EditController.exportDelegate?.somethingWentWrong()
                     }
                 case .image:
                     let images = self?.getImagesFromTemplate(with: .HD, contentSize: contentSize)
@@ -2604,11 +2598,6 @@ extension EditorViewController: UIColorPickerViewControllerDelegate {
 
 // MARK: - Save image to gallery
 extension EditorViewController {
-    func saveViewAsImageToPhotoLibrary(resolution: ImageResolution) {
-        let images = self.getImagesFromTemplate(with: resolution, contentSize: .large)
-        EditController.exportDelegate?.exportedImages(images: images)
-    }
-    
     func getImagesFromTemplate(with resolution: ImageResolution, contentSize: SaveContentSize) -> [UIImage] {
         guard let duplicatedViews = duplicateViewForSaving(contentSize: contentSize) else { return [] }
         

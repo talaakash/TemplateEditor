@@ -31,8 +31,7 @@ public protocol ExportDetails {
     func getSaveOption(completion: @escaping (ExportOption, SaveContentSize) -> Void)
     func exportedImages(images: [UIImage])
     func exportedJson(json: [String: Any])
-    func forQrCodeGeneration(json: [String : Any], pdfData: Data, pdfUrl: @escaping ((URL, UIImage) -> Void))
-    func yourQrCode(img: UIImage)
+    func forQrCodeGeneration(json: [String : Any], pdfData: Data)
     func somethingWentWrong()
 }
 

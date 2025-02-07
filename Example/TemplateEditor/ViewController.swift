@@ -166,12 +166,12 @@ extension ViewController: UserDetails {
 
 // MARK: Export related delegate
 extension ViewController: ExportDetails {
-    func getSaveOption(completion: @escaping (TemplateEditor.ExportOption, TemplateEditor.SaveContentSize) -> Void) {
-        completion(.image, .medium)
+    func forQrCodeGeneration(json: [String : Any], pdfData: Data) {
+        
     }
     
-    func forQrCodeGeneration(json: [String : Any], pdfData: Data, pdfUrl: @escaping ((URL, UIImage) -> Void)) {
-        pdfUrl(URL(string: "https://www.google.com")!, UIImage())
+    func getSaveOption(completion: @escaping (TemplateEditor.ExportOption, TemplateEditor.SaveContentSize) -> Void) {
+        completion(.image, .medium)
     }
     
     func exportedJson(json: [String : Any]) {
