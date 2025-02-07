@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'TemplateEditor'
-    s.version          = '1.0.2'
+    s.version          = '1.0.3'
     s.summary          = 'A TemplateEditor pod is very useful for developer that want to create app which generate templates so this can make there work hassle free.'
     
     # This description is used to generate tags and improve search results.
@@ -44,23 +44,19 @@ Pod::Spec.new do |s|
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
     
     s.ios.deployment_target = '15.0'
+    s.swift_version = '5.0'
+    s.preserve_paths = 'Sources/**/*'
     
     s.source_files = 'Sources/**/*.swift'
-    s.swift_version = '5.0'
-    
     s.resources = [
-    'Sources/**/*.xib',
-    'Sources/**/*.storyboard',
-    'Sources/**/*.xcassets'
+    'Xibs' => ['Sources/**/*.xib'],
+    'StoryBoard' => ['Sources/**/*.storyboard'],
+    'Assets' => ['Sources/**/*.xcassets']
     ]
     
     s.frameworks = 'UIKit'
-    
+    s.dependency 'Kingfisher'
     # s.resource_bundles = {
     #   'TemplateEditor' => ['TemplateEditor/Assets/*.png']
     # }
-    
-    # s.public_header_files = 'Pod/Classes/**/*.h'
-    # s.frameworks = 'UIKit', 'MapKit'
-    s.dependency 'Kingfisher'
 end
