@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'TemplateEditor'
-    s.version          = '1.1.1'
+    s.version          = '1.1.2'
     s.summary          = 'A TemplateEditor pod is very useful for developer that want to create app which generate templates so this can make there work hassle free.'
     
     # This description is used to generate tags and improve search results.
