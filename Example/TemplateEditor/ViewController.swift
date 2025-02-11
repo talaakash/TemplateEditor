@@ -182,10 +182,6 @@ extension ViewController: ExportDetails {
         print("\(images.count) saved")
     }
     
-    func yourQrCode(img: UIImage) {
-        
-    }
-    
     func somethingWentWrong() {
         print("Something went wrong")
     }
