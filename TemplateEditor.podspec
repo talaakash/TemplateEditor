@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'TemplateEditor'
-    s.version          = '1.1.2'
+    s.version          = '1.1.3'
     s.summary          = 'A TemplateEditor pod is very useful for developer that want to create app which generate templates so this can make there work hassle free.'
     
     # This description is used to generate tags and improve search results.
@@ -46,16 +46,26 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '15.0'
     s.swift_version = '5.0'
     
-    s.source_files = 'Sources/**/*.{swift,xib,storyboard}'
-    s.resources = [
+#    s.resources = [
 #    "Sources/**/*.xib",
 #    "Sources/**/*.storyboard",
-    "Sources/**/*.xcassets"
-    ]
+#    "Sources/**/*.xcassets"
+#    ]
     
     s.frameworks = 'UIKit'
     s.dependency 'Kingfisher'
-    # s.resource_bundles = {
-    #   'TemplateEditor' => ['TemplateEditor/Assets/*.png']
-    # }
+    s.resource_bundles = {
+      'Views' => ['Sources/Views/*.{swift, Xib}'],
+      'Resources' => ['Sources/Resources/*.{xcassets, swift}'],
+      'HelperClass' => ['Sources/HelperClass/*.swift'],
+      'Libraries' => ['Sources/Libraries/**/*.{swift, xib}'],
+      'Xibs' => ['Sources/Xibs/**/*.{swift, xib}'],
+      'CustomViews' => ['Sources/CustomViews/*.swift'],
+      'Menues' => ['Sources/Menues/**/*.{swift, xib}'],
+      'Models' => ['Sources/Models/*.swift'],
+      'StoryBoard' => ['Sources/StoryBoard/*.storyboard'],
+      'Controllers' => ['Sources/Controllers/*.swift', 'Sources/Controllers/**/*.swift'],
+      'Extensions' => ['Sources/Extensions/*.swift'],
+      'TemplateEditor' => ['Sources/*.swift'],
+    }
 end
