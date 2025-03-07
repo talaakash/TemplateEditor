@@ -782,11 +782,11 @@ public enum AddPageType: CaseIterable, EnumType {
     var iconName: UIImage? {
         switch self {
         case .newPage:
-            return UIImage(named: "intraction", in: packageBundle, with: .none)
+            return UIImage(named: "addPage", in: packageBundle, with: .none)
         case .copyPage:
-            return UIImage(named: "intraction", in: packageBundle, with: .none)
+            return UIImage(named: "copyPage", in: packageBundle, with: .none)
         case .deletePage:
-            return UIImage(named: "intraction", in: packageBundle, with: .none)
+            return UIImage(named: "deletePage", in: packageBundle, with: .none)
         }
     }
     
@@ -808,9 +808,9 @@ public enum Spacing: CaseIterable, EnumType {
     var icon: UIImage? {
         switch self {
         case .valueSpace:
-            return UIImage(named: "intraction", in: packageBundle, with: .none)
+            return UIImage(named: "ItemPriceSpace", in: packageBundle, with: .none)
         case .valueWidth:
-            return UIImage(named: "intraction", in: packageBundle, with: .none)
+            return UIImage(named: "priceWidth", in: packageBundle, with: .none)
         }
     }
     

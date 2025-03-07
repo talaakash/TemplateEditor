@@ -1,0 +1,6 @@
+framework module Pods_TemplateEditor_Example {
+  umbrella header "Pods-TemplateEditor_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

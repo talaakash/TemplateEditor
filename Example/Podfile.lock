@@ -1,0 +1,23 @@
+PODS:
+  - Kingfisher (8.1.4)
+  - TemplateEditor (0.0.1):
+    - Kingfisher
+
+DEPENDENCIES:
+  - TemplateEditor (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+
+EXTERNAL SOURCES:
+  TemplateEditor:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Kingfisher: a5cc3d8689cd40d7cb2edfa67a5ede0b53122813
+  TemplateEditor: 51e5e1a9c10c4781dff45a0cc7f0d89413b63557
+
+PODFILE CHECKSUM: 321ad5d1b829a704acbd0e29b038ade976f61e5d
+
+COCOAPODS: 1.16.2

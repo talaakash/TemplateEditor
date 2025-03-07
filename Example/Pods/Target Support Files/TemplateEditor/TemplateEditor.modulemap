@@ -1,0 +1,6 @@
+framework module TemplateEditor {
+  umbrella header "TemplateEditor-umbrella.h"
+
+  export *
+  module * { export * }
+}
