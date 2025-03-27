@@ -26,6 +26,8 @@
 		420ADE5F222F9DB15F15F59991EEFDC1 /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CC8813F811F38062E2DC12C356423 /* CacheSerializer.swift */; };
 		420C49E6734283B87E7D206694344112 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 819279E15916E3EC01813030DAC762DB /* Foundation.framework */; };
 		442F3EF780ACE70BAF124C9E3E5E8E15 /* ImageDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C90E96D8B2C8DF15E8E42AC6E13ABD /* ImageDataProcessor.swift */; };
+		461E1F052D93FF8000563320 /* ViewSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461E1F042D93FF7A00563320 /* ViewSaver.swift */; };
+		46F1EC142D92E60A0068801C /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1EC132D92E6060068801C /* ViewManager.swift */; };
 		4BFEF1EA0FD8911E9EF55A4484F7F1E6 /* KF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D584A19F29BD30693DEC1F332EB4F2F /* KF.swift */; };
 		54FCB2A0877468FCA03245D4FBB0F9D2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0493054DB65F299F9EF390FA362C44AF /* ImageCache.swift */; };
 		576C5FD65E8E35A7EF189EBB20CE01C6 /* LivePhotoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54454B75E9B89D7455492F797CD55490 /* LivePhotoSource.swift */; };
@@ -304,6 +306,8 @@
 		3E155C6FC935A78E3CFD33C2FBD60271 /* TemplateEditor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = TemplateEditor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3FA15FADA159925DA5B7F647988750CC /* KFImageOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFImageOptions.swift; path = Sources/SwiftUI/KFImageOptions.swift; sourceTree = "<group>"; };
 		41AB8FE22E1CBB75C162F9AC7AEB1310 /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = Sources/Networking/RequestModifier.swift; sourceTree = "<group>"; };
+		461E1F042D93FF7A00563320 /* ViewSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSaver.swift; sourceTree = "<group>"; };
+		46F1EC132D92E6060068801C /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
 		497915090ABEF76673CD7B888BE455F2 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Sources/Networking/SessionDelegate.swift; sourceTree = "<group>"; };
 		4A3B376C93B00DDDF2549BB513A4BDCC /* KingfisherManager+LivePhoto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "KingfisherManager+LivePhoto.swift"; path = "Sources/General/KingfisherManager+LivePhoto.swift"; sourceTree = "<group>"; };
 		4B1982AB549B5FC590731C571D08E6FD /* Pods-TemplateEditor_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TemplateEditor_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -1115,6 +1119,8 @@
 		CE2C7B9A2D53485800DF6D27 /* HelperClass */ = {
 			isa = PBXGroup;
 			children = (
+				461E1F042D93FF7A00563320 /* ViewSaver.swift */,
+				46F1EC132D92E6060068801C /* ViewManager.swift */,
 				CE2C7B942D53485800DF6D27 /* FontManager.swift */,
 				CE2C7B952D53485800DF6D27 /* GestureManager.swift */,
 				CE2C7B962D53485800DF6D27 /* ProgressView.swift */,
@@ -1560,6 +1566,7 @@
 				CE2C7B9B2D53485800DF6D27 /* GestureManager.swift in Sources */,
 				CE2C7B9C2D53485800DF6D27 /* FontManager.swift in Sources */,
 				CE2C7B9D2D53485800DF6D27 /* UndoRedoManager.swift in Sources */,
+				46F1EC142D92E60A0068801C /* ViewManager.swift in Sources */,
 				CE2C7C382D534BC900DF6D27 /* Models.swift in Sources */,
 				CE2C7B9E2D53485800DF6D27 /* UtilsManager.swift in Sources */,
 				CE2C7B9F2D53485800DF6D27 /* StorageManager.swift in Sources */,
@@ -1612,6 +1619,7 @@
 				CE2C7C3A2D534C5700DF6D27 /* Type1Menu.swift in Sources */,
 				CE2C7B882D53472800DF6D27 /* TopBar.swift in Sources */,
 				CE2C7C3D2D534C8E00DF6D27 /* EditorViewModel.swift in Sources */,
+				461E1F052D93FF8000563320 /* ViewSaver.swift in Sources */,
 				CE2C7B892D53472800DF6D27 /* AngleRuler.swift in Sources */,
 				CE2C7B8A2D53472800DF6D27 /* HelperExtensions.swift in Sources */,
 				CE2C7B8B2D53472800DF6D27 /* Stasisable.swift in Sources */,

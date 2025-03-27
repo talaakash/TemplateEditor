@@ -25,9 +25,10 @@ enum EdgeController: Int {
     case rightOnly = 2
 }
 
-class DraggableUIView: UIView {
+public class DraggableUIView: UIView {
 
-    var componentType: String?
+    public var componentType: String?
+    public var isBgImg: Bool = false
     var movable: Bool = true
     var isEnabled: Bool = true
     var isEditable: Bool = true
@@ -72,14 +73,14 @@ class DraggableUIView: UIView {
         doInitSetup()
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         if let txtView = self.subviews.compactMap({ $0 as? UITextView }).first {
             txtView.centerTextVertically()
         }
     }
     
-    override func addSubview(_ view: UIView) {
+    public override func addSubview(_ view: UIView) {
         super.addSubview(view)
         view.layer.shouldRasterize = true
         view.layer.rasterizationScale = UIScreen.main.scale

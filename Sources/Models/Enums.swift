@@ -449,7 +449,7 @@ public enum FilePickType: CaseIterable, EnumType {
     }
 }
 
-enum MenuStyle: Int, CaseIterable {
+public enum MenuStyle: Int, CaseIterable {
     case type1 = 1
     case type2 = 2
     case type3 = 3
@@ -464,7 +464,7 @@ enum MenuStyle: Int, CaseIterable {
     case type12 = 12
     case type13 = 13
     
-    var iconName: UIImage? {
+    public var iconName: UIImage? {
         switch self {
         case .type1:
             return UIImage(named: "type1Menu", in: packageBundle, with: .none)
