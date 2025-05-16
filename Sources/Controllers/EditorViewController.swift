@@ -58,6 +58,7 @@ class EditorViewController: UIViewController {
     var templateData: DynamicUIData?
     var projectId: String? = nil
     var userSelectedPremiumFeature: (() -> Void)?
+    var wantToCreateFromRatio: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +105,11 @@ class EditorViewController: UIViewController {
         super.viewDidAppear(animated)
         if !isDataLoaded {
             if self.isNeedToStartFromScratch {
-                self.presentImagePicker(sourceType: .photoLibrary, for: .bg)
+                if wantToCreateFromRatio {
+                    
+                } else {
+                    self.presentImagePickerOptions(task: .bg)
+                }
                 self.isNeedToStartFromScratch = false
             } else {
                 self.loadTemplateData()
@@ -778,7 +783,7 @@ extension EditorViewController {
         self.present(documentPicker, animated: true)
     }
     
-    private func presentImagePickerOptions(for change: Bool = false) {
+    private func presentImagePickerOptions(for change: Bool = false, task: TaskType = .adding) {
         var imagePickerView = UINib(nibName: "ChoseImageView", bundle: packageBundle).instantiate(withOwner: nil).first as? ChoseImageView
         imagePickerView?.actionHappen = { [weak self] _ in
             self?.viewModel.openedView = nil
@@ -786,14 +791,18 @@ extension EditorViewController {
                 imagePickerView = nil
             })
         }
+        var task = task
+        if change {
+            task = .changing
+        }
         imagePickerView?.selectedOption = { [weak self] option in
             switch option {
             case .gallery:
-                self?.presentImagePicker(sourceType: .photoLibrary, for: change ? .changing : .adding)
+                self?.presentImagePicker(sourceType: .photoLibrary, for: task)
             case .file:
-                self?.presentFilePicker(for: change ? .changing : .adding)
+                self?.presentFilePicker(for: task)
             case .camera:
-                self?.presentImagePicker(sourceType: .camera, for: change ? .changing : .adding)
+                self?.presentImagePicker(sourceType: .camera, for: task)
             }
         }
         
@@ -3051,6 +3060,10 @@ extension EditorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.mainView.clipsToBounds = true
             cell.mainViewWidthAnchor.constant = self.widthSize
             cell.mainViewHeightAnchor.constant = self.heightSize
+            let x = (self.pageCollection.frame.width - widthSize) / 2 + self.pageCollection.frame.origin.x
+            let y = (self.pageCollection.frame.height - heightSize) / 2 + self.pageCollection.frame.origin.y
+            self.viewModel.lineWindow.mainViewFrame = CGRect(x: x, y: y, width: widthSize, height: heightSize)
+                    
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: OptionCell.self), for: indexPath) as! OptionCell

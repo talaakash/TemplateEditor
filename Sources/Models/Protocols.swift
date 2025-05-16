@@ -24,6 +24,7 @@ public protocol EditingTools {
 public protocol UserDetails {
     func userSelectedPremiumOption()
     func isUserIsPaid() -> Bool
+    func isAdminUser() -> Bool
 }
 
 // MARK: -

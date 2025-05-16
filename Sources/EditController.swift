@@ -136,6 +136,7 @@ public class EditController {
     
     public func showEditor(from navigationController: UINavigationController, with data: DynamicUIData? = nil) {
         isUserIsPaid = EditController.userDelegate?.isUserIsPaid() ?? false
+        isUserIsAdmin = EditController.userDelegate?.isAdminUser() ?? false
         let vc = editorStoryBoard.instantiateViewController(identifier: "EditorViewController") as! EditorViewController
         vc.templateData = data
         vc.userSelectedPremiumFeature = {

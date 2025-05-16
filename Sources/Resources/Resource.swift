@@ -16,7 +16,7 @@ var makeEditorScreenSecure: Bool = true
 
 let isIpad = UIDevice.current.userInterfaceIdiom == .pad
 
-let isUserIsAdmin = true
+var isUserIsAdmin = true
 var isUserIsPaid = false
 
 public class Theme {

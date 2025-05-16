@@ -27,6 +27,7 @@ class EditorViewModel {
                 self.controllerView.isHidden = false
                 self.openedView = nil
             })
+            self.lineWindow.newFrame = selectedView?.frame ?? CGRect()
             controllerView.removeFromSuperview()
             self.attachControllerToView()
             delegate?.didUpdateSelectedView(selectedView)
@@ -36,6 +37,7 @@ class EditorViewModel {
         }
     }
     var controllerView: UIView!
+    var lineWindow = AnchorLayoutGuide()
     weak var openedView: UIView? {
         didSet {
             if openedView != nil {
@@ -87,6 +89,12 @@ class EditorViewModel {
     var editOptions: [GenericModel<EditType>] {
         return getSelectedViewEditOptions()
     }
+    
+    init() {
+        if !isUserIsAdmin {
+            self.lineWindow.isHidden = true
+        }
+    }
 
     // Configure main view's aspect ratio and dimensions
     func configureMainViewSize(view: UIView, viewHeight: inout CGFloat, viewWidth: inout CGFloat) {
@@ -104,6 +112,9 @@ class EditorViewModel {
 
         viewHeight = calculatedHeight
         viewWidth = calculatedWidth
+        let x = (view.frame.width - viewWidth) / 2 + view.frame.origin.x
+        let y = (view.frame.height - viewHeight) / 2 + view.frame.origin.y
+        self.lineWindow.mainViewFrame = CGRect(x: x, y: y, width: viewWidth, height: viewHeight)
     }
 
     private func getSelectedViewEditOptions() -> [GenericModel<EditType>] {
@@ -586,6 +597,7 @@ extension EditorViewModel {
             selectedView.registerState(currentState: selectedView.captureCurrentState())
         case .changed:
             selectedView.center = CGPoint(x: selectedView.initialCenter.x + translation.x, y: selectedView.initialCenter.y + translation.y)
+            self.lineWindow.newFrame = selectedView.frame
 //            checkAlignment(view: selectedView)
         case .ended, .cancelled:
             self.controllerView.alpha = 1
