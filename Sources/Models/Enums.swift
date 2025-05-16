@@ -218,6 +218,7 @@ enum EffectType {
 
 public enum ComponentType: String, CaseIterable, EnumType {
     case menuBox = "menuBox"
+    case background = "background"
     case image = "image"
     case label = "label"
     case shape = "shape"
@@ -235,6 +236,8 @@ public enum ComponentType: String, CaseIterable, EnumType {
             return UIImage(named: "shape", in: packageBundle, with: .none)
         case .page:
             return UIImage(named: "page", in: packageBundle, with: .none)
+        case .background:
+            return UIImage(named: "background", in: packageBundle, with: .none)
         }
     }
     
@@ -250,6 +253,8 @@ public enum ComponentType: String, CaseIterable, EnumType {
             return "Shape"
         case .page:
             return "Add Page"
+        case .background:
+            return "Background"
         }
     }
     
@@ -265,6 +270,8 @@ public enum ComponentType: String, CaseIterable, EnumType {
             return false
         case .page:
             return true
+        case .background:
+            return false
         }
     }
 }

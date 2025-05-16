@@ -27,7 +27,7 @@ class EditorViewModel {
                 self.controllerView.isHidden = false
                 self.openedView = nil
             })
-            self.lineWindow.newFrame = selectedView?.frame ?? CGRect()
+            self.lineWindow?.newFrame = selectedView?.frame ?? CGRect()
             controllerView.removeFromSuperview()
             self.attachControllerToView()
             delegate?.didUpdateSelectedView(selectedView)
@@ -37,7 +37,7 @@ class EditorViewModel {
         }
     }
     var controllerView: UIView!
-    var lineWindow = AnchorLayoutGuide()
+    var lineWindow: AnchorLayoutGuide?
     weak var openedView: UIView? {
         didSet {
             if openedView != nil {
@@ -91,8 +91,8 @@ class EditorViewModel {
     }
     
     init() {
-        if !isUserIsAdmin {
-            self.lineWindow.isHidden = true
+        if isUserIsAdmin {
+            self.lineWindow = AnchorLayoutGuide()
         }
     }
 
@@ -114,7 +114,26 @@ class EditorViewModel {
         viewWidth = calculatedWidth
         let x = (view.frame.width - viewWidth) / 2 + view.frame.origin.x
         let y = (view.frame.height - viewHeight) / 2 + view.frame.origin.y
-        self.lineWindow.mainViewFrame = CGRect(x: x, y: y, width: viewWidth, height: viewHeight)
+        self.lineWindow?.mainViewFrame = CGRect(x: x, y: y, width: viewWidth, height: viewHeight)
+    }
+    
+    func configureMainViewSize(from view: UIView, with size: CGSize, viewHeight: inout CGFloat, viewWidth: inout CGFloat) {
+        let aspectRatio = size.height / size.width
+        let maxAllowedHeight = view.bounds.height
+
+        var calculatedWidth = view.bounds.width
+        var calculatedHeight = calculatedWidth * aspectRatio
+
+        if calculatedHeight > maxAllowedHeight {
+            calculatedHeight = maxAllowedHeight
+            calculatedWidth = calculatedHeight / aspectRatio
+        }
+
+        viewHeight = calculatedHeight
+        viewWidth = calculatedWidth
+        let x = (view.frame.width - viewWidth) / 2 + view.frame.origin.x
+        let y = (view.frame.height - viewHeight) / 2 + view.frame.origin.y
+        self.lineWindow?.mainViewFrame = CGRect(x: x, y: y, width: viewWidth, height: viewHeight)
     }
 
     private func getSelectedViewEditOptions() -> [GenericModel<EditType>] {
@@ -597,8 +616,7 @@ extension EditorViewModel {
             selectedView.registerState(currentState: selectedView.captureCurrentState())
         case .changed:
             selectedView.center = CGPoint(x: selectedView.initialCenter.x + translation.x, y: selectedView.initialCenter.y + translation.y)
-            self.lineWindow.newFrame = selectedView.frame
-//            checkAlignment(view: selectedView)
+            self.lineWindow?.newFrame = selectedView.frame
         case .ended, .cancelled:
             self.controllerView.alpha = 1
             _ = selectedView.center
@@ -607,43 +625,6 @@ extension EditorViewModel {
             break
         }
     }
-    
-//    private func setupGuideLines(view: UIView) {
-//        horizontalLine.backgroundColor = .red
-//        horizontalLine.frame = CGRect(x: 0, y: view.center.y - 0.5, width: view.bounds.width, height: 1)
-//        horizontalLine.isHidden = true
-//        view.addSubview(horizontalLine)
-//        
-//        verticalLine.backgroundColor = .red
-//        verticalLine.frame = CGRect(x: view.center.x - 0.5, y: 0, width: 1, height: view.bounds.height)
-//        verticalLine.isHidden = true
-//        view.addSubview(verticalLine)
-//    }
-//    
-//    private func checkAlignment(view: UIView) {
-//        guard let superview = view.superview else { return }
-//        self.setupGuideLines(view: controllerView)
-//
-//        let superviewCenter = superview.center
-//        let viewCenter = view.center
-//        
-//        // Define a tolerance for alignment
-//        let tolerance: CGFloat = 10.0
-//        
-//        // Check horizontal alignment
-//        if abs(viewCenter.y - superviewCenter.y) <= tolerance {
-//            horizontalLine.isHidden = false
-//        } else {
-//            horizontalLine.isHidden = true
-//        }
-//        
-//        // Check vertical alignment
-//        if abs(viewCenter.x - superviewCenter.x) <= tolerance {
-//            verticalLine.isHidden = false
-//        } else {
-//            verticalLine.isHidden = true
-//        }
-//    }
     
     @objc private func handlePinch(_ gesture: UIPinchGestureRecognizer) {
         guard let selectedView else { return }

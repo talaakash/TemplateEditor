@@ -153,6 +153,10 @@ class ViewController: UIViewController {
 
 // MARK: User delegates
 extension ViewController: UserDetails {
+    func isAdminUser() -> Bool {
+        return true
+    }
+    
     func isUserIsPaid() -> Bool {
         // if here passed true then that means user is paid or if passed false then user is free
         return true

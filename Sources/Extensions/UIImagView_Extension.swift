@@ -16,6 +16,10 @@ extension UIImageView {
             self.image = image
             completionHandler?()
             return
+        } else if let image = UIImage(named: urlString, in: packageBundle, compatibleWith: nil) {
+            self.image = image
+            completionHandler?()
+            return
         }
         
         guard let url = URL.init(string: urlString) else {

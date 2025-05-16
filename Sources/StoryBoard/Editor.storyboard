@@ -248,10 +248,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhs-Ol-b6W" userLabel="mainView">
-                                <rect key="frame" x="16" y="206.99999999999997" width="361" height="438.33333333333326"/>
+                                <rect key="frame" x="16" y="206.66666666666666" width="361" height="438.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivW-3j-jRD">
-                                        <rect key="frame" x="16" y="15.999999999999998" width="285" height="23.333333333333329"/>
+                                        <rect key="frame" x="16" y="16" width="285" height="23.666666666666671"/>
                                         <fontDescription key="fontDescription" name="RalewayRoman-Medium" family="Raleway" pointSize="20"/>
                                         <color key="textColor" name="fontColor353535"/>
                                         <nil key="highlightedColor"/>
@@ -283,7 +283,7 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxi-7t-rud">
-                                        <rect key="frame" x="16" y="55.333333333333314" width="329" height="15.333333333333329"/>
+                                        <rect key="frame" x="16" y="55.666666666666657" width="329" height="15.333333333333329"/>
                                         <fontDescription key="fontDescription" name="RalewayRoman-Medium" family="Raleway" pointSize="13"/>
                                         <color key="textColor" name="fontColor303030"/>
                                         <nil key="highlightedColor"/>
@@ -292,7 +292,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZc-r3-byR" userLabel="heading">
-                                        <rect key="frame" x="16" y="78.666666666666686" width="329" height="48"/>
+                                        <rect key="frame" x="16" y="79.000000000000028" width="329" height="48"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aS-lx-rZL">
                                                 <rect key="frame" x="2" y="2" width="325" height="44"/>
@@ -326,12 +326,12 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8k-P7-B1I">
-                                        <rect key="frame" x="16" y="142.66666666666669" width="329" height="17"/>
+                                        <rect key="frame" x="16" y="143.00000000000003" width="329" height="17"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
                                                     <color key="NSColor" name="fontColor303030"/>
-                                                    <font key="NSFont" size="14" name="RalewayRoman-Medium"/>
+                                                    <font key="NSFont" metaFont="system" size="14"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -341,7 +341,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1TH-Gm-F8j" userLabel="description">
-                                        <rect key="frame" x="16" y="167.66666666666669" width="329" height="74.333333333333314"/>
+                                        <rect key="frame" x="16" y="168.00000000000003" width="329" height="74.333333333333343"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dT5-rY-qj5">
                                                 <rect key="frame" x="2" y="2" width="325" height="70.333333333333329"/>
@@ -374,13 +374,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yof-xl-DOv">
-                                        <rect key="frame" x="16" y="258" width="281" height="16.666666666666686"/>
+                                        <rect key="frame" x="16" y="258.33333333333337" width="281" height="17"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Label">
                                                 <attributes>
                                                     <color key="NSColor" name="fontColor303030"/>
-                                                    <font key="NSFont" size="14" name="RalewayRoman-Medium"/>
-                                                    <font key="NSOriginalFont" size="14" name="RalewayRoman-Medium"/>
+                                                    <font key="NSFont" metaFont="system" size="14"/>
+                                                    <font key="NSOriginalFont" metaFont="system" size="14"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -390,7 +390,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVs-rr-sxM" userLabel="AddBtn" customClass="UIControl">
-                                        <rect key="frame" x="313" y="250.33333333333331" width="32" height="32"/>
+                                        <rect key="frame" x="313" y="250.66666666666663" width="32" height="32"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="K7Y-2n-XMD">
                                                 <rect key="frame" x="8" y="10.33333333333333" width="16" height="11.66666666666667"/>
@@ -424,7 +424,7 @@
                                         </connections>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHv-OW-WAu">
-                                        <rect key="frame" x="16" y="290.33333333333331" width="329" height="48"/>
+                                        <rect key="frame" x="16" y="290.66666666666663" width="329" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="Lv1-HA-JBJ"/>
@@ -435,7 +435,7 @@
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DB8-33-asO" userLabel="SaveBtn" customClass="UIControl">
-                                        <rect key="frame" x="16" y="362.33333333333337" width="329" height="60"/>
+                                        <rect key="frame" x="16" y="362.66666666666674" width="329" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODV-tx-BOM">
                                                 <rect key="frame" x="16" y="16" width="297" height="28"/>
@@ -577,7 +577,7 @@
                                         </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpC-om-zEu">
-                                        <rect key="frame" x="172" y="26.333333333333314" width="49" height="23.666666666666671"/>
+                                        <rect key="frame" x="169.33333333333334" y="26.333333333333314" width="54.333333333333343" height="23.666666666666671"/>
                                         <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -716,7 +716,7 @@
                                         </connections>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T5i-nB-A0D">
-                                        <rect key="frame" x="185.66666666666666" y="4.6666666666666643" width="66" height="29"/>
+                                        <rect key="frame" x="181.33333333333334" y="4.6666666666666643" width="66" height="29"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P5J-6y-hig" userLabel="UndoBtn" customClass="UIControl">
                                                 <rect key="frame" x="0.0" y="0.0" width="29" height="29"/>
@@ -795,10 +795,10 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYe-uJ-0tr" customClass="UIControl">
-                                        <rect key="frame" x="267.66666666666669" y="0.0" width="55.333333333333314" height="38"/>
+                                        <rect key="frame" x="263.33333333333331" y="0.0" width="59.666666666666686" height="38"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASX-Es-A0g">
-                                                <rect key="frame" x="8" y="8" width="39.333333333333336" height="22"/>
+                                                <rect key="frame" x="8" y="8" width="43.666666666666664" height="22"/>
                                                 <fontDescription key="fontDescription" name="RalewayRoman-Bold" family="Raleway" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -839,7 +839,7 @@
                                     <constraint firstItem="T5i-nB-A0D" firstAttribute="centerY" secondItem="3hb-En-m0L" secondAttribute="centerY" id="zeQ-eF-GpQ"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WBN-Y2-SSP">
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WBN-Y2-SSP">
                                 <rect key="frame" x="16" y="113" width="361" height="577.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="CSc-N6-aYc">

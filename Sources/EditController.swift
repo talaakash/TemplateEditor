@@ -134,11 +134,12 @@ public class EditController {
     public static var exportDelegate: ExportDetails?
     public init() { }
     
-    public func showEditor(from navigationController: UINavigationController, with data: DynamicUIData? = nil) {
+    public func showEditor(from navigationController: UINavigationController, with data: DynamicUIData? = nil, size: CGSize? = nil) {
         isUserIsPaid = EditController.userDelegate?.isUserIsPaid() ?? false
         isUserIsAdmin = EditController.userDelegate?.isAdminUser() ?? false
         let vc = editorStoryBoard.instantiateViewController(identifier: "EditorViewController") as! EditorViewController
         vc.templateData = data
+        vc.templateSize = size
         vc.userSelectedPremiumFeature = {
             EditController.userDelegate?.userSelectedPremiumOption()
         }

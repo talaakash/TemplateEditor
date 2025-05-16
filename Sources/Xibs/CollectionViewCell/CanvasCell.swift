@@ -11,10 +11,10 @@ class CanvasCell: UICollectionViewCell {
         didSet {
             super.isSelected = isSelected
             if isSelected {
-                self.mainView.layer.borderWidth = 1
-                self.mainView.layer.borderColor = UIColor.black.cgColor
+//                self.mainView.layer.borderWidth = 1
+//                self.mainView.layer.borderColor = UIColor.black.cgColor
             } else {
-                self.mainView.layer.borderColor = UIColor.clear.cgColor
+//                self.mainView.layer.borderColor = UIColor.clear.cgColor
             }
         }
     }

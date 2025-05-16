@@ -25,7 +25,16 @@ class EditorViewController: UIViewController {
     private var isDataLoaded: Bool = false
     private var editOptionView: EditOptionView!
     private var viewModel = EditorViewModel()
-    private var componentTypes: [GenericModel] = EditController.componentTypes
+    private var componentTypes: [GenericModel<ComponentType>] {
+        get {
+            if templateSize != nil {
+                return EditController.componentTypes
+            } else {
+                let types = EditController.componentTypes
+                return types.filter({ $0.type != .background })
+            }
+        }
+    }
     private var bgImage: UIImage?
     private var widthSize: CGFloat = 0
     private var heightSize: CGFloat = 0
@@ -56,9 +65,9 @@ class EditorViewController: UIViewController {
     private var deletedIdentifierId: [Int] = []
     private var deletedIdentifierValue: [Int] = []
     var templateData: DynamicUIData?
+    var templateSize: CGSize?
     var projectId: String? = nil
     var userSelectedPremiumFeature: (() -> Void)?
-    var wantToCreateFromRatio: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,8 +114,9 @@ class EditorViewController: UIViewController {
         super.viewDidAppear(animated)
         if !isDataLoaded {
             if self.isNeedToStartFromScratch {
-                if wantToCreateFromRatio {
-                    
+                if let size = self.templateSize {
+                    self.viewModel.configureMainViewSize(from: self.pageCollection, with: size, viewHeight: &heightSize, viewWidth: &widthSize)
+                    self.addBGView()
                 } else {
                     self.presentImagePickerOptions(task: .bg)
                 }
@@ -236,6 +246,31 @@ extension EditorViewController {
 
 // MARK: - Private methods
 extension EditorViewController {
+    private func addBGView() {
+        let bgView = BGView()
+        bgView.bgColor = .white
+        bgView.frame = CGRect(x: 0, y: 0, width: self.widthSize, height: self.heightSize)
+        addGesture(bgView)
+        DispatchQueue.main.async {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock({
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                    if let cell = self.pageCollection.cellForItem(at: IndexPath(item: self.pageCount - 1, section: 0)) as? CanvasCell {
+                        cell.mainView.addSubview(bgView)
+                    } else {
+                        self.currentPage?.addSubview(bgView)
+                    }
+                })
+            })
+            
+            self.pageCollection.reloadData()
+            self.pageCollection.layoutIfNeeded()
+            self.pageCollection.selectItem(at: IndexPath(item: self.pageCount - 1, section: 0), animated: false, scrollPosition: .centeredHorizontally)
+            
+            CATransaction.commit()
+        }
+    }
+    
     private func makeSubviewsBlink(view: UIView, times: Int, duration: TimeInterval) {
         guard times > 0 else { return }
         let views = view.subviews.filter({ $0.isUserInteractionEnabled })
@@ -314,6 +349,8 @@ extension EditorViewController {
         }, completion: { _ in
             for element in elements["\(pageIndex)"] ?? [] {
                 switch element.type {
+                case ComponentType.background.rawValue:
+                    self.createBgView(with: element, scaleX: scaleX, scaleY: scaleY)
                 case ComponentType.label.rawValue:
                     if let fontURL = element.fontURL {
                         self.downloadAndApplyFont(from: fontURL) { fontName in
@@ -712,7 +749,10 @@ extension EditorViewController: EditorViewModelDelegate {
     
     func didUpdateSelectedView(_ selectedView: DraggableUIView?) {
         view.endEditing(true)
-        self.loadEditOption()
+        guard let componentTypeName = self.viewModel.selectedView?.componentType, let componentType = ComponentType(rawValue: componentTypeName) else { return }
+        if componentType != .background {
+            self.loadEditOption()
+        }
     }
 }
 
@@ -847,6 +887,52 @@ extension EditorViewController {
                 addPageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
                 addPageView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
                 addPageView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+            ])
+        }
+    }
+    
+    private func presentBgOptionView() {
+        var bgView: BGView
+        if let view = self.currentPage?.subviews.compactMap({ $0 as? BGView }).first {
+            bgView = view
+        } else {
+            bgView = BGView()
+            addGesture(bgView)
+            bgView.frame = CGRect(x: 0, y: 0, width: self.widthSize, height: self.heightSize)
+            self.currentPage?.addSubview(bgView)
+        }
+        
+        var bgOptionsView = UINib(nibName: "BackgroundOptions", bundle: packageBundle).instantiate(withOwner: nil).first as? BackgroundOptions
+        
+        bgOptionsView?.actionHappen = { [weak self] action in
+            self?.viewModel.openedView = nil
+            bgOptionsView?.remove(complete: {
+                bgOptionsView = nil
+            })
+            switch action {
+            case .close:
+                break
+            case .check:
+                break
+            }
+        }
+        
+        bgOptionsView?.selectedBackgroundColor = { color in
+            bgView.bgColor = UIColor(hex: color)
+        }
+        
+        bgOptionsView?.selectedBackgroundImage = { image in
+            bgView.image = image
+        }
+        
+        if let bgOptionsView {
+            viewModel.openedView = bgOptionsView
+            self.view.addSubview(bgOptionsView)
+            bgOptionsView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                bgOptionsView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                bgOptionsView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                bgOptionsView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
             ])
         }
     }
@@ -2116,6 +2202,17 @@ extension EditorViewController {
         return draggableLabelView
     }
     
+    private func createBgView(with element: UIElement, scaleX: CGFloat, scaleY: CGFloat) {
+        let bgView = BGView()
+        configureDraggableView(bgView, with: element, scaleX: scaleX, scaleY: scaleY)
+        
+        if let image = element.url {
+            bgView.image = UIImage(named: image, in: packageBundle, compatibleWith: nil)
+        }
+        addGesture(bgView)
+        self.currentPage?.addSubview(bgView)
+    }
+    
     private func createImageView(with element: UIElement, scaleX: CGFloat, scaleY: CGFloat) {
         let draggableImageView = DraggableUIView()
         configureDraggableView(draggableImageView, with: element, scaleX: scaleX, scaleY: scaleY)
@@ -2886,6 +2983,16 @@ extension EditorViewController {
                     elementDict["width"] = innerSubview.frame.width
                     elementDict["height"] = innerSubview.frame.height
                     
+                    
+                    if let bgView = innerSubview as? BGView {
+                        elementDict["type"] = ComponentType.background.rawValue
+                        if let image = bgView.image {
+                            elementDict["url"] = bgView.stringTag
+                        }
+                        currentElement.append(elementDict)
+                        continue
+                    }
+                    
                     if let label = innerSubview.subviews.compactMap({ $0 as? UITextView }).first {
                         elementDict["type"] = ComponentType.label.rawValue
                         elementDict["text"] = label.text ?? ""
@@ -3062,7 +3169,7 @@ extension EditorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.mainViewHeightAnchor.constant = self.heightSize
             let x = (self.pageCollection.frame.width - widthSize) / 2 + self.pageCollection.frame.origin.x
             let y = (self.pageCollection.frame.height - heightSize) / 2 + self.pageCollection.frame.origin.y
-            self.viewModel.lineWindow.mainViewFrame = CGRect(x: x, y: y, width: widthSize, height: heightSize)
+            self.viewModel.lineWindow?.mainViewFrame = CGRect(x: x, y: y, width: widthSize, height: heightSize)
                     
             return cell
         } else {
@@ -3106,6 +3213,8 @@ extension EditorViewController: UICollectionViewDelegate, UICollectionViewDataSo
             self.presentShapeView(forAdding: true)
         case .page:
             self.presentAddPageOptions()
+        case .background:
+            self.presentBgOptionView()
         }
     }
     
