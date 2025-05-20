@@ -493,9 +493,11 @@ extension EditorViewController {
             fontURL: nil,
             size: nil,
             isEditable: nil,
-            contentMode: 1,
+            lineSpace: nil,
+            letterSpace: nil,
+            contentMode: nil,
             url: "https://example.com/sample-image.png",
-            itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil
+            isLayeredImg: nil, blendMode: nil, blurAlpha: nil, shadowOpacity: nil, shadowRadius: 0, shadowOffsetWidth: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: nil
         )
     }
     
@@ -621,6 +623,8 @@ extension EditorViewController {
             switch option {
             case .fontChange:
                 self.createFontPicker(for: label)
+            case .textSpace:
+                self.presentTextSpacing(for: label)
             case .editFont:
                 self.presentTextInput()
             case .fontSize:
@@ -749,7 +753,12 @@ extension EditorViewController: EditorViewModelDelegate {
     
     func didUpdateSelectedView(_ selectedView: DraggableUIView?) {
         view.endEditing(true)
-        guard let componentTypeName = self.viewModel.selectedView?.componentType, let componentType = ComponentType(rawValue: componentTypeName) else { return }
+        guard let componentTypeName = self.viewModel.selectedView?.componentType, let componentType = ComponentType(rawValue: componentTypeName) else {
+            self.editOptionView.remove(complete: {
+                self.editOptionView = nil
+            })
+            return
+        }
         if componentType != .background {
             self.loadEditOption()
         }
@@ -797,21 +806,30 @@ extension EditorViewController: ContextMenuDelegate {
 // MARK: - Component Edit Helper Method
 extension EditorViewController {
     private func presentColorPicker(for option: ColorType, selectedColor: UIColor, menuField: ResizeOption = .itemName) {
-        let colorPicker = UIColorPickerViewController()
-        colorPicker.delegate = self
-        colorPicker.supportsAlpha = true
-        colorPicker.selectedColor = selectedColor
+//        let colorPicker = UIColorPickerViewController()
+//        colorPicker.delegate = self
+//        colorPicker.supportsAlpha = true
+//        colorPicker.selectedColor = selectedColor
+//        colorPicker.view.tag = option.rawValue
+//        colorPicker.view.stringTag = "\(menuField.rawValue)"
+//        colorPicker.modalPresentationStyle = .popover
+//        if isIpad {
+//            if let popoverPresentationController = colorPicker.popoverPresentationController {
+//                popoverPresentationController.sourceView = self.view
+//                popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+//                popoverPresentationController.permittedArrowDirections = []
+//            }
+//        }
+//        self.present(colorPicker, animated: true, completion: nil)
+        
+        let colorPicker = ColorPickerViewController()
         colorPicker.view.tag = option.rawValue
         colorPicker.view.stringTag = "\(menuField.rawValue)"
+        colorPicker.selectedColor = selectedColor == .clear ? .white : selectedColor
+        colorPicker.supportsAlpha = true
+        colorPicker.setDelegate(self)
         colorPicker.modalPresentationStyle = .popover
-        if isIpad {
-            if let popoverPresentationController = colorPicker.popoverPresentationController {
-                popoverPresentationController.sourceView = self.view
-                popoverPresentationController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
-                popoverPresentationController.permittedArrowDirections = []
-            }
-        }
-        self.present(colorPicker, animated: true, completion: nil)
+        present(colorPicker, animated: true)
     }
     
     private func presentFilePicker(for task: TaskType = .adding) {
@@ -902,6 +920,9 @@ extension EditorViewController {
             self.currentPage?.addSubview(bgView)
         }
         
+        let bgImage = bgView.image
+        let bgColor = bgView.bgColor
+        
         var bgOptionsView = UINib(nibName: "BackgroundOptions", bundle: packageBundle).instantiate(withOwner: nil).first as? BackgroundOptions
         
         bgOptionsView?.actionHappen = { [weak self] action in
@@ -911,9 +932,19 @@ extension EditorViewController {
             })
             switch action {
             case .close:
-                break
+                bgView.bgColor = bgColor
+                bgView.image = bgImage
             case .check:
-                break
+                let newColor = bgView.bgColor
+                let newImage = bgView.image
+                
+                bgView.bgColor = bgColor
+                bgView.image = bgImage
+                
+                self?.setBGViewColor(view: bgView, color: newColor)
+                if let newImage {
+                    self?.setBGImage(in: bgView, image: newImage)
+                }
             }
         }
         
@@ -947,6 +978,74 @@ extension EditorViewController {
         self.present(vc, animated: true)
     }
     
+    private func presentTextSpacing(for label: UITextView) {
+        guard let selectedView = self.viewModel.selectedView else { return }
+        var textSpacingView = UINib(nibName: "TextSpacing", bundle: packageBundle).instantiate(withOwner: nil).first as? TextSpacing
+        
+        let originalLineSpace = selectedView.lineSpace
+        let originalLetterSpace = selectedView.letterSpace
+        let originalFrame = selectedView.frame
+        
+        var lineSpace = originalLineSpace
+        var letterSpace = originalLetterSpace
+        
+        textSpacingView?.actionHappen = { [weak self] option in
+            self?.viewModel.openedView = nil
+            textSpacingView?.remove(complete: {
+                textSpacingView = nil
+            })
+            switch option {
+            case .close:
+                selectedView.letterSpace = originalLetterSpace
+                selectedView.lineSpace = originalLineSpace
+                selectedView.frame = originalFrame
+            case .check:
+                selectedView.letterSpace = originalLetterSpace
+                selectedView.lineSpace = originalLineSpace
+                let newFrame = selectedView.frame
+                selectedView.frame = originalFrame
+                self?.setLetterAndLineSpace(in: selectedView, lineSpace: lineSpace, letterSpace: letterSpace, frame: newFrame)
+            }
+        }
+        
+        textSpacingView?.lineSpace = lineSpace
+        textSpacingView?.letterSpace = letterSpace
+        textSpacingView?.valueChanged = { [weak self] option, intensity in
+            switch option {
+            case .line:
+                lineSpace = intensity
+            case .letter:
+                letterSpace = intensity
+            }
+            
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = lineSpace
+            paragraphStyle.alignment = .center
+            
+            let attributedString = NSMutableAttributedString(
+                string: label.text ?? "",
+                attributes: [
+                    .font: label.font ?? UIFont.systemFont(ofSize: 18),
+                    .kern: letterSpace,
+                    .paragraphStyle: paragraphStyle
+                ]
+            )
+            label.attributedText = attributedString
+            self?.adjustTextHeight(txtView: label, view: selectedView)
+        }
+        
+        if let textSpacingView {
+            viewModel.openedView = textSpacingView
+            self.view.addSubview(textSpacingView)
+            textSpacingView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                textSpacingView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                textSpacingView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                textSpacingView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+            ])
+        }
+    }
+    
     private func presentTextInput() {
         guard let selectedView = self.viewModel.selectedView, let label = selectedView.subviews.compactMap({ $0 as? UITextView}).first else { return }
         let originalText = label.text
@@ -954,6 +1053,17 @@ extension EditorViewController {
         let oldSize = self.viewModel.selectedView?.frame
         var textEditView = UINib(nibName: "TextEditView", bundle: packageBundle).instantiate(withOwner: nil).first as? TextEditView
         textEditView?.currentText = label.text
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = selectedView.lineSpace
+        paragraphStyle.alignment = .center
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: label.font ?? UIFont.systemFont(ofSize: 18),
+            .kern: selectedView.letterSpace,
+            .paragraphStyle: paragraphStyle
+        ]
+        
         textEditView?.actionHappen = { [weak self] actionType in
             self?.viewModel.openedView = nil
             textEditView?.remove(complete: {
@@ -961,8 +1071,12 @@ extension EditorViewController {
             })
             switch actionType {
             case .close:
-                label.text = originalText
                 label.font = label.font?.withSize(originalFontSize ?? 18)
+                if selectedView.lineSpace != 0 || selectedView.letterSpace != 0 {
+                    label.attributedText = NSAttributedString(string: originalText ?? "", attributes: attributes)
+                } else {
+                    label.text = originalText
+                }
                 if let oldSize {
                     selectedView.frame = oldSize
                 }
@@ -970,8 +1084,12 @@ extension EditorViewController {
                 let newText = label.text
                 let newFontSize = label.font?.pointSize
                 let newFrame = selectedView.frame
-                label.text = originalText
                 label.font = label.font?.withSize(originalFontSize ?? 18)
+                if selectedView.lineSpace != 0 || selectedView.letterSpace != 0 {
+                    label.attributedText = NSAttributedString(string: originalText ?? "", attributes: attributes)
+                } else {
+                    label.text = originalText
+                }
                 if let oldSize {
                     selectedView.frame = oldSize
                 }
@@ -979,7 +1097,11 @@ extension EditorViewController {
             }
         }
         textEditView?.changedText = { [weak self] newText in
-            label.text = newText
+            if selectedView.lineSpace != 0 || selectedView.letterSpace != 0 {
+                label.attributedText = NSAttributedString(string: newText, attributes: attributes)
+            } else {
+                label.text = newText
+            }
             self?.adjustTextHeight(txtView: label, view: selectedView)
         }
         
@@ -2053,8 +2175,25 @@ extension EditorViewController {
             self?.changeTextOfLabel(label: label, newText: oldText, newSize: oldSize, newFrame: oldFrame)
         }
         
-        label.text = newText
         label.font = label.font?.withSize(newSize ?? 0)
+        if let superView = label.superview as? DraggableUIView, superView.letterSpace != 0 || superView.lineSpace != 0 {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = superView.lineSpace
+            paragraphStyle.alignment = .center
+            
+            let attributedString = NSMutableAttributedString(
+                string: newText ?? "",
+                attributes: [
+                    .font: label.font ?? UIFont.systemFont(ofSize: 18),
+                    .kern: superView.letterSpace,
+                    .paragraphStyle: paragraphStyle
+                ]
+            )
+            label.attributedText = attributedString
+        } else {
+            label.text = newText
+        }
+        
         label.superview?.frame = newFrame ?? CGRect()
         self.checkForUndoRedoAvailability()
     }
@@ -2113,6 +2252,61 @@ extension EditorViewController {
         
         gridView.columnWidth = newWidth
         gridView.columnSpace = newSpace
+        self.checkForUndoRedoAvailability()
+    }
+    
+    private func setBGViewColor(view: BGView, color: UIColor?) {
+        let previousColor = view.bgColor
+        
+        UndoRedoManager.shared.registerUndo(target: self, handler: { [weak self] target in
+            self?.setBGViewColor(view: view, color: previousColor)
+        })
+        
+        view.bgColor = color
+        self.checkForUndoRedoAvailability()
+
+    }
+    
+    private func setBGImage(in view: BGView, image: UIImage) {
+        let previousImage = view.image
+        
+        UndoRedoManager.shared.registerUndo(target: self, handler: { [weak self] target in
+            if let previousImage {
+                self?.setBGImage(in: view, image: previousImage)
+            }
+        })
+        
+        view.image = image
+        self.checkForUndoRedoAvailability()
+    }
+    
+    private func setLetterAndLineSpace(in view: DraggableUIView, lineSpace: CGFloat, letterSpace: CGFloat, frame: CGRect) {
+        guard let label = view.subviews.compactMap({ $0 as? UITextView }).first else { return }
+        let previousLetterSpace = view.letterSpace
+        let previousLineSpace = view.lineSpace
+        let previousFrame = view.frame
+        
+        UndoRedoManager.shared.registerUndo(target: self, handler: { [weak self] target in
+            self?.setLetterAndLineSpace(in: view, lineSpace: previousLineSpace, letterSpace: previousLetterSpace, frame: previousFrame)
+        })
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpace
+        paragraphStyle.alignment = .center
+        
+        let attributedString = NSMutableAttributedString(
+            string: label.text ?? "",
+            attributes: [
+                .font: label.font ?? UIFont.systemFont(ofSize: 18),
+                .kern: letterSpace,
+                .paragraphStyle: paragraphStyle
+            ]
+        )
+        view.lineSpace = lineSpace
+        view.letterSpace = letterSpace
+        label.attributedText = attributedString
+        view.frame = frame
+        
         self.checkForUndoRedoAvailability()
     }
 }
@@ -2193,6 +2387,23 @@ extension EditorViewController {
         txtView.isEditable = false
         txtView.isSelectable = false
         txtView.isScrollEnabled = false
+        
+        if let lineSpace = element.lineSpace, let letterSpace = element.letterSpace {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = lineSpace
+            paragraphStyle.alignment = .center
+            
+            let attributedString = NSMutableAttributedString(
+                string: txtView.text ?? "",
+                attributes: [
+                    .font: txtView.font ?? UIFont.systemFont(ofSize: 18),
+                    .kern: letterSpace,
+                    .paragraphStyle: paragraphStyle
+                ]
+            )
+            txtView.attributedText = attributedString
+        }
+        
         txtView.translatesAutoresizingMaskIntoConstraints = false
         draggableLabelView.addSubview(txtView)
         setConstraints(for: txtView, in: draggableLabelView)
@@ -2370,7 +2581,7 @@ extension EditorViewController {
         let scaleX = self.widthSize / data.superViewWidth
         let scaleY = self.heightSize / data.superViewHeight
         let size = CGSize(width: 150, height: 70)
-        let element = UIElement(type: ComponentType.label.rawValue, x: ((widthSize / 2) - (size.width / 2)), y: ((heightSize / 2) - (size.height / 2)), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Your text here", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
+        let element = UIElement(type: ComponentType.label.rawValue, x: ((widthSize / 2) - (size.width / 2)), y: ((heightSize / 2) - (size.height / 2)), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Your text here", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, lineSpace: nil, letterSpace: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
         let newView = createLabel(with: element, fontFamily: UIFont.systemFont(ofSize: 18 * min(scaleX, scaleY)), scaleX: scaleX, scaleY: scaleY)
         viewModel.selectedView = newView
         UndoRedoManager.shared.registerUndo(target: self) { [weak self] target in
@@ -2385,7 +2596,7 @@ extension EditorViewController {
         let scaleX = self.widthSize / data.superViewWidth
         let scaleY = self.heightSize / data.superViewHeight
         let size = CGSize(width: 250, height: 250)
-        let element = UIElement(type: ComponentType.menuBox.rawValue, x: ((widthSize / 2) - (size.width / 2)), y: ((heightSize / 2) - (size.height / 2)), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Your text here", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, contentMode: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
+        let element = UIElement(type: ComponentType.menuBox.rawValue, x: ((widthSize / 2) - (size.width / 2)), y: ((heightSize / 2) - (size.height / 2)), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Your text here", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, lineSpace: nil, letterSpace: nil, contentMode: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
         
         DispatchQueue.main.async { [self] in
             let draggableMenuView = DraggableUIView()
@@ -2550,6 +2761,21 @@ extension EditorViewController {
                 duplicatedLabel.isEditable = false
                 duplicatedLabel.isSelectable = false
                 duplicatedLabel.isScrollEnabled = false
+                if originalView.letterSpace != .zero || originalView.lineSpace != .zero {
+                    let paragraphStyle = NSMutableParagraphStyle()
+                    paragraphStyle.lineSpacing = originalView.lineSpace
+                    paragraphStyle.alignment = .center
+                    
+                    let attributedString = NSMutableAttributedString(
+                        string: duplicatedLabel.text ?? "",
+                        attributes: [
+                            .font: duplicatedLabel.font ?? UIFont.systemFont(ofSize: 18 ),
+                            .kern: originalView.letterSpace,
+                            .paragraphStyle: paragraphStyle
+                        ]
+                    )
+                    duplicatedLabel.attributedText = attributedString
+                }
                 duplicatedLabel.translatesAutoresizingMaskIntoConstraints = false
                 duplicatedView.addSubview(duplicatedLabel)
                 self.setConstraints(for: duplicatedLabel, in: duplicatedView)
@@ -2650,7 +2876,7 @@ extension EditorViewController {
     
     private func getWaterMarkView() -> DraggableUIView {
         let size = CGSize(width: 150, height: 50)
-        let element = UIElement(type: ComponentType.label.rawValue, x: (widthSize / 2), y: ((heightSize - size.height) - 16), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Template Editor", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
+        let element = UIElement(type: ComponentType.label.rawValue, x: (widthSize / 2), y: ((heightSize - size.height) - 16), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Template Editor", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, lineSpace: nil, letterSpace: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
         
         let lblView = self.createLabel(with: element, fontFamily: UIFont(name: "RalewayRoman-Bold", size: 18)!, scaleX: 1, scaleY: 1)
         lblView.backgroundColor = Theme.primaryButtonColor
@@ -2670,6 +2896,46 @@ extension EditorViewController {
         self.viewModel.selectedView = view
     }
 }
+
+// MARK: - ColorPickerViewController Delegate
+extension EditorViewController: ColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidFinish(_ viewController: ColorPickerViewController) {
+        guard let selectedView = self.viewModel.selectedView else { return }
+        switch viewController.view.tag {
+        case 0:
+            setBackgroundColor(viewController.selectedColor, view: selectedView)
+        case 1:
+            if let label = selectedView.subviews.compactMap({ $0 as? UITextView }).first {
+                setFontColor(viewController.selectedColor, lbl: label)
+            } else if let menuBox = selectedView.subviews.compactMap({ $0 as? GridView }).first, let tag = Int(viewController.view.stringTag ?? "0"), let type = ResizeOption(rawValue: tag) {
+                switch type {
+                case .itemName:
+                    menuBox.headingColor = viewController.selectedColor
+                case .itemDescription:
+                    menuBox.descriptionColor = viewController.selectedColor
+                case .itemValue:
+                    menuBox.valueColor = viewController.selectedColor
+                }
+            }
+        case 2:
+            if let shapeView = selectedView.subviews.compactMap({ $0 as? UIImageView}).first {
+                self.setTintColor(in: shapeView, tintColor: viewController.selectedColor)
+            }
+        default:
+            break
+        }
+        viewController.dismiss(animated: true)
+    }
+    
+    func colorPickerViewControllerDidCancel(_ viewController: ColorPickerViewController) {
+        
+    }
+    
+    func colorPickerViewController(_ viewController: ColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        
+    }
+}
+
 
 // MARK: - UIColorPicker Delegate
 extension EditorViewController: UIColorPickerViewControllerDelegate {
@@ -2854,6 +3120,23 @@ extension EditorViewController {
                 clonedLabel.font = label.font!.withSize(label.font!.pointSize * scaleX)
                 clonedLabel.textColor = label.textColor
                 clonedLabel.textAlignment = label.textAlignment
+                
+                if view.lineSpace != .zero || view.letterSpace != .zero {
+                    let paragraphStyle = NSMutableParagraphStyle()
+                    paragraphStyle.lineSpacing = (view.lineSpace * scaleY)
+                    paragraphStyle.alignment = .center
+                    
+                    let attributedString = NSMutableAttributedString(
+                        string: clonedLabel.text ?? "",
+                        attributes: [
+                            .font: clonedLabel.font ?? UIFont.systemFont(ofSize: 18 * scaleX),
+                            .kern: (view.letterSpace * scaleX),
+                            .paragraphStyle: paragraphStyle
+                        ]
+                    )
+                    clonedLabel.attributedText = attributedString
+                }
+                
                 clonedLabel.backgroundColor = .clear
                 clonedSubview = clonedLabel
                 clonedSubview.frame = CGRect(origin: .zero, size: clonedView.bounds.size)
@@ -2986,7 +3269,7 @@ extension EditorViewController {
                     
                     if let bgView = innerSubview as? BGView {
                         elementDict["type"] = ComponentType.background.rawValue
-                        if let image = bgView.image {
+                        if bgView.image != nil {
                             elementDict["url"] = bgView.stringTag
                         }
                         currentElement.append(elementDict)
@@ -2997,6 +3280,10 @@ extension EditorViewController {
                         elementDict["type"] = ComponentType.label.rawValue
                         elementDict["text"] = label.text ?? ""
                         elementDict["fontURL"] = label.font?.fontName
+                        if innerSubview.lineSpace != .zero || innerSubview.letterSpace != .zero {
+                            elementDict["letterSpace"] = innerSubview.letterSpace
+                            elementDict["lineSpace"] = innerSubview.lineSpace
+                        }
                         elementDict["alignment"] = label.textAlignment.rawValue
                         elementDict["isEditable"] = innerSubview.isEditable
                         elementDict["size"] = label.font?.pointSize

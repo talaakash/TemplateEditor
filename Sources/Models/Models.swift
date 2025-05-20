@@ -46,6 +46,8 @@ public struct UIElement: Decodable {
     let fontURL: String?
     let size: CGFloat? // Default 18
     let isEditable: Bool?
+    let lineSpace: CGFloat?
+    let letterSpace: CGFloat?
     
     // Image related property
     let contentMode: Int?

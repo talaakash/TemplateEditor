@@ -32,9 +32,11 @@ class BGView: DraggableUIView {
             return self.imageView.image
         }
         set {
-            self.imageView.image = newValue
-            self.backgroundColor = .clear
-            self.setupImageView()
+            if let newValue {
+                self.imageView.image = newValue
+                self.backgroundColor = .clear
+                self.setupImageView()
+            }
         }
     }
     

@@ -43,7 +43,7 @@ enum TaskType {
 }
 
 public enum EditType: EnumType, CaseIterable {
-    case move, delete, copy, backgroundColor, flipH, crop, flipV, change, layered, blur, opacity, shadow, adjustments, blendImage, lock, fontChange, fontSize, editFont, fontColor, editContent, changeSize, adjustSpace, tintColor
+    case move, delete, copy, backgroundColor, flipH, crop, flipV, change, layered, blur, opacity, shadow, adjustments, blendImage, lock, fontChange, fontSize, editFont, fontColor, textSpace, editContent, changeSize, adjustSpace, tintColor
     
     var getIcon: UIImage? {
         switch self {
@@ -93,6 +93,8 @@ public enum EditType: EnumType, CaseIterable {
             return UIImage(named: "crop", in: packageBundle, with: .none)
         case .adjustSpace:
             return UIImage(named: "shadowWidth", in: packageBundle, with: .none)
+        case .textSpace:
+            return UIImage(named: "spacer", in: packageBundle, with: .none)
         }
     }
     
@@ -144,6 +146,8 @@ public enum EditType: EnumType, CaseIterable {
             return "Crop"
         case .adjustSpace:
             return "Adjust Space"
+        case .textSpace:
+            return "Text Space"
         }
     }
     
@@ -194,6 +198,8 @@ public enum EditType: EnumType, CaseIterable {
         case .crop:
             return true
         case .adjustSpace:
+            return false
+        case .textSpace:
             return false
         }
     }
@@ -829,6 +835,10 @@ public enum Spacing: CaseIterable, EnumType {
             return "Item Width Space"
         }
     }
+}
+
+public enum TextSpace: EnumType {
+    case line, letter
 }
 
 public enum SaveContentSize: Float {

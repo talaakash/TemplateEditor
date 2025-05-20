@@ -230,7 +230,7 @@ extension ViewSaver {
     
     private func getWaterMarkView(widthSize: CGFloat, heightSize: CGFloat) -> DraggableUIView {
         let size = CGSize(width: 150, height: 50)
-        let element = UIElement(type: ComponentType.label.rawValue, x: (widthSize / 2), y: ((heightSize - size.height) - 16), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Template Editor", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
+        let element = UIElement(type: ComponentType.label.rawValue, x: (widthSize / 2), y: ((heightSize - size.height) - 16), width: size.width, height: size.height, movable: nil, isUserInteractionEnabled: nil, alpha: 1, isDuplicatable: nil, isRemovable: nil, cornerRadius: nil, backGroundColor: nil, rotationAngle: 0, text: "Template Editor", alignment: nil, textColor: nil, fontURL: nil, size: nil, isEditable: nil, lineSpace: nil, letterSpace: nil, contentMode: nil, url: nil, itemNameFontSize: nil, itemDescriptionFontSize: nil, itemValueFontSize: nil, columnWidth: nil, columnSpace: 0, menuData: nil)
         
         let lblView = ViewManager.shared.createLabel(with: element, in: UIView(), fontFamily: UIFont(name: "RalewayRoman-Bold", size: 18)!, scaleX: 1, scaleY: 1)
         lblView.backgroundColor = Theme.primaryButtonColor

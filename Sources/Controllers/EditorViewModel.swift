@@ -217,6 +217,9 @@ class EditorViewModel {
             if let option = availableOptions.first(where: { $0.type == .fontSize }) {
                 options.append(option)
             }
+            if let option = availableOptions.first(where: { $0.type == .textSpace }) {
+                options.append(option)
+            }
             if let option = availableOptions.first(where: { $0.type == .fontColor }) {
                 options.append(option)
             }
@@ -497,6 +500,9 @@ extension EditorViewModel {
         if selectedView.isLayered || (selectedView.superview as? DraggableUIView)?.isLayered == true  {
             return
         }
+        if let bgView = selectedView as? BGView, bgView.image == nil {
+            return
+        }
         
         self.controllerView.translatesAutoresizingMaskIntoConstraints = false
         if let superView = selectedView.superview {
@@ -558,14 +564,21 @@ extension EditorViewModel {
                 newFrame.size.width = newWidth
                 newFrame.size.height = newHeight
             case .bottomOnly:
-                newFrame.size.height += deltaY
+                if (newFrame.size.height + deltaY) > 30 {
+                    newFrame.size.height += deltaY
+                } else {
+                    newFrame.size.height = selectedView.frame.height
+                }
             case .rightOnly:
-                newFrame.size.width += deltaX
+                if (newFrame.size.width + deltaX) > 30 {
+                    newFrame.size.width += deltaX
+                } else {
+                    newFrame.size.width = selectedView.frame.width
+                }
             default:
                 break
             }
             UIView.performWithoutAnimation {
-                guard newFrame.width > 16 && newFrame.height > 16 else { return }
                 selectedView.frame = newFrame
                 let rotationAngle = atan2(originalTransform.b, originalTransform.a)
                 if rotationAngle != 0 {

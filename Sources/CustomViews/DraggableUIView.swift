@@ -37,6 +37,8 @@ public class DraggableUIView: UIView {
     var isLayered: Bool = false
     var isBlurredView: Bool?
     var blurIntensity: CGFloat = .zero
+    var lineSpace: CGFloat = .zero
+    var letterSpace: CGFloat = .zero
     
     var initialCenter: CGPoint = .zero
     var initialBounds: CGRect = .zero

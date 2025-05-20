@@ -98,7 +98,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZa-73-wVC">
                                     <rect key="frame" x="8" y="8" width="84" height="20"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="RalewayRoman-Medium" family="Raleway Roman" pointSize="14"/>
                                     <color key="textColor" name="fontColor353535"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>
@@ -133,7 +133,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kv-fa-SSI">
                                     <rect key="frame" x="8" y="8" width="84" height="20"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="RalewayRoman-Medium" family="Raleway Roman" pointSize="14"/>
                                     <color key="textColor" name="fontColor353535"/>
                                     <nil key="highlightedColor"/>
                                     <userDefinedRuntimeAttributes>

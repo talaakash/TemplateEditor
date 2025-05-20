@@ -46,6 +46,87 @@
 		799EAD4947C3902EA490A7282B738C25 /* AVAssetImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6C4C1958434B423D9D400A4366D4E /* AVAssetImageDataProvider.swift */; };
 		7A2DDEA900883E39D33468469FC14AEB /* ImageDownloader+LivePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF7BFB9771159D81EF8C9333335D237 /* ImageDownloader+LivePhoto.swift */; };
 		7FDE5BBEB2E3E5E79A686FB6F496E566 /* KingfisherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF51D75A1D7CF174DEC319B717C9E5 /* KingfisherError.swift */; };
+		843B4D762DDC8C0E00693A41 /* ClassicColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D222DDC8C0E00693A41 /* ClassicColorView.swift */; };
+		843B4D772DDC8C0E00693A41 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D5E2DDC8C0E00693A41 /* ConstraintLayoutSupportDSL.swift */; };
+		843B4D782DDC8C0E00693A41 /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D332DDC8C0E00693A41 /* ColorSlider.swift */; };
+		843B4D792DDC8C0E00693A41 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D6A2DDC8C0E00693A41 /* ConstraintRelatableTarget.swift */; };
+		843B4D7A2DDC8C0E00693A41 /* SwatchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D3F2DDC8C0E00693A41 /* SwatchAndPreviewView.swift */; };
+		843B4D7B2DDC8C0E00693A41 /* ScopeColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D302DDC8C0E00693A41 /* ScopeColorPicker.swift */; };
+		843B4D7C2DDC8C0E00693A41 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D672DDC8C0E00693A41 /* ConstraintOffsetTarget.swift */; };
+		843B4D7D2DDC8C0E00693A41 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D742DDC8C0E00693A41 /* UILayoutSupport+Extensions.swift */; };
+		843B4D7E2DDC8C0E00693A41 /* ConstraintMakerPrioritizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D632DDC8C0E00693A41 /* ConstraintMakerPrioritizable.swift */; };
+		843B4D7F2DDC8C0E00693A41 /* AddColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D182DDC8C0E00693A41 /* AddColorCell.swift */; };
+		843B4D802DDC8C0E00693A41 /* HSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D452DDC8C0E00693A41 /* HSV.swift */; };
+		843B4D812DDC8C0E00693A41 /* RGBHexSliderColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D3B2DDC8C0E00693A41 /* RGBHexSliderColorPicker.swift */; };
+		843B4D822DDC8C0E00693A41 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D482DDC8C0E00693A41 /* RGB.swift */; };
+		843B4D832DDC8C0E00693A41 /* ClassicColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D212DDC8C0E00693A41 /* ClassicColorPicker.swift */; };
+		843B4D842DDC8C0E00693A41 /* PrivatePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D472DDC8C0E00693A41 /* PrivatePreference.swift */; };
+		843B4D852DDC8C0E00693A41 /* ColorFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D1C2DDC8C0E00693A41 /* ColorFormatter.swift */; };
+		843B4D862DDC8C0E00693A41 /* HexInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D382DDC8C0E00693A41 /* HexInputView.swift */; };
+		843B4D872DDC8C0E00693A41 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D5F2DDC8C0E00693A41 /* ConstraintMaker.swift */; };
+		843B4D882DDC8C0E00693A41 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D712DDC8C0E00693A41 /* LayoutConstraintItem.swift */; };
+		843B4D892DDC8C0E00693A41 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D642DDC8C0E00693A41 /* ConstraintMakerRelatable.swift */; };
+		843B4D8A2DDC8C0E00693A41 /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D1D2DDC8C0E00693A41 /* DispatchQueue+.swift */; };
+		843B4D8B2DDC8C0E00693A41 /* HairlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D1A2DDC8C0E00693A41 /* HairlineView.swift */; };
+		843B4D8C2DDC8C0E00693A41 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D502DDC8C0E00693A41 /* ConstraintAttributes.swift */; };
+		843B4D8D2DDC8C0E00693A41 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D6D2DDC8C0E00693A41 /* ConstraintView+Extensions.swift */; };
+		843B4D8E2DDC8C0E00693A41 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D732DDC8C0E00693A41 /* Typealiases.swift */; };
+		843B4D8F2DDC8C0E00693A41 /* DiskColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D282DDC8C0E00693A41 /* DiskColorPickerView.swift */; };
+		843B4D902DDC8C0E00693A41 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D5D2DDC8C0E00693A41 /* ConstraintLayoutSupport.swift */; };
+		843B4D912DDC8C0E00693A41 /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D552DDC8C0E00693A41 /* ConstraintDirectionalInsetTarget.swift */; };
+		843B4D922DDC8C0E00693A41 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D6F2DDC8C0E00693A41 /* Debugging.swift */; };
+		843B4D932DDC8C0E00693A41 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D542DDC8C0E00693A41 /* ConstraintDirectionalInsets.swift */; };
+		843B4D942DDC8C0E00693A41 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D192DDC8C0E00693A41 /* ColorCell.swift */; };
+		843B4D952DDC8C0E00693A41 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D572DDC8C0E00693A41 /* ConstraintInsets.swift */; };
+		843B4D962DDC8C0E00693A41 /* ColorPickerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D252DDC8C0E00693A41 /* ColorPickerContentViewController.swift */; };
+		843B4D972DDC8C0E00693A41 /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D622DDC8C0E00693A41 /* ConstraintMakerFinalizable.swift */; };
+		843B4D982DDC8C0E00693A41 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D532DDC8C0E00693A41 /* ConstraintDescription.swift */; };
+		843B4D992DDC8C0E00693A41 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D6C2DDC8C0E00693A41 /* ConstraintView.swift */; };
+		843B4D9A2DDC8C0E00693A41 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D522DDC8C0E00693A41 /* ConstraintConstantTarget.swift */; };
+		843B4D9B2DDC8C0E00693A41 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D5C2DDC8C0E00693A41 /* ConstraintLayoutGuideDSL.swift */; };
+		843B4D9C2DDC8C0E00693A41 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D462DDC8C0E00693A41 /* LocalizedString.swift */; };
+		843B4D9D2DDC8C0E00693A41 /* RGBHSBHexSliderColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D3C2DDC8C0E00693A41 /* RGBHSBHexSliderColorPicker.swift */; };
+		843B4D9E2DDC8C0E00693A41 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D5B2DDC8C0E00693A41 /* ConstraintLayoutGuide+Extensions.swift */; };
+		843B4D9F2DDC8C0E00693A41 /* GoOutPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D2D2DDC8C0E00693A41 /* GoOutPanGestureRecognizer.swift */; };
+		843B4DA02DDC8C0E00693A41 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D582DDC8C0E00693A41 /* ConstraintInsetTarget.swift */; };
+		843B4DA12DDC8C0E00693A41 /* SwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D402DDC8C0E00693A41 /* SwatchView.swift */; };
+		843B4DA22DDC8C0E00693A41 /* RGBColorSliderColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D3A2DDC8C0E00693A41 /* RGBColorSliderColorPicker.swift */; };
+		843B4DA32DDC8C0E00693A41 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D512DDC8C0E00693A41 /* ConstraintConfig.swift */; };
+		843B4DA42DDC8C0E00693A41 /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D5A2DDC8C0E00693A41 /* ConstraintLayoutGuide.swift */; };
+		843B4DA52DDC8C0E00693A41 /* ColorSliderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D342DDC8C0E00693A41 /* ColorSliderConfiguration.swift */; };
+		843B4DA62DDC8C0E00693A41 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D602DDC8C0E00693A41 /* ConstraintMakerEditable.swift */; };
+		843B4DA72DDC8C0E00693A41 /* ColorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D432DDC8C0E00693A41 /* ColorItem.swift */; };
+		843B4DA82DDC8C0E00693A41 /* ColorPickerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D442DDC8C0E00693A41 /* ColorPickerConfiguration.swift */; };
+		843B4DA92DDC8C0E00693A41 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D262DDC8C0E00693A41 /* ColorPickerViewController.swift */; };
+		843B4DAA2DDC8C0E00693A41 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D592DDC8C0E00693A41 /* ConstraintItem.swift */; };
+		843B4DAB2DDC8C0E00693A41 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D4F2DDC8C0E00693A41 /* Constraint.swift */; };
+		843B4DAC2DDC8C0E00693A41 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D242DDC8C0E00693A41 /* ColorPicker.swift */; };
+		843B4DAD2DDC8C0E00693A41 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D702DDC8C0E00693A41 /* LayoutConstraint.swift */; };
+		843B4DAE2DDC8C0E00693A41 /* ConstraintMakerRelatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D652DDC8C0E00693A41 /* ConstraintMakerRelatable+Extensions.swift */; };
+		843B4DAF2DDC8C0E00693A41 /* ScopeColorPickerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D312DDC8C0E00693A41 /* ScopeColorPickerWindow.swift */; };
+		843B4DB02DDC8C0E00693A41 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D662DDC8C0E00693A41 /* ConstraintMultiplierTarget.swift */; };
+		843B4DB12DDC8C0E00693A41 /* ColorSliderWithInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D372DDC8C0E00693A41 /* ColorSliderWithInputView.swift */; };
+		843B4DB22DDC8C0E00693A41 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D612DDC8C0E00693A41 /* ConstraintMakerExtendable.swift */; };
+		843B4DB32DDC8C0E00693A41 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D6B2DDC8C0E00693A41 /* ConstraintRelation.swift */; };
+		843B4DB42DDC8C0E00693A41 /* AlphaColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D1F2DDC8C0E00693A41 /* AlphaColorPicker.swift */; };
+		843B4DB52DDC8C0E00693A41 /* ColorPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D3E2DDC8C0E00693A41 /* ColorPreviewView.swift */; };
+		843B4DB62DDC8C0E00693A41 /* HSBColorSliderColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D392DDC8C0E00693A41 /* HSBColorSliderColorPicker.swift */; };
+		843B4DB72DDC8C0E00693A41 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D682DDC8C0E00693A41 /* ConstraintPriority.swift */; };
+		843B4DB82DDC8C0E00693A41 /* ColorSliderTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D362DDC8C0E00693A41 /* ColorSliderTitleLabel.swift */; };
+		843B4DB92DDC8C0E00693A41 /* ReticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D2E2DDC8C0E00693A41 /* ReticleView.swift */; };
+		843B4DBA2DDC8C0E00693A41 /* GridColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D2B2DDC8C0E00693A41 /* GridColorView.swift */; };
+		843B4DBB2DDC8C0E00693A41 /* ColorSliderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D352DDC8C0E00693A41 /* ColorSliderTextField.swift */; };
+		843B4DBC2DDC8C0E00693A41 /* GridColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D2A2DDC8C0E00693A41 /* GridColorPicker.swift */; };
+		843B4DBD2DDC8C0E00693A41 /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D6E2DDC8C0E00693A41 /* ConstraintViewDSL.swift */; };
+		843B4DBE2DDC8C0E00693A41 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D692DDC8C0E00693A41 /* ConstraintPriorityTarget.swift */; };
+		843B4DBF2DDC8C0E00693A41 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4D562DDC8C0E00693A41 /* ConstraintDSL.swift */; };
+		843B4DC02DDC8C0E00693A41 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 843B4D722DDC8C0E00693A41 /* PrivacyInfo.xcprivacy */; };
+		843B4DC12DDC8C0E00693A41 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 843B4D4C2DDC8C0E00693A41 /* Localizable.strings */; };
+		843B4DC32DDC8C2500693A41 /* BGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4DC22DDC8C2500693A41 /* BGView.swift */; };
+		843B4DC82DDC8C8A00693A41 /* BackgroundOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4DC42DDC8C8A00693A41 /* BackgroundOptions.swift */; };
+		843B4DC92DDC8C8A00693A41 /* TextSpacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843B4DC62DDC8C8A00693A41 /* TextSpacing.swift */; };
+		843B4DCA2DDC8C8A00693A41 /* BackgroundOptions.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843B4DC52DDC8C8A00693A41 /* BackgroundOptions.xib */; };
+		843B4DCB2DDC8C8A00693A41 /* TextSpacing.xib in Resources */ = {isa = PBXBuildFile; fileRef = 843B4DC72DDC8C8A00693A41 /* TextSpacing.xib */; };
 		8478A6C52DD70E9F00C643E7 /* AnchorLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8478A6C42DD70E9F00C643E7 /* AnchorLayoutGuide.swift */; };
 		88E76DE06F81A6B173F029A37BD0BE7F /* Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71F8832F0E3C04949146C7474CE031C /* Runtime.swift */; };
 		89C457ACFD60011F394C5BD42800BDC6 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86EDC7AE0ED35F162F025AD406A91D7 /* ImagePrefetcher.swift */; };
@@ -338,6 +419,88 @@
 		8302757A435AAF85003AF57DC70CD843 /* KFImageRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KFImageRenderer.swift; path = Sources/SwiftUI/KFImageRenderer.swift; sourceTree = "<group>"; };
 		8369F9C9E9BE220D765E2F61F1A46EF4 /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
 		83DDEDA09F47013DD4844B67277E2D4F /* ExtensionHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExtensionHelpers.swift; path = Sources/Utility/ExtensionHelpers.swift; sourceTree = "<group>"; };
+		843B4D182DDC8C0E00693A41 /* AddColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddColorCell.swift; sourceTree = "<group>"; };
+		843B4D192DDC8C0E00693A41 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		843B4D1A2DDC8C0E00693A41 /* HairlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairlineView.swift; sourceTree = "<group>"; };
+		843B4D1C2DDC8C0E00693A41 /* ColorFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFormatter.swift; sourceTree = "<group>"; };
+		843B4D1D2DDC8C0E00693A41 /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
+		843B4D1F2DDC8C0E00693A41 /* AlphaColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaColorPicker.swift; sourceTree = "<group>"; };
+		843B4D212DDC8C0E00693A41 /* ClassicColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicColorPicker.swift; sourceTree = "<group>"; };
+		843B4D222DDC8C0E00693A41 /* ClassicColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicColorView.swift; sourceTree = "<group>"; };
+		843B4D242DDC8C0E00693A41 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		843B4D252DDC8C0E00693A41 /* ColorPickerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerContentViewController.swift; sourceTree = "<group>"; };
+		843B4D262DDC8C0E00693A41 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		843B4D282DDC8C0E00693A41 /* DiskColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskColorPickerView.swift; sourceTree = "<group>"; };
+		843B4D2A2DDC8C0E00693A41 /* GridColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridColorPicker.swift; sourceTree = "<group>"; };
+		843B4D2B2DDC8C0E00693A41 /* GridColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridColorView.swift; sourceTree = "<group>"; };
+		843B4D2D2DDC8C0E00693A41 /* GoOutPanGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoOutPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		843B4D2E2DDC8C0E00693A41 /* ReticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReticleView.swift; sourceTree = "<group>"; };
+		843B4D302DDC8C0E00693A41 /* ScopeColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeColorPicker.swift; sourceTree = "<group>"; };
+		843B4D312DDC8C0E00693A41 /* ScopeColorPickerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeColorPickerWindow.swift; sourceTree = "<group>"; };
+		843B4D332DDC8C0E00693A41 /* ColorSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
+		843B4D342DDC8C0E00693A41 /* ColorSliderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderConfiguration.swift; sourceTree = "<group>"; };
+		843B4D352DDC8C0E00693A41 /* ColorSliderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderTextField.swift; sourceTree = "<group>"; };
+		843B4D362DDC8C0E00693A41 /* ColorSliderTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderTitleLabel.swift; sourceTree = "<group>"; };
+		843B4D372DDC8C0E00693A41 /* ColorSliderWithInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderWithInputView.swift; sourceTree = "<group>"; };
+		843B4D382DDC8C0E00693A41 /* HexInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexInputView.swift; sourceTree = "<group>"; };
+		843B4D392DDC8C0E00693A41 /* HSBColorSliderColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBColorSliderColorPicker.swift; sourceTree = "<group>"; };
+		843B4D3A2DDC8C0E00693A41 /* RGBColorSliderColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorSliderColorPicker.swift; sourceTree = "<group>"; };
+		843B4D3B2DDC8C0E00693A41 /* RGBHexSliderColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBHexSliderColorPicker.swift; sourceTree = "<group>"; };
+		843B4D3C2DDC8C0E00693A41 /* RGBHSBHexSliderColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBHSBHexSliderColorPicker.swift; sourceTree = "<group>"; };
+		843B4D3E2DDC8C0E00693A41 /* ColorPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPreviewView.swift; sourceTree = "<group>"; };
+		843B4D3F2DDC8C0E00693A41 /* SwatchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchAndPreviewView.swift; sourceTree = "<group>"; };
+		843B4D402DDC8C0E00693A41 /* SwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchView.swift; sourceTree = "<group>"; };
+		843B4D432DDC8C0E00693A41 /* ColorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorItem.swift; sourceTree = "<group>"; };
+		843B4D442DDC8C0E00693A41 /* ColorPickerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerConfiguration.swift; sourceTree = "<group>"; };
+		843B4D452DDC8C0E00693A41 /* HSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSV.swift; sourceTree = "<group>"; };
+		843B4D462DDC8C0E00693A41 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		843B4D472DDC8C0E00693A41 /* PrivatePreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivatePreference.swift; sourceTree = "<group>"; };
+		843B4D482DDC8C0E00693A41 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		843B4D4A2DDC8C0E00693A41 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		843B4D4B2DDC8C0E00693A41 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		843B4D4F2DDC8C0E00693A41 /* Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		843B4D502DDC8C0E00693A41 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
+		843B4D512DDC8C0E00693A41 /* ConstraintConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintConfig.swift; sourceTree = "<group>"; };
+		843B4D522DDC8C0E00693A41 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		843B4D532DDC8C0E00693A41 /* ConstraintDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
+		843B4D542DDC8C0E00693A41 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
+		843B4D552DDC8C0E00693A41 /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
+		843B4D562DDC8C0E00693A41 /* ConstraintDSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintDSL.swift; sourceTree = "<group>"; };
+		843B4D572DDC8C0E00693A41 /* ConstraintInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintInsets.swift; sourceTree = "<group>"; };
+		843B4D582DDC8C0E00693A41 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		843B4D592DDC8C0E00693A41 /* ConstraintItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintItem.swift; sourceTree = "<group>"; };
+		843B4D5A2DDC8C0E00693A41 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		843B4D5B2DDC8C0E00693A41 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
+		843B4D5C2DDC8C0E00693A41 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
+		843B4D5D2DDC8C0E00693A41 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
+		843B4D5E2DDC8C0E00693A41 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
+		843B4D5F2DDC8C0E00693A41 /* ConstraintMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
+		843B4D602DDC8C0E00693A41 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		843B4D612DDC8C0E00693A41 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
+		843B4D622DDC8C0E00693A41 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		843B4D632DDC8C0E00693A41 /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
+		843B4D642DDC8C0E00693A41 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		843B4D652DDC8C0E00693A41 /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
+		843B4D662DDC8C0E00693A41 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		843B4D672DDC8C0E00693A41 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
+		843B4D682DDC8C0E00693A41 /* ConstraintPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintPriority.swift; sourceTree = "<group>"; };
+		843B4D692DDC8C0E00693A41 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		843B4D6A2DDC8C0E00693A41 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		843B4D6B2DDC8C0E00693A41 /* ConstraintRelation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
+		843B4D6C2DDC8C0E00693A41 /* ConstraintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
+		843B4D6D2DDC8C0E00693A41 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
+		843B4D6E2DDC8C0E00693A41 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		843B4D6F2DDC8C0E00693A41 /* Debugging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
+		843B4D702DDC8C0E00693A41 /* LayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
+		843B4D712DDC8C0E00693A41 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
+		843B4D722DDC8C0E00693A41 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		843B4D732DDC8C0E00693A41 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		843B4D742DDC8C0E00693A41 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
+		843B4DC22DDC8C2500693A41 /* BGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGView.swift; sourceTree = "<group>"; };
+		843B4DC42DDC8C8A00693A41 /* BackgroundOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundOptions.swift; sourceTree = "<group>"; };
+		843B4DC52DDC8C8A00693A41 /* BackgroundOptions.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BackgroundOptions.xib; sourceTree = "<group>"; };
+		843B4DC62DDC8C8A00693A41 /* TextSpacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSpacing.swift; sourceTree = "<group>"; };
+		843B4DC72DDC8C8A00693A41 /* TextSpacing.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextSpacing.xib; sourceTree = "<group>"; };
 		8478A6C42DD70E9F00C643E7 /* AnchorLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorLayoutGuide.swift; sourceTree = "<group>"; };
 		866DDAAFAB87B93333D5EBDA00D61377 /* Placeholder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Placeholder.swift; path = Sources/Image/Placeholder.swift; sourceTree = "<group>"; };
 		8718F88D170D177F8B0E6232DE630FB7 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Image/Filter.swift; sourceTree = "<group>"; };
@@ -686,6 +849,208 @@
 			path = "../Target Support Files/Kingfisher";
 			sourceTree = "<group>";
 		};
+		843B4D1B2DDC8C0E00693A41 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D182DDC8C0E00693A41 /* AddColorCell.swift */,
+				843B4D192DDC8C0E00693A41 /* ColorCell.swift */,
+				843B4D1A2DDC8C0E00693A41 /* HairlineView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		843B4D1E2DDC8C0E00693A41 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D1C2DDC8C0E00693A41 /* ColorFormatter.swift */,
+				843B4D1D2DDC8C0E00693A41 /* DispatchQueue+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		843B4D202DDC8C0E00693A41 /* AlphaColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D1F2DDC8C0E00693A41 /* AlphaColorPicker.swift */,
+			);
+			path = AlphaColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D232DDC8C0E00693A41 /* ClassicColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D212DDC8C0E00693A41 /* ClassicColorPicker.swift */,
+				843B4D222DDC8C0E00693A41 /* ClassicColorView.swift */,
+			);
+			path = ClassicColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D272DDC8C0E00693A41 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D242DDC8C0E00693A41 /* ColorPicker.swift */,
+				843B4D252DDC8C0E00693A41 /* ColorPickerContentViewController.swift */,
+				843B4D262DDC8C0E00693A41 /* ColorPickerViewController.swift */,
+			);
+			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D292DDC8C0E00693A41 /* DiskColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D282DDC8C0E00693A41 /* DiskColorPickerView.swift */,
+			);
+			path = DiskColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D2C2DDC8C0E00693A41 /* GridColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D2A2DDC8C0E00693A41 /* GridColorPicker.swift */,
+				843B4D2B2DDC8C0E00693A41 /* GridColorView.swift */,
+			);
+			path = GridColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D2F2DDC8C0E00693A41 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D2D2DDC8C0E00693A41 /* GoOutPanGestureRecognizer.swift */,
+				843B4D2E2DDC8C0E00693A41 /* ReticleView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		843B4D322DDC8C0E00693A41 /* ScopeColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D2F2DDC8C0E00693A41 /* Components */,
+				843B4D302DDC8C0E00693A41 /* ScopeColorPicker.swift */,
+				843B4D312DDC8C0E00693A41 /* ScopeColorPickerWindow.swift */,
+			);
+			path = ScopeColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D3D2DDC8C0E00693A41 /* SliderColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D332DDC8C0E00693A41 /* ColorSlider.swift */,
+				843B4D342DDC8C0E00693A41 /* ColorSliderConfiguration.swift */,
+				843B4D352DDC8C0E00693A41 /* ColorSliderTextField.swift */,
+				843B4D362DDC8C0E00693A41 /* ColorSliderTitleLabel.swift */,
+				843B4D372DDC8C0E00693A41 /* ColorSliderWithInputView.swift */,
+				843B4D382DDC8C0E00693A41 /* HexInputView.swift */,
+				843B4D392DDC8C0E00693A41 /* HSBColorSliderColorPicker.swift */,
+				843B4D3A2DDC8C0E00693A41 /* RGBColorSliderColorPicker.swift */,
+				843B4D3B2DDC8C0E00693A41 /* RGBHexSliderColorPicker.swift */,
+				843B4D3C2DDC8C0E00693A41 /* RGBHSBHexSliderColorPicker.swift */,
+			);
+			path = SliderColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D412DDC8C0E00693A41 /* Swatch */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D3E2DDC8C0E00693A41 /* ColorPreviewView.swift */,
+				843B4D3F2DDC8C0E00693A41 /* SwatchAndPreviewView.swift */,
+				843B4D402DDC8C0E00693A41 /* SwatchView.swift */,
+			);
+			path = Swatch;
+			sourceTree = "<group>";
+		};
+		843B4D422DDC8C0E00693A41 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D202DDC8C0E00693A41 /* AlphaColorPicker */,
+				843B4D232DDC8C0E00693A41 /* ClassicColorPicker */,
+				843B4D272DDC8C0E00693A41 /* ColorPicker */,
+				843B4D292DDC8C0E00693A41 /* DiskColorPicker */,
+				843B4D2C2DDC8C0E00693A41 /* GridColorPicker */,
+				843B4D322DDC8C0E00693A41 /* ScopeColorPicker */,
+				843B4D3D2DDC8C0E00693A41 /* SliderColorPicker */,
+				843B4D412DDC8C0E00693A41 /* Swatch */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		843B4D492DDC8C0E00693A41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D432DDC8C0E00693A41 /* ColorItem.swift */,
+				843B4D442DDC8C0E00693A41 /* ColorPickerConfiguration.swift */,
+				843B4D452DDC8C0E00693A41 /* HSV.swift */,
+				843B4D462DDC8C0E00693A41 /* LocalizedString.swift */,
+				843B4D472DDC8C0E00693A41 /* PrivatePreference.swift */,
+				843B4D482DDC8C0E00693A41 /* RGB.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		843B4D4D2DDC8C0E00693A41 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D4C2DDC8C0E00693A41 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		843B4D4E2DDC8C0E00693A41 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D1B2DDC8C0E00693A41 /* Components */,
+				843B4D1E2DDC8C0E00693A41 /* Extensions */,
+				843B4D422DDC8C0E00693A41 /* Feature */,
+				843B4D492DDC8C0E00693A41 /* Model */,
+				843B4D4D2DDC8C0E00693A41 /* Resources */,
+			);
+			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		843B4D752DDC8C0E00693A41 /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				843B4D4F2DDC8C0E00693A41 /* Constraint.swift */,
+				843B4D502DDC8C0E00693A41 /* ConstraintAttributes.swift */,
+				843B4D512DDC8C0E00693A41 /* ConstraintConfig.swift */,
+				843B4D522DDC8C0E00693A41 /* ConstraintConstantTarget.swift */,
+				843B4D532DDC8C0E00693A41 /* ConstraintDescription.swift */,
+				843B4D542DDC8C0E00693A41 /* ConstraintDirectionalInsets.swift */,
+				843B4D552DDC8C0E00693A41 /* ConstraintDirectionalInsetTarget.swift */,
+				843B4D562DDC8C0E00693A41 /* ConstraintDSL.swift */,
+				843B4D572DDC8C0E00693A41 /* ConstraintInsets.swift */,
+				843B4D582DDC8C0E00693A41 /* ConstraintInsetTarget.swift */,
+				843B4D592DDC8C0E00693A41 /* ConstraintItem.swift */,
+				843B4D5A2DDC8C0E00693A41 /* ConstraintLayoutGuide.swift */,
+				843B4D5B2DDC8C0E00693A41 /* ConstraintLayoutGuide+Extensions.swift */,
+				843B4D5C2DDC8C0E00693A41 /* ConstraintLayoutGuideDSL.swift */,
+				843B4D5D2DDC8C0E00693A41 /* ConstraintLayoutSupport.swift */,
+				843B4D5E2DDC8C0E00693A41 /* ConstraintLayoutSupportDSL.swift */,
+				843B4D5F2DDC8C0E00693A41 /* ConstraintMaker.swift */,
+				843B4D602DDC8C0E00693A41 /* ConstraintMakerEditable.swift */,
+				843B4D612DDC8C0E00693A41 /* ConstraintMakerExtendable.swift */,
+				843B4D622DDC8C0E00693A41 /* ConstraintMakerFinalizable.swift */,
+				843B4D632DDC8C0E00693A41 /* ConstraintMakerPrioritizable.swift */,
+				843B4D642DDC8C0E00693A41 /* ConstraintMakerRelatable.swift */,
+				843B4D652DDC8C0E00693A41 /* ConstraintMakerRelatable+Extensions.swift */,
+				843B4D662DDC8C0E00693A41 /* ConstraintMultiplierTarget.swift */,
+				843B4D672DDC8C0E00693A41 /* ConstraintOffsetTarget.swift */,
+				843B4D682DDC8C0E00693A41 /* ConstraintPriority.swift */,
+				843B4D692DDC8C0E00693A41 /* ConstraintPriorityTarget.swift */,
+				843B4D6A2DDC8C0E00693A41 /* ConstraintRelatableTarget.swift */,
+				843B4D6B2DDC8C0E00693A41 /* ConstraintRelation.swift */,
+				843B4D6C2DDC8C0E00693A41 /* ConstraintView.swift */,
+				843B4D6D2DDC8C0E00693A41 /* ConstraintView+Extensions.swift */,
+				843B4D6E2DDC8C0E00693A41 /* ConstraintViewDSL.swift */,
+				843B4D6F2DDC8C0E00693A41 /* Debugging.swift */,
+				843B4D702DDC8C0E00693A41 /* LayoutConstraint.swift */,
+				843B4D712DDC8C0E00693A41 /* LayoutConstraintItem.swift */,
+				843B4D722DDC8C0E00693A41 /* PrivacyInfo.xcprivacy */,
+				843B4D732DDC8C0E00693A41 /* Typealiases.swift */,
+				843B4D742DDC8C0E00693A41 /* UILayoutSupport+Extensions.swift */,
+			);
+			path = SnapKit;
+			sourceTree = "<group>";
+		};
 		BA4F31F07263C99FC76E66D632A59F09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -995,6 +1360,7 @@
 		CE2C7B342D53462000DF6D27 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				843B4DC22DDC8C2500693A41 /* BGView.swift */,
 				8478A6C42DD70E9F00C643E7 /* AnchorLayoutGuide.swift */,
 				CE2C7B3D2D53467400DF6D27 /* SeparatorStackView.swift */,
 				CE2C7B3B2D53466900DF6D27 /* SecureView.swift */,
@@ -1008,6 +1374,8 @@
 		CE2C7B3F2D5346FE00DF6D27 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				843B4D4E2DDC8C0E00693A41 /* ColorPicker */,
+				843B4D752DDC8C0E00693A41 /* SnapKit */,
 				CE2C7B432D53472800DF6D27 /* ContextMenuSwift */,
 				CE2C7B692D53472800DF6D27 /* QCropper */,
 			);
@@ -1176,6 +1544,10 @@
 		CE2C7C192D5348E100DF6D27 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				843B4DC42DDC8C8A00693A41 /* BackgroundOptions.swift */,
+				843B4DC52DDC8C8A00693A41 /* BackgroundOptions.xib */,
+				843B4DC62DDC8C8A00693A41 /* TextSpacing.swift */,
+				843B4DC72DDC8C8A00693A41 /* TextSpacing.xib */,
 				CE2C7BFD2D5348E100DF6D27 /* AddPageView.swift */,
 				CE2C7BFE2D5348E100DF6D27 /* AddPageView.xib */,
 				CE2C7BFF2D5348E100DF6D27 /* AdjustmentView.swift */,
@@ -1427,6 +1799,7 @@
 			knownRegions = (
 				Base,
 				en,
+				ja,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 322F4A6D4A00F100113C915D1AB60FC3 /* Products */;
@@ -1481,6 +1854,8 @@
 				CE2C7B332D5345E600DF6D27 /* Type13Menu.xib in Resources */,
 				CE2C7B232D53450400DF6D27 /* Type5Menu.xib in Resources */,
 				CE2C7B292D53455B00DF6D27 /* Type8Menu.xib in Resources */,
+				843B4DC02DDC8C0E00693A41 /* PrivacyInfo.xcprivacy in Resources */,
+				843B4DC12DDC8C0E00693A41 /* Localizable.strings in Resources */,
 				CE2C7B2F2D5345AF00DF6D27 /* Type11Menu.xib in Resources */,
 				CE2C7C1A2D5348E100DF6D27 /* MenuItem.xib in Resources */,
 				CE2C7C1B2D5348E100DF6D27 /* LockOptionView.xib in Resources */,
@@ -1500,6 +1875,8 @@
 				8D6C7ABB0AD29FAAF17D2B3F9183467D /* TemplateEditorResources.bundle in Resources */,
 				CE2C7B252D53452000DF6D27 /* Type6Menu.xib in Resources */,
 				CE2C7B6A2D53472800DF6D27 /* QCropper.aspectratio.fill@3x.png in Resources */,
+				843B4DCA2DDC8C8A00693A41 /* BackgroundOptions.xib in Resources */,
+				843B4DCB2DDC8C8A00693A41 /* TextSpacing.xib in Resources */,
 				CE2C7B6B2D53472800DF6D27 /* QCropper.check.mark@2x.png in Resources */,
 				CE2C7B6C2D53472800DF6D27 /* QCropper.flip.horizontal.fill@2x.png in Resources */,
 				CE2C7B6D2D53472800DF6D27 /* QCropper.aspectratio.fill@2x.png in Resources */,
@@ -1581,6 +1958,83 @@
 				CE2C7B772D53472800DF6D27 /* ContextMenu.swift in Sources */,
 				CE2C7C422D534CB100DF6D27 /* UIView_Extension.swift in Sources */,
 				CE2C7B782D53472800DF6D27 /* CropBoxEdgeDraggable.swift in Sources */,
+				843B4D762DDC8C0E00693A41 /* ClassicColorView.swift in Sources */,
+				843B4D772DDC8C0E00693A41 /* ConstraintLayoutSupportDSL.swift in Sources */,
+				843B4D782DDC8C0E00693A41 /* ColorSlider.swift in Sources */,
+				843B4D792DDC8C0E00693A41 /* ConstraintRelatableTarget.swift in Sources */,
+				843B4D7A2DDC8C0E00693A41 /* SwatchAndPreviewView.swift in Sources */,
+				843B4D7B2DDC8C0E00693A41 /* ScopeColorPicker.swift in Sources */,
+				843B4D7C2DDC8C0E00693A41 /* ConstraintOffsetTarget.swift in Sources */,
+				843B4D7D2DDC8C0E00693A41 /* UILayoutSupport+Extensions.swift in Sources */,
+				843B4D7E2DDC8C0E00693A41 /* ConstraintMakerPrioritizable.swift in Sources */,
+				843B4D7F2DDC8C0E00693A41 /* AddColorCell.swift in Sources */,
+				843B4D802DDC8C0E00693A41 /* HSV.swift in Sources */,
+				843B4D812DDC8C0E00693A41 /* RGBHexSliderColorPicker.swift in Sources */,
+				843B4D822DDC8C0E00693A41 /* RGB.swift in Sources */,
+				843B4D832DDC8C0E00693A41 /* ClassicColorPicker.swift in Sources */,
+				843B4D842DDC8C0E00693A41 /* PrivatePreference.swift in Sources */,
+				843B4D852DDC8C0E00693A41 /* ColorFormatter.swift in Sources */,
+				843B4D862DDC8C0E00693A41 /* HexInputView.swift in Sources */,
+				843B4D872DDC8C0E00693A41 /* ConstraintMaker.swift in Sources */,
+				843B4D882DDC8C0E00693A41 /* LayoutConstraintItem.swift in Sources */,
+				843B4D892DDC8C0E00693A41 /* ConstraintMakerRelatable.swift in Sources */,
+				843B4D8A2DDC8C0E00693A41 /* DispatchQueue+.swift in Sources */,
+				843B4D8B2DDC8C0E00693A41 /* HairlineView.swift in Sources */,
+				843B4D8C2DDC8C0E00693A41 /* ConstraintAttributes.swift in Sources */,
+				843B4D8D2DDC8C0E00693A41 /* ConstraintView+Extensions.swift in Sources */,
+				843B4DC32DDC8C2500693A41 /* BGView.swift in Sources */,
+				843B4D8E2DDC8C0E00693A41 /* Typealiases.swift in Sources */,
+				843B4D8F2DDC8C0E00693A41 /* DiskColorPickerView.swift in Sources */,
+				843B4D902DDC8C0E00693A41 /* ConstraintLayoutSupport.swift in Sources */,
+				843B4D912DDC8C0E00693A41 /* ConstraintDirectionalInsetTarget.swift in Sources */,
+				843B4D922DDC8C0E00693A41 /* Debugging.swift in Sources */,
+				843B4D932DDC8C0E00693A41 /* ConstraintDirectionalInsets.swift in Sources */,
+				843B4D942DDC8C0E00693A41 /* ColorCell.swift in Sources */,
+				843B4D952DDC8C0E00693A41 /* ConstraintInsets.swift in Sources */,
+				843B4D962DDC8C0E00693A41 /* ColorPickerContentViewController.swift in Sources */,
+				843B4D972DDC8C0E00693A41 /* ConstraintMakerFinalizable.swift in Sources */,
+				843B4D982DDC8C0E00693A41 /* ConstraintDescription.swift in Sources */,
+				843B4D992DDC8C0E00693A41 /* ConstraintView.swift in Sources */,
+				843B4D9A2DDC8C0E00693A41 /* ConstraintConstantTarget.swift in Sources */,
+				843B4D9B2DDC8C0E00693A41 /* ConstraintLayoutGuideDSL.swift in Sources */,
+				843B4D9C2DDC8C0E00693A41 /* LocalizedString.swift in Sources */,
+				843B4D9D2DDC8C0E00693A41 /* RGBHSBHexSliderColorPicker.swift in Sources */,
+				843B4D9E2DDC8C0E00693A41 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
+				843B4D9F2DDC8C0E00693A41 /* GoOutPanGestureRecognizer.swift in Sources */,
+				843B4DA02DDC8C0E00693A41 /* ConstraintInsetTarget.swift in Sources */,
+				843B4DA12DDC8C0E00693A41 /* SwatchView.swift in Sources */,
+				843B4DA22DDC8C0E00693A41 /* RGBColorSliderColorPicker.swift in Sources */,
+				843B4DA32DDC8C0E00693A41 /* ConstraintConfig.swift in Sources */,
+				843B4DA42DDC8C0E00693A41 /* ConstraintLayoutGuide.swift in Sources */,
+				843B4DA52DDC8C0E00693A41 /* ColorSliderConfiguration.swift in Sources */,
+				843B4DA62DDC8C0E00693A41 /* ConstraintMakerEditable.swift in Sources */,
+				843B4DC82DDC8C8A00693A41 /* BackgroundOptions.swift in Sources */,
+				843B4DC92DDC8C8A00693A41 /* TextSpacing.swift in Sources */,
+				843B4DA72DDC8C0E00693A41 /* ColorItem.swift in Sources */,
+				843B4DA82DDC8C0E00693A41 /* ColorPickerConfiguration.swift in Sources */,
+				843B4DA92DDC8C0E00693A41 /* ColorPickerViewController.swift in Sources */,
+				843B4DAA2DDC8C0E00693A41 /* ConstraintItem.swift in Sources */,
+				843B4DAB2DDC8C0E00693A41 /* Constraint.swift in Sources */,
+				843B4DAC2DDC8C0E00693A41 /* ColorPicker.swift in Sources */,
+				843B4DAD2DDC8C0E00693A41 /* LayoutConstraint.swift in Sources */,
+				843B4DAE2DDC8C0E00693A41 /* ConstraintMakerRelatable+Extensions.swift in Sources */,
+				843B4DAF2DDC8C0E00693A41 /* ScopeColorPickerWindow.swift in Sources */,
+				843B4DB02DDC8C0E00693A41 /* ConstraintMultiplierTarget.swift in Sources */,
+				843B4DB12DDC8C0E00693A41 /* ColorSliderWithInputView.swift in Sources */,
+				843B4DB22DDC8C0E00693A41 /* ConstraintMakerExtendable.swift in Sources */,
+				843B4DB32DDC8C0E00693A41 /* ConstraintRelation.swift in Sources */,
+				843B4DB42DDC8C0E00693A41 /* AlphaColorPicker.swift in Sources */,
+				843B4DB52DDC8C0E00693A41 /* ColorPreviewView.swift in Sources */,
+				843B4DB62DDC8C0E00693A41 /* HSBColorSliderColorPicker.swift in Sources */,
+				843B4DB72DDC8C0E00693A41 /* ConstraintPriority.swift in Sources */,
+				843B4DB82DDC8C0E00693A41 /* ColorSliderTitleLabel.swift in Sources */,
+				843B4DB92DDC8C0E00693A41 /* ReticleView.swift in Sources */,
+				843B4DBA2DDC8C0E00693A41 /* GridColorView.swift in Sources */,
+				843B4DBB2DDC8C0E00693A41 /* ColorSliderTextField.swift in Sources */,
+				843B4DBC2DDC8C0E00693A41 /* GridColorPicker.swift in Sources */,
+				843B4DBD2DDC8C0E00693A41 /* ConstraintViewDSL.swift in Sources */,
+				843B4DBE2DDC8C0E00693A41 /* ConstraintPriorityTarget.swift in Sources */,
+				843B4DBF2DDC8C0E00693A41 /* ConstraintDSL.swift in Sources */,
 				CE2C7B792D53472800DF6D27 /* StateRestorable.swift in Sources */,
 				CE2C7B7A2D53472800DF6D27 /* Config.swift in Sources */,
 				CE2C7B7B2D53472800DF6D27 /* ContextMenuCell.swift in Sources */,
@@ -1785,6 +2239,18 @@
 			targetProxy = B9930822D8442B1BF905F7A43C060FA4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		843B4D4C2DDC8C0E00693A41 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				843B4D4A2DDC8C0E00693A41 /* en */,
+				843B4D4B2DDC8C0E00693A41 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		158E9796B2DA1A51FDC8C0753BA0EAE5 /* Release */ = {

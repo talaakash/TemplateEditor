@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuStyleCell" id="gTV-IL-0wX" customClass="MenuOptionCell" customModule="TemplateEditor" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MenuStyleCell" id="gTV-IL-0wX" customClass="MenuStyleCell" customModule="TemplateEditor" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="188" height="201"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -46,8 +46,8 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="premiumIcon" destination="5so-Ce-TiD" id="5mP-RO-oNY"/>
-                <outlet property="styleImg" destination="QoK-il-VeS" id="7hi-Vb-sbG"/>
+                <outlet property="premiumIcon" destination="5so-Ce-TiD" id="Y05-Nd-dWp"/>
+                <outlet property="styleImg" destination="QoK-il-VeS" id="b7h-H8-Rvr"/>
             </connections>
             <point key="canvasLocation" x="244.27480916030532" y="72.887323943661968"/>
         </collectionViewCell>
